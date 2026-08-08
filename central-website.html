@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central — you are Central</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-top:#FFF8F0;
+    --bg-bot:#FDEBDA;
+    --card:#FFFDFA;
+    --card-border:#F2E3D3;
+    --ink:#2A1F16;
+    --ink-muted:#9C8C7E;
+    --coral-300:#FDBE99;
+    --coral-400:#F5936A;
+    --coral-500:#EA5B2E;
+    --coral-600:#D8481E;
+    --red:#EF4B4A;
+    --blue:#3E88C9;
+    --magenta:#AF447A;
+    --green:#487B5C;
+    --purple:#8568C5;
+    --gold:#C79A3F;
+    --radius:22px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 60%, var(--bg-bot));
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--coral-500); color:#fff;}
+  .brand-font{font-family:'Fredoka',sans-serif;}
+
+  /* ---------- logo mark ---------- */
+  .mark{
+    width:34px; height:34px; border-radius:10px; flex-shrink:0;
+    background:linear-gradient(145deg,var(--coral-400),var(--coral-600));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 10px -3px rgba(216,72,30,.5);
+  }
+
+  /* ---------- nav ---------- */
+  .site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,248,240,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--card-border);
+  }
+  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px; letter-spacing:-.01em;}
+  .nav-links{display:flex; align-items:center; gap:36px;}
+  .nav-links a{font-size:14.5px; color:var(--ink-muted); font-weight:500; transition:color .15s;}
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--ink);}
+  .nav-cta{
+    padding:10px 22px; border-radius:999px; font-size:14px; font-weight:600; color:#fff;
+    background:linear-gradient(135deg,var(--coral-400),var(--coral-600));
+    box-shadow:0 6px 16px -6px rgba(216,72,30,.55);
+    transition:transform .15s;
+  }
+  .nav-cta:hover{transform:translateY(-1px);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--coral-500); outline-offset:2px;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 76px; position:relative; overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--coral-600); margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--coral-500);}
+  h1{font-family:'Fredoka',sans-serif; font-size:clamp(36px,4.8vw,54px); font-weight:700; letter-spacing:-.01em; line-height:1.08; margin-bottom:20px;}
+  h1 em{font-style:normal; color:var(--coral-500);}
+  .hero p.lead{font-size:17.5px; color:var(--ink-muted); max-width:470px; margin-bottom:32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary, .btn-ghost{
+    padding:14px 26px; border-radius:999px; font-size:15px; font-weight:600; cursor:pointer;
+    transition:transform .15s, box-shadow .15s; border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; box-shadow:0 10px 22px -8px rgba(216,72,30,.55);}
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-ghost{background:#fff; color:var(--ink); border-color:var(--card-border);}
+  .btn-ghost:hover{border-color:var(--coral-400); transform:translateY(-1px);}
+
+  .hero-visual{display:flex; justify-content:center;}
+  .chat-card{
+    width:100%; max-width:340px; background:var(--card); border:1px solid var(--card-border);
+    border-radius:26px; padding:18px; box-shadow:0 30px 60px -22px rgba(120,70,40,.28);
+  }
+  .chat-card .head{display:flex; align-items:center; gap:10px; margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--card-border);}
+  .avatar{width:38px; height:38px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#fff;}
+  .chat-card .head .name{font-weight:700; font-size:14.5px;}
+  .chat-card .head .status{font-size:11.5px; color:var(--green); display:flex; align-items:center; gap:5px;}
+  .chat-card .head .status::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--green);}
+  .head-icons{margin-left:auto; display:flex; gap:8px;}
+  .head-icons span{width:30px; height:30px; border-radius:50%; background:#FCEFE6; display:flex; align-items:center; justify-content:center;}
+  .bubble{max-width:78%; padding:10px 14px; border-radius:16px; font-size:13.5px; margin-bottom:9px; line-height:1.4; background:#F4EFE9; border-bottom-left-radius:4px;}
+  .bubble.out{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; margin-left:auto; border-bottom-right-radius:4px; border-bottom-left-radius:16px;}
+  .note-pill{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--coral-600); font-weight:600; background:#FCEFE6; padding:6px 12px; border-radius:999px; margin-bottom:10px;}
+
+  /* ---------- section shell ---------- */
+  section{padding:84px 0;}
+  .section-head{max-width:600px; margin-bottom:48px;}
+  .section-head h2{font-family:'Fredoka',sans-serif; font-size:clamp(26px,3.2vw,36px); font-weight:700; letter-spacing:-.01em; margin-bottom:12px;}
+  .section-head p{color:var(--ink-muted); font-size:16px;}
+
+  /* ---------- features ---------- */
+  .feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .feature{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:26px; transition:transform .2s, box-shadow .2s;}
+  .feature:hover{transform:translateY(-3px); box-shadow:0 18px 34px -18px rgba(120,70,40,.3);}
+  .feature .icon{width:44px; height:44px; border-radius:13px; margin-bottom:16px; display:flex; align-items:center; justify-content:center;}
+  .feature h3{font-size:16px; font-weight:700; margin-bottom:7px; letter-spacing:-.005em;}
+  .feature p{font-size:13.5px; color:var(--ink-muted); line-height:1.55;}
+
+  /* ---------- demo ---------- */
+  .demo-shell{background:var(--card); border:1px solid var(--card-border); border-radius:30px; padding:46px; display:grid; grid-template-columns:.9fr 1.1fr; gap:52px; align-items:center;}
+  .demo-copy h3{font-family:'Fredoka',sans-serif; font-size:21px; font-weight:700; margin-bottom:10px;}
+  .demo-copy p{color:var(--ink-muted); font-size:14.5px; margin-bottom:24px;}
+  .demo-tablist{display:flex; flex-direction:column; gap:6px;}
+  .demo-tab{
+    display:flex; align-items:center; gap:12px; padding:11px 14px; border-radius:13px;
+    background:transparent; border:1px solid transparent; color:var(--ink-muted);
+    font-family:inherit; font-size:14.5px; font-weight:600; cursor:pointer; text-align:left; width:100%;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .demo-tab:hover{color:var(--ink);}
+  .demo-tab.active{background:#FCEFE6; border-color:var(--coral-300); color:var(--coral-600);}
+  .demo-tab.active svg{stroke:var(--coral-600);}
+
+  .phone{width:290px; height:600px; margin:0 auto; position:relative; background:#1c1410; border-radius:44px; padding:13px; box-shadow:0 40px 80px -24px rgba(90,50,20,.45);}
+  .phone-screen{width:100%; height:100%; background:var(--bg-top); border-radius:32px; overflow:hidden; display:flex; flex-direction:column; position:relative;}
+  .phone-notch{position:absolute; top:12px; left:50%; transform:translateX(-50%); width:86px; height:20px; background:#1c1410; border-radius:12px; z-index:5;}
+  .phone-status{height:38px; flex-shrink:0;}
+  .phone-content{flex:1; overflow:hidden; padding:6px 14px 0; position:relative;}
+  .panel{display:none; animation:fadeUp .28s ease;}
+  .panel.active{display:block;}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .panel-title{font-family:'Fredoka',sans-serif; font-size:19px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between;}
+  .panel-title .plus{width:26px; height:26px; border-radius:9px; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700;}
+
+  .row{display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--card-border);}
+  .row:last-child{border-bottom:none;}
+  .row .meta{flex:1; min-width:0;}
+  .row .meta .top{display:flex; justify-content:space-between; gap:8px;}
+  .row .meta .name{font-size:13px; font-weight:700;}
+  .row .meta .time{font-size:10.5px; color:var(--ink-muted);}
+  .row .meta .sub{font-size:11.5px; color:var(--ink-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .badge{min-width:17px; height:17px; padding:0 5px; border-radius:999px; background:var(--coral-500); color:#fff; font-size:9.5px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+
+  .search-bar{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--card-border); border-radius:12px; padding:9px 12px; font-size:12.5px; color:var(--ink-muted); margin-bottom:14px;}
+  .sub-tabs{display:flex; gap:18px; margin-bottom:14px; border-bottom:1px solid var(--card-border);}
+  .sub-tabs span{font-size:12.5px; font-weight:700; padding-bottom:9px; color:var(--ink-muted);}
+  .sub-tabs span.on{color:var(--coral-600); border-bottom:2px solid var(--coral-500);}
+
+  .amici-section{font-size:10.5px; font-weight:700; color:var(--coral-600); letter-spacing:.04em; margin:12px 0 4px;}
+  .pill-btn{font-size:10.5px; font-weight:700; padding:5px 11px; border-radius:999px;}
+  .pill-btn.accept{background:var(--coral-500); color:#fff;}
+  .pill-btn.deny{background:#F4EFE9; color:var(--red);}
+  .pill-btn.cancel{background:#F4EFE9; color:var(--ink-muted);}
+
+  .friend-req-actions{display:flex; gap:6px;}
+
+  .card-post{background:#fff; border:1px solid var(--card-border); border-radius:15px; padding:12px; margin-bottom:12px;}
+  .card-post .ph{display:flex; align-items:center; gap:9px; margin-bottom:8px;}
+  .card-post .ph .n{font-size:12px; font-weight:700;}
+  .card-post .ph .s{font-size:10px; color:var(--ink-muted);}
+  .card-post p{font-size:12px; margin-bottom:8px;}
+  .card-post .cover{height:60px; border-radius:10px; margin-bottom:8px;}
+  .card-post .stats{font-size:11px; color:var(--ink-muted); display:flex; gap:12px;}
+
+  .profile-head{text-align:center; padding:4px 0 14px;}
+  .profile-head .avatar{width:64px; height:64px; font-size:22px; margin:0 auto 10px; border:2px solid var(--coral-400); padding:2px;}
+  .profile-head .pname{font-size:15.5px; font-weight:700;}
+  .profile-head .pbio{font-size:11.5px; color:var(--ink-muted); margin-top:4px; max-width:220px; margin-inline:auto;}
+  .stat-row{display:flex; justify-content:center; gap:22px; margin:12px 0;}
+  .stat-row div{text-align:center;}
+  .stat-row .n{font-size:14px; font-weight:700;}
+  .stat-row .l{font-size:9.5px; color:var(--ink-muted);}
+  .edit-btn{display:block; text-align:center; font-size:11.5px; font-weight:700; color:var(--coral-600); border:1px solid var(--coral-300); border-radius:999px; padding:8px; margin-bottom:14px;}
+  .grid-feed{display:grid; grid-template-columns:repeat(3,1fr); gap:4px;}
+  .grid-feed div{aspect-ratio:1; border-radius:6px;}
+
+  .phone-nav{display:flex; justify-content:space-around; align-items:center; padding:8px 6px 12px; flex-shrink:0; border-top:1px solid var(--card-border); background:var(--card);}
+  .phone-nav button{background:none; border:none; color:var(--ink-muted); display:flex; flex-direction:column; align-items:center; gap:3px; font-family:inherit; font-size:9px; font-weight:600; cursor:pointer; padding:4px 6px;}
+  .phone-nav button.active{color:var(--coral-500);}
+
+  /* ---------- spotlight (note condivise / sicurezza) ---------- */
+  .spotlight-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .spotlight-wide{grid-column:1 / -1; grid-template-columns:1fr 1fr !important; align-items:start;}
+  .sec-list{display:flex; flex-direction:column; gap:14px; margin-top:6px;}
+  .sec-list li{display:flex; gap:12px; list-style:none;}
+  .sec-list .sec-ic{width:34px; height:34px; border-radius:10px; background:#FCEFE6; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px;}
+  .sec-list .sec-t{font-size:13px; font-weight:700; margin-bottom:2px;}
+  .sec-list .sec-d{font-size:12px; color:var(--ink-muted); line-height:1.45;}
+  .disclaimer{font-size:10px; color:var(--ink-muted); text-align:center; margin-bottom:14px; line-height:1.5;}
+  .disclaimer b{color:var(--red);}
+  .watch-row{display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--card-border); font-size:12px;}
+  .watch-row:last-of-type{border-bottom:none;}
+  .watch-name{display:flex; align-items:center; gap:8px; font-weight:600;}
+  .shield-dot{width:16px; height:16px; border-radius:50%; border:2px solid var(--coral-500); flex-shrink:0;}
+  .status-chip{font-size:10px; font-weight:700; padding:4px 10px; border-radius:999px;}
+  .status-chip.on{background:var(--coral-500); color:#fff;}
+  .status-chip.wait{background:#F4EFE9; color:var(--ink-muted); border:1px solid var(--card-border);}
+  .spotlight{background:var(--card); border:1px solid var(--card-border); border-radius:28px; padding:34px; display:grid; grid-template-columns:1fr; gap:22px;}
+  .spotlight .tag{display:inline-flex; font-size:11.5px; font-weight:700; color:var(--coral-600); background:#FCEFE6; padding:6px 12px; border-radius:999px; margin-bottom:14px; width:fit-content;}
+  .spotlight h3{font-family:'Fredoka',sans-serif; font-size:20px; font-weight:700; margin-bottom:10px;}
+  .spotlight p{color:var(--ink-muted); font-size:14px; margin-bottom:18px;}
+  .mini-mock{background:#fff; border:1px solid var(--card-border); border-radius:16px; padding:16px;}
+
+  .note-toolbar{display:flex; gap:8px; margin-top:12px;}
+  .note-toolbar span{width:28px; height:28px; border-radius:9px; background:#F4EFE9; display:flex; align-items:center; justify-content:center; font-size:12px;}
+  .note-canvas-line{border:1px solid var(--card-border); border-radius:10px; padding:8px 10px; font-size:12px; margin-bottom:8px; background:#FBF7F2;}
+  .note-img{width:70px; height:56px; border-radius:8px; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); margin-left:auto; display:flex; align-items:flex-end; padding:5px; font-size:8px; color:#fff; font-weight:700;}
+
+  .sos-btn{background:linear-gradient(135deg,#F45F5E,var(--red)); color:#fff; text-align:center; font-weight:700; font-size:13px; padding:13px; border-radius:14px; margin-bottom:10px; box-shadow:0 10px 20px -10px rgba(239,75,74,.6);}
+  .sos-warn{font-size:10.5px; background:#FDF3E4; color:#B8791C; padding:7px 10px; border-radius:9px; margin-bottom:10px;}
+  .sos-contacts{display:flex; gap:6px; margin-bottom:14px;}
+  .sos-contacts .avatar{width:30px; height:30px; font-size:11px;}
+  .sos-contacts .plus-c{width:30px; height:30px; border-radius:50%; border:1.5px dashed var(--coral-400); display:flex; align-items:center; justify-content:center; color:var(--coral-500); font-size:13px;}
+  .checkin-box{background:#FBF7F2; border-radius:12px; padding:12px;}
+  .checkin-box .t{font-size:12.5px; font-weight:700; margin-bottom:4px;}
+  .checkin-box .d{font-size:11px; color:var(--ink-muted); margin-bottom:10px;}
+  .checkin-confirm{background:var(--coral-500); color:#fff; text-align:center; font-size:11.5px; font-weight:700; padding:8px; border-radius:9px;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--card-border); padding:40px 0;}
+  footer .wrap{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .tag{font-size:13px; color:var(--ink-muted);}
+  footer .links{display:flex; gap:22px; font-size:13px; color:var(--ink-muted);}
+  footer .links a:hover{color:var(--ink);}
+
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr; gap:44px; text-align:center;}
+    .hero p.lead{margin-inline:auto;}
+    .hero-actions{justify-content:center;}
+    .feature-grid{grid-template-columns:1fr 1fr;}
+    .demo-shell{grid-template-columns:1fr; padding:30px 22px;}
+    .demo-tablist{flex-direction:row; flex-wrap:wrap; justify-content:center;}
+    .spotlight-grid{grid-template-columns:1fr;}
+    .spotlight-wide{grid-template-columns:1fr !important;}
+    footer .wrap{flex-direction:column; text-align:center;}
+  }
+  @media (max-width:560px){
+    .feature-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .panel{animation:none;}
+    .btn-primary:hover, .btn-ghost:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <div class="brand"><span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 6a8 8 0 1 0 0 12l-1.5-1.2a6 6 0 1 1 0-9.6L19 6Z" fill="#fff"/><circle cx="9" cy="12" r="1.1" fill="#fff"/><circle cx="12.6" cy="12" r="1.1" fill="#fff"/><circle cx="16.2" cy="12" r="1.1" fill="#fff"/></svg></span><span class="brand-font">Central</span></div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#funzionalita">Funzionalità</a>
+      <a href="#demo">Demo</a>
+    </nav>
+    <a class="nav-cta" href="#demo">Prova la demo</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">You are Central</div>
+      <h1>La tua vita sociale, <em>al centro</em>.</h1>
+      <p class="lead">Central è l'app dove chat, community, foto e sicurezza personale vivono in un unico posto — protetti da cifratura end-to-end, senza rinunciare a un'esperienza calda e curata.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#demo">Esplora la demo</a>
+        <a class="btn-ghost" href="#funzionalita">Scopri le funzionalità</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chat-card">
+        <div class="head">
+          <div class="avatar" style="background:linear-gradient(135deg,#F5936A,#D8481E)">M</div>
+          <div>
+            <div class="name">Marco</div>
+            <div class="status">online</div>
+          </div>
+          <div class="head-icons">
+            <span>📞</span><span>📋</span>
+          </div>
+        </div>
+        <div class="bubble">Ci vediamo alle 19?</div>
+        <div class="bubble out">Perfetto, ti mando la posizione</div>
+        <div class="note-pill">📋 Nota condivisa · aggiornata ora</div>
+        <div class="bubble out">Arrivo tra 10 minuti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="funzionalita">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Funzionalità</div>
+      <h2>Tutto quello che serve, niente di superfluo.</h2>
+      <p>Ogni funzione di Central è pensata per farti stare vicino alle persone che contano, in sicurezza.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="icon" style="background:#FCEFE6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8481E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        </div>
+        <h3>Chat cifrate end-to-end</h3>
+        <p>Ogni conversazione, 1:1 o di gruppo, è protetta da X25519 e AES-256: nemmeno il server può leggerla.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon" style="background:#EFF6FB">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E88C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        </div>
+        <h3>Note condivise</h3>
+        <p>Una piccola lavagna per ogni chat: scrivi, disegna e allega foto insieme, in tempo reale.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon" style="background:#F6EFFA">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8568C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Amici e community</h3>
+        <p>Gestisci richieste di amicizia e unisciti a community tematiche con bacheca, post e discussioni.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon" style="background:#FCEFE6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8481E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+        <h3>Galleria personale</h3>
+        <p>Un profilo con feed a griglia, like e commenti — la tua galleria, con lo stile che già conosci.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon" style="background:#FDECEC">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EF4B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></svg>
+        </div>
+        <h3>Sicurezza personale</h3>
+        <p>SOS immediato, check-in giornaliero, viaggia sicuro e perimetro di sicurezza — con SOS rapido anche a schermo bloccato.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon" style="background:#EAF4EE">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#487B5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        </div>
+        <h3>Chiamate vocali</h3>
+        <p>Parla con i tuoi contatti in chiamate 1:1 protette dalla stessa cifratura end-to-end delle chat.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Demo</div>
+      <h2>Esplora Central</h2>
+      <p>Le stesse 5 sezioni dell'app vera. Passa da una all'altra e guarda com'è fatta dentro.</p>
+    </div>
+
+    <div class="demo-shell">
+      <div class="demo-copy">
+        <h3>Naviga tra le sezioni</h3>
+        <p>Ogni scheda in basso al telefono corrisponde esattamente a una sezione reale dell'app. Provale una per una.</p>
+        <div class="demo-tablist" id="tablist"></div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-status"></div>
+          <div class="phone-content" id="phoneContent">
+
+            <div class="panel active" data-panel="chat">
+              <div class="panel-title">Central <span class="plus">+</span></div>
+              <div class="row"><div class="avatar" style="background:#EA6232">A</div><div class="meta"><div class="top"><span class="name">Anna Ricci</span><span class="time">18:42</span></div><div class="sub">Ci vediamo alle 19?</div></div><div class="badge">3</div></div>
+              <div class="row"><div class="avatar" style="background:#3E88C9">M</div><div class="meta"><div class="top"><span class="name">Marco Bianchi</span><span class="time">14:10</span></div><div class="sub">📷 Foto</div></div></div>
+              <div class="row"><div class="avatar" style="background:#AF447A">G</div><div class="meta"><div class="top"><span class="name">Giulia Verdi</span><span class="time">12:55</span></div><div class="sub">🎤 Messaggio vocale</div></div><div class="badge">1</div></div>
+              <div class="row"><div class="avatar" style="background:#487B5C">P</div><div class="meta"><div class="top"><span class="name">Papà</span><span class="time">12:04</span></div><div class="sub">📞 Chiamata persa</div></div></div>
+              <div class="row"><div class="avatar" style="background:#8568C5">L</div><div class="meta"><div class="top"><span class="name">Luca Ferrari</span><span class="time">ieri</span></div><div class="sub">📎 Allegato</div></div></div>
+              <div class="row"><div class="avatar" style="background:#C79A3F">S</div><div class="meta"><div class="top"><span class="name">Sara Conti</span><span class="time">lun</span></div><div class="sub">Nessun messaggio</div></div></div>
+            </div>
+
+            <div class="panel" data-panel="cerca">
+              <div class="panel-title">Cerca</div>
+              <div class="search-bar">🔍 Cerca persone o community</div>
+              <div class="row"><div class="avatar" style="background:#C79A3F">S</div><div class="meta"><div class="top"><span class="name">Sara_92</span></div><div class="sub">4 amici in comune</div></div></div>
+              <div class="row"><div class="avatar" style="background:#3E88C9">F</div><div class="meta"><div class="top"><span class="name">Fra_cool</span></div><div class="sub">Nuovo su Central</div></div></div>
+              <div class="row"><div class="avatar" style="background:#AF447A">V</div><div class="meta"><div class="top"><span class="name">Vale_1988</span></div><div class="sub">2 amici in comune</div></div></div>
+            </div>
+
+            <div class="panel" data-panel="amici">
+              <div class="panel-title">Amici</div>
+              <div class="amici-section">AMICI</div>
+              <div class="row"><div class="avatar" style="background:#EA6232">A</div><div class="meta"><div class="name">Anna Ricci</div></div>💬</div>
+              <div class="row"><div class="avatar" style="background:#3E88C9">M</div><div class="meta"><div class="name">Marco Bianchi</div></div>💬</div>
+              <div class="amici-section">RICHIESTE RICEVUTE</div>
+              <div class="row"><div class="avatar" style="background:#8568C5; opacity:.85">L</div><div class="meta"><div class="name">Luca Ferrari</div><div class="sub">Vuole aggiungerti</div></div><div class="friend-req-actions"><span class="pill-btn accept">✓</span><span class="pill-btn deny">✕</span></div></div>
+              <div class="amici-section">RICHIESTE INVIATE</div>
+              <div class="row"><div class="avatar" style="background:#C79A3F; opacity:.85">S</div><div class="meta"><div class="name">Sara Conti</div><div class="sub">In attesa</div></div><span class="pill-btn cancel">Annulla</span></div>
+            </div>
+
+            <div class="panel" data-panel="community">
+              <div class="panel-title">Community</div>
+              <div class="sub-tabs"><span class="on">Bacheca</span><span>Esplora</span></div>
+              <div class="card-post">
+                <div class="ph"><div class="avatar" style="background:linear-gradient(135deg,#F5936A,#D8481E); width:26px; height:26px; font-size:10px;">🏃</div><div><div class="n">Corsa & Benessere</div><div class="s">@giulia · 2h fa</div></div></div>
+                <p>Domenica ritrovo al parco, ore 8:30! 🏃</p>
+                <div class="cover" style="background:linear-gradient(135deg,#F5936A,#D8481E)"></div>
+                <div class="stats"><span>❤️ 24</span><span>💬 8 commenti</span></div>
+              </div>
+              <div class="card-post">
+                <div class="ph"><div class="avatar" style="background:linear-gradient(135deg,#8DBE8F,#487B5C); width:26px; height:26px; font-size:10px;">🌿</div><div><div class="n">Quartiere Sicuro</div><div class="s">@marco · ieri</div></div></div>
+                <p>Illuminazione ripristinata in via dei Tigli.</p>
+                <div class="stats"><span>❤️ 12</span><span>💬 3 commenti</span></div>
+              </div>
+            </div>
+
+            <div class="panel" data-panel="profilo">
+              <div class="profile-head">
+                <div class="avatar" style="background:linear-gradient(135deg,#F5936A,#D8481E); margin:0 auto;">G</div>
+                <div class="pname">Giulia Verdi</div>
+                <div class="pbio">Amo le passeggiate al tramonto e i weekend fuori porta 🌅</div>
+              </div>
+              <div class="stat-row">
+                <div><div class="n">10</div><div class="l">Foto</div></div>
+                <div><div class="n">152</div><div class="l">Like</div></div>
+                <div><div class="n">18</div><div class="l">Commenti</div></div>
+              </div>
+              <div class="edit-btn">Modifica profilo</div>
+              <div class="grid-feed">
+                <div style="background:linear-gradient(160deg,#FDBE99,#EA5B2E)"></div>
+                <div style="background:linear-gradient(160deg,#F5936A,#8A3212)"></div>
+                <div style="background:linear-gradient(160deg,#D8481E,#5C2410)"></div>
+                <div style="background:linear-gradient(160deg,#FDBE99,#D8481E)"></div>
+                <div style="background:linear-gradient(160deg,#F5936A,#EA5B2E)"></div>
+                <div style="background:linear-gradient(160deg,#EA5B2E,#5C2410)"></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="phone-nav" id="phoneNav"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="spotlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">In evidenza</div>
+      <h2>Le funzioni che fanno la differenza</h2>
+      <p>Non sono nella barra in basso, ma sono tra i motivi per cui le persone restano su Central.</p>
+    </div>
+
+    <div class="spotlight-grid">
+
+      <div class="spotlight">
+        <div>
+          <span class="tag">📋 Dentro ogni chat</span>
+          <h3>Note condivise</h3>
+          <p>Una lavagna collaborativa per ogni conversazione: scrivi, disegna, allega foto e vedi le modifiche dell'altra persona in tempo reale — con export in PNG o formato modificabile.</p>
+        </div>
+        <div class="mini-mock">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <strong style="font-size:12.5px;">Note con Marco</strong>
+            <span style="font-size:10px; color:var(--green);">● Marco sta scrivendo…</span>
+          </div>
+          <div class="note-canvas-line">Portare la tenda 🏕️ e i sacchi a pelo</div>
+          <div class="note-canvas-line" style="margin-bottom:0; display:flex; justify-content:space-between; align-items:center;">
+            Partenza sabato 8:00
+            <div class="note-img">rifugio.jpg</div>
+          </div>
+          <div class="note-toolbar">
+            <span>🖌️</span><span>T</span><span>🖼️</span><span>▭</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight spotlight-wide">
+        <div>
+          <span class="tag">🆘 Profilo Personale Sicuro</span>
+          <h3>Protezione sempre attiva</h3>
+          <p>Una sezione dedicata nel tuo profilo, pensata per chi ti vuole bene: contatti di fiducia sempre pronti, controlli reciproci e un SOS a un tocco — anche a schermo bloccato.</p>
+          <ul class="sec-list">
+            <li><div class="sec-ic">🔔</div><div><div class="sec-t">SOS immediato</div><div class="sec-d">Un tocco invia l'allarme solo ai contatti che scegli tu — per un'emergenza reale resta sempre valido chiamare il 112.</div></div></li>
+            <li><div class="sec-ic">📅</div><div><div class="sec-t">Check-in giornaliero</div><div class="sec-d">Conferma di stare bene entro l'orario concordato: se non lo fai, chi ti sta controllando riceve un avviso.</div></div></li>
+            <li><div class="sec-ic">🧭</div><div><div class="sec-t">Viaggia sicuro</div><div class="sec-d">Indica dove vai e in quanto tempo: se non arrivi nei tempi previsti, avvisiamo noi chi hai scelto.</div></div></li>
+            <li><div class="sec-ic">📍</div><div><div class="sec-t">Perimetro di sicurezza</div><div class="sec-d">Un'area concordata (casa, lavoro): chi ti controlla riceve un avviso con la posizione se esci da lì.</div></div></li>
+            <li><div class="sec-ic">⚡</div><div><div class="sec-t">SOS rapido e widget</div><div class="sec-d">Aggiungi l'SOS alle impostazioni rapide o alla home: la posizione parte con un tocco, anche a schermo bloccato.</div></div></li>
+          </ul>
+        </div>
+        <div class="mini-mock">
+          <div class="sos-btn">🔔 INVIA SOS</div>
+          <div class="disclaimer">L'SOS viene inviato soltanto ai contatti selezionati.<br>In caso di pericolo <b>contattare immediatamente il 112.</b></div>
+          <div class="sos-contacts">
+            <div class="avatar" style="background:#8568C5">A</div>
+            <div class="avatar" style="background:#C79A3F">B</div>
+            <div class="avatar" style="background:#F5936A">C</div>
+            <div class="plus-c">+</div>
+          </div>
+          <div class="checkin-box" style="margin-bottom:12px;">
+            <div class="t">📅 Stai controllando</div>
+            <div class="d">Nelle chat trovi lo scudo sulla foto di chi stai controllando.</div>
+            <div class="watch-row"><div class="watch-name"><span class="shield-dot"></span>Amico 1</div><span class="status-chip on">Attivo</span></div>
+            <div class="watch-row"><div class="watch-name"><span class="shield-dot" style="border-color:var(--card-border)"></span>Amico 2</div><span class="status-chip wait">In attesa</span></div>
+          </div>
+          <div class="checkin-box">
+            <div class="t">📍 Perimetro di sicurezza</div>
+            <div class="d">Area attiva: casa · 500 m</div>
+            <div class="checkin-confirm" style="background:transparent; color:var(--coral-600); border:1px solid var(--coral-300);">Proponi una modifica</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 6a8 8 0 1 0 0 12l-1.5-1.2a6 6 0 1 1 0-9.6L19 6Z" fill="#fff"/><circle cx="9" cy="12" r="1.1" fill="#fff"/><circle cx="12.6" cy="12" r="1.1" fill="#fff"/><circle cx="16.2" cy="12" r="1.1" fill="#fff"/></svg></span><span class="brand-font">Central</span></div>
+    <div class="tag">You are Central.</div>
+    <div class="links">
+      <a href="#funzionalita">Funzionalità</a>
+      <a href="#demo">Demo</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const TABS = [
+    { id:'chat',      label:'Chat',      icon:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' },
+    { id:'cerca',     label:'Cerca',     icon:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>' },
+    { id:'amici',     label:'Amici',     icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
+    { id:'community', label:'Community', icon:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/>' },
+    { id:'profilo',   label:'Profilo',   icon:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/>' },
+  ];
+
+  function iconSvg(path, size, cls){
+    return `<svg class="${cls||''}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+  }
+
+  const tablist = document.getElementById('tablist');
+  const phoneNav = document.getElementById('phoneNav');
+
+  TABS.forEach((tab, i) => {
+    const sideBtn = document.createElement('button');
+    sideBtn.className = 'demo-tab' + (i === 0 ? ' active' : '');
+    sideBtn.dataset.target = tab.id;
+    sideBtn.innerHTML = iconSvg(tab.icon, 18) + tab.label;
+    tablist.appendChild(sideBtn);
+
+    const navBtn = document.createElement('button');
+    navBtn.className = i === 0 ? 'active' : '';
+    navBtn.dataset.target = tab.id;
+    navBtn.innerHTML = iconSvg(tab.icon, 19) + `<span>${tab.label}</span>`;
+    phoneNav.appendChild(navBtn);
+  });
+
+  function activate(id){
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.dataset.panel === id));
+    document.querySelectorAll('.demo-tab, .phone-nav button').forEach(b => b.classList.toggle('active', b.dataset.target === id));
+  }
+
+  document.getElementById('tablist').addEventListener('click', e => { const b=e.target.closest('button'); if(b) activate(b.dataset.target); });
+  document.getElementById('phoneNav').addEventListener('click', e => { const b=e.target.closest('button'); if(b) activate(b.dataset.target); });
+</script>
+
+</body>
+</html>
