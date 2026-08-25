@@ -268,10 +268,16 @@
   @media (max-width:560px){
     .feature-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
-    /* Sotto i 560px due pulsanti in barra si stringono fino a spezzare
-       il testo su due righe. Resta quello principale; alla dashboard si
-       arriva dal collegamento nel pie di pagina. */
-    .nav-cta-alt{display:none;}
+    /* Su mobile manteniamo entrambi i pulsanti: testo compatto per evitare
+       sovrapposizioni e mantenere la dashboard subito accessibile. */
+    .site-nav .wrap{gap:8px;}
+    .nav-actions{gap:6px; flex-shrink:0;}
+    .nav-cta-alt,.nav-cta{padding:9px 12px; font-size:12.5px; white-space:nowrap;}
+    .nav-cta-alt .desktop-label{display:none;}
+    .nav-cta-alt .mobile-label{display:inline;}
+  }
+  @media (min-width:561px){
+    .nav-cta-alt .mobile-label{display:none;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -291,7 +297,7 @@
       <a href="#demo">Demo</a>
     </nav>
     <div class="nav-actions">
-      <a class="nav-cta-alt" href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard Login</a>
+      <a class="nav-cta-alt" href="https://online.getcentral.net/guardian-dashboard/panel"><span class="desktop-label">Dashboard Login</span><span class="mobile-label">Login</span></a>
       <a class="nav-cta" href="#demo">Prova la demo</a>
     </div>
   </div>
