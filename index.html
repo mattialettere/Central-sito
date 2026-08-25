@@ -69,6 +69,21 @@
     transition:transform .15s;
   }
   .nav-cta:hover{transform:translateY(-1px);}
+  /* Il pulsante della dashboard e in tono minore rispetto alla demo:
+     stessa forma e stessa altezza, ma bordo invece di riempimento.
+     Due pulsanti pieni affiancati si contendono l'attenzione e non
+     dicono piu quale sia l'azione principale — che per un visitatore
+     nuovo resta provare la demo, non accedere a un pannello che
+     probabilmente non ha. */
+  .nav-cta-alt{
+    padding:10px 20px; border-radius:999px; font-size:14px; font-weight:600;
+    color:var(--coral-600); background:#fff;
+    border:1px solid var(--card-border);
+    transition:border-color .15s, transform .15s;
+  }
+  .nav-cta-alt:hover{border-color:var(--coral-400); transform:translateY(-1px);}
+  /* Contenitore dei due pulsanti in barra. */
+  .nav-actions{display:flex; align-items:center; gap:10px;}
   a:focus-visible, button:focus-visible{outline:2px solid var(--coral-500); outline-offset:2px;}
 
   /* ---------- hero ---------- */
@@ -253,6 +268,10 @@
   @media (max-width:560px){
     .feature-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
+    /* Sotto i 560px due pulsanti in barra si stringono fino a spezzare
+       il testo su due righe. Resta quello principale; alla dashboard si
+       arriva dal collegamento nel pie di pagina. */
+    .nav-cta-alt{display:none;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -271,7 +290,10 @@
       <a href="#funzionalita">Funzionalità</a>
       <a href="#demo">Demo</a>
     </nav>
-    <a class="nav-cta" href="#demo">Prova la demo</a>
+    <div class="nav-actions">
+      <a class="nav-cta-alt" href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard Login</a>
+      <a class="nav-cta" href="#demo">Prova la demo</a>
+    </div>
   </div>
 </header>
 
@@ -543,6 +565,10 @@
     <div class="links">
       <a href="#funzionalita">Funzionalità</a>
       <a href="#demo">Demo</a>
+      <!-- Anche qui, non solo in barra: sui telefoni il pulsante in alto
+           e nascosto per non spezzare la riga, e senza questo collegamento
+           la dashboard sarebbe irraggiungibile da mobile. -->
+      <a href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard</a>
     </div>
   </div>
 </footer>
