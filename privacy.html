@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Informativa sulla Privacy di Central - Versione 1.4">
+<title>Privacy | Central</title>
+<link rel="icon" href="assets/favicon.ico">
+<style>
+:root{--bg:#fff8f5;--ink:#2d1c19;--muted:#705e58;--coral:#f15d3d;--coral-dark:#cf4326;--line:#f0d9d0;--card:#fff;--soft:#fff0ea}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#fffaf8 0,#fff7f3 100%);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
+a{color:var(--coral-dark)} .wrap{max-width:1120px;margin:auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:rgba(255,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800;font-size:24px}
+.brand img{width:36px;height:36px;object-fit:contain} .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:750;border:1px solid var(--line);color:var(--ink);background:#fff}
+.btn.primary{background:var(--coral);color:#fff;border-color:var(--coral)} .btn:hover{transform:translateY(-1px)}
+.hero{padding:70px 0 34px;text-align:center} .version{color:var(--coral-dark);font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin:12px auto;max-width:900px} .effective{color:var(--muted);font-weight:650}
+.privacy-card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,56px);box-shadow:0 18px 60px rgba(99,49,32,.07);margin-bottom:48px}
+.privacy-card p{margin:0 0 18px;color:#493a35} h2{font-size:27px;margin:48px 0 16px;padding-top:4px;color:var(--ink)} h2:first-of-type{margin-top:24px}
+h3{font-size:20px;margin:30px 0 12px} ul{padding-left:24px;margin:12px 0 22px} li{margin:10px 0}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;margin:22px 0 30px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:650px} th,td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)} th{background:var(--soft);font-size:14px} tr:last-child td{border-bottom:0}
+.note{margin-top:26px;padding:18px 20px;border-radius:16px;background:#fff5f1;border-left:4px solid var(--coral)}
+footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted)} footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap} .foot-brand{font-weight:800;color:var(--ink)} .footer-links{display:flex;gap:18px;flex-wrap:wrap} .footer-links a{text-decoration:none;color:var(--muted)} .footer-links a:hover{color:var(--coral-dark)}
+@media(max-width:700px){.wrap{padding:0 16px}.nav{height:auto;min-height:68px;padding:12px 0}.brand{font-size:20px}.nav-links{justify-content:flex-end}.nav-links .btn{padding:8px 11px;font-size:13px}.privacy-card{border-radius:20px;padding:22px 18px}.hero{padding:46px 0 24px}h2{font-size:24px;margin-top:40px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="index.html"><img src="assets/central-logo.png" alt="Central">Central</a>
+<div class="nav-links"><a class="btn" href="index.html">Torna al sito</a><a class="btn primary" href="beta.html">Prova la Beta</a></div>
+</div></header>
+<main>
+<section class="hero wrap"><div class="version">Versione 1.4</div><h1>Informativa sulla Privacy di Central</h1><div class="effective">In vigore dal 14 agosto 2026</div></section>
+<section class="wrap"><article class="privacy-card"><div class="version">Versione 1.4</div>
+<h1>Informativa sulla Privacy di Central</h1>
+<div class="effective">In vigore dal 14 agosto 2026</div>
+<p>La presente informativa descrive come Central raccoglie, utilizza e protegge i dati personali degli utenti, in conformità al Regolamento (UE) 2016/679 (&quot;GDPR&quot;).</p>
+<h2>1. Titolare del trattamento</h2>
+<p>Mattia Granito<br>Via XI Febbraio 15, Parabiago (MI)<br>Email: legal@getcentral.net</p>
+<h2>2. Quali dati raccogliamo e perché</h2>
+<div class="table-wrap"><table><tr><th>Categoria di dati</th><th>Finalità</th><th>Base giuridica</th></tr><tr><td>Nome, email, password (cifrata con bcrypt)</td><td>Creazione e gestione dell&#x27;account</td><td>Esecuzione del contratto (art. 6.1.b)</td></tr><tr><td>Chiave pubblica di cifratura, materiale di backup della chiave</td><td>Cifratura end-to-end di messaggi e contenuti</td><td>Esecuzione del contratto</td></tr><tr><td>Messaggi, media (foto/video/audio/documenti)</td><td>Fornire la funzione di messaggistica. I contenuti sono cifrati end-to-end: il titolare non può leggerli</td><td>Esecuzione del contratto</td></tr><tr><td>Posizione geografica (viaggi, perimetri di sicurezza)</td><td>Funzioni Guardian/SOS e &quot;Viaggia sicuro&quot; attivate volontariamente dall&#x27;utente</td><td>Consenso (art. 6.1.a) — funzione opzionale, disattivabile</td></tr><tr><td>Contatti designati come contatti SOS</td><td>Permettere l&#x27;invio di allarmi in caso di emergenza</td><td>Consenso dell&#x27;utente che li designa; legittimo interesse alla sicurezza personale</td></tr><tr><td>Informazioni sul dispositivo (identificativo, piattaforma, versione app, indirizzo IP, ultimo accesso)</td><td>Sicurezza dell&#x27;account, gestione sessioni multiple e revoca da remoto</td><td>Legittimo interesse (art. 6.1.f) — prevenzione di accessi non autorizzati</td></tr><tr><td>Token di notifica push (FCM)</td><td>Invio di notifiche per nuovi messaggi, chiamate, allarmi SOS</td><td>Esecuzione del contratto</td></tr><tr><td>Contenuti della community e della galleria personale (post, commenti, foto pubblicate)</td><td>Funzioni social facoltative dell&#x27;app</td><td>Esecuzione del contratto / Consenso per l&#x27;attivazione della funzione</td></tr><tr><td>Registro del consenso (versione informativa accettata, data, indirizzo IP)</td><td>Dimostrare che il consenso è stato raccolto correttamente, anche dopo l&#x27;eventuale cancellazione dell&#x27;account</td><td>Obbligo legale di rendicontazione (art. 5.2) e legittimo interesse alla difesa in sede legale (art. 6.1.f)</td></tr></table></div>
+<h2>3. A chi comunichiamo i dati</h2>
+<p>Alcuni fornitori esterni trattano dati per nostro conto, in qualità di responsabili del trattamento:</p>
+<div class="table-wrap"><table><tr><th>Fornitore</th><th>Servizio</th><th>Sede</th></tr><tr><td>Scaleway</td><td>Archiviazione di foto, video e file allegati</td><td>Unione Europea (Francia)</td></tr><tr><td>Google Firebase Cloud Messaging</td><td>Invio delle notifiche push</td><td>Stati Uniti</td></tr><tr><td>Resend</td><td>Invio di email (reset password, verifica account)</td><td>Stati Uniti</td></tr><tr><td>Mapbox</td><td>Visualizzazione mappe e geocodifica</td><td>Stati Uniti</td></tr><tr><td>Metered</td><td>Server TURN per l&#x27;instradamento delle chiamate vocali</td><td>Infrastruttura globale</td></tr></table></div>
+<p>Per i fornitori extra-UE, il trasferimento avviene sulla base delle Clausole Contrattuali Standard della Commissione Europea e/o dell&#x27;adesione al Data Privacy Framework UE-USA, ove applicabile. Non vendiamo né cediamo dati personali a terzi per finalità di marketing.</p>
+<p>Nota su Mapbox e la telemetria di utilizzo mappe: oltre a fornirci il servizio di visualizzazione mappe per nostro conto, Mapbox raccoglie autonomamente — per finalità proprie di miglioramento del servizio, come titolare indipendente del trattamento per questi dati specifici — informazioni anonimizzate su posizione e utilizzo generate dall&#x27;interazione con le mappe. Puoi disattivare questa raccolta in modo specifico toccando l&#x27;icona informativa (ⓘ) visibile sulle schermate con mappa, che apre le impostazioni di telemetria di Mapbox. Per maggiori dettagli su questo trattamento autonomo, consulta la informativa privacy di Mapbox.</p>
+<h3>3.1 Comunicazioni vocali (WebRTC) e server TURN/STUN</h3>
+<p>Per consentire l&#x27;instaurazione, il corretto mantenimento e l&#x27;ottimizzazione delle sessioni di comunicazione audio in tempo reale (tecnologia WebRTC), Central si avvale del servizio di rete e infrastruttura server TURN/STUN fornito da Metered (Metered.ca).</p>
+<ul><li>Finalità e limitazione del trattamento degli indirizzi IP: il trattamento dell&#x27;indirizzo IP dell&#x27;utente è strettamente subordinato alle sole finalità tecniche e di sicurezza indispensabili per il corretto funzionamento del sistema. L&#x27;indirizzo IP viene elaborato al solo scopo di determinare il percorso di rete ottimale per la trasmissione dei dati e per garantire la stabilità e la sicurezza informatica dell&#x27;infrastruttura.</li>
+<li>Natura del trattamento ed essenzialità tecnica: tale elaborazione costituisce un requisito tecnico essenziale per l&#x27;erogazione del servizio richiesto dall&#x27;utente. Senza il trattamento temporaneo dell&#x27;indirizzo IP, l&#x27;instaurazione della connessione diretta o intermediata tra i dispositivi degli utenti risulterebbe tecnicamente impossibile. I dati non vengono utilizzati per finalità di profilazione commerciale, tracciamento o marketing.</li>
+<li>Ottimizzazione delle prestazioni e routing locale: il servizio adotta una tecnologia di instradamento dinamico basato sulla vicinanza geografica (&quot;geo-routing&quot;), che indirizza automaticamente il flusso del traffico voce verso il server disponibile più vicino all&#x27;utente. Per gli utenti situati nell&#x27;Unione Europea, i flussi di comunicazione vengono di conseguenza instradati e gestiti prevalentemente tramite nodi e infrastrutture situati in Europa, riducendo la latenza di rete.</li>
+<li>Misure di sicurezza e riservatezza: sebbene il servizio utilizzi server di instradamento locali per massimizzare le prestazioni tecniche, i dati di segnalazione o i log di sistema strettamente necessari alla diagnostica e alla prevenzione degli abusi potrebbero essere elaborati sull&#x27;infrastruttura globale del fornitore. I flussi audio effettivi transitano cifrati (DTLS-SRTP, nativo del protocollo WebRTC) e non vengono in alcun modo registrati, ascoltati o memorizzati sui server di instradamento.</li>
+</ul><h2>4. Per quanto tempo conserviamo i dati</h2>
+<ul><li>Account e messaggi: per tutta la durata dell&#x27;account, fino a cancellazione da parte dell&#x27;utente.</li>
+<li>Dati di posizione dei perimetri di sicurezza (Geofence): cancellati automaticamente dopo 3 giorni.</li>
+<li>Dati di posizione dei viaggi (&quot;Viaggia sicuro&quot;): cancellati automaticamente 24 ore dopo la chiusura del viaggio.</li>
+<li>Registro del consenso: conservato anche dopo la cancellazione dell&#x27;account, per un periodo massimo di 5 anni, quale prova dell&#x27;avvenuta accettazione dell&#x27;informativa in caso di necessità legale.</li>
+</ul><h2>5. Come proteggiamo i dati</h2>
+<p>Messaggi, chiamate e board condivise sono protetti da cifratura end-to-end (X25519 + AES-256-GCM): il contenuto non è leggibile dal titolare del trattamento né dai fornitori di infrastruttura. Le password sono conservate con hashing bcrypt e mai in chiaro. È possibile revocare da remoto l&#x27;accesso di un dispositivo smarrito o rubato dalla sezione &quot;Dispositivi&quot; dell&#x27;app.</p>
+<h2>6. I tuoi diritti</h2>
+<p>Puoi esercitare in qualsiasi momento i diritti previsti dagli articoli 15-22 del GDPR. Tre di questi non richiedono di scrivere a nessuno e non hanno tempi di attesa, perché sono disponibili direttamente nell&#x27;app e nel pannello web:</p>
+<div class="table-wrap"><table><tr><th>Diritto</th><th>Come esercitarlo</th></tr><tr><td>Accesso e portabilità (artt. 15 e 20)</td><td>App: Profilo → I miei dati. Pannello web: scheda «Privacy e dati». Vedi la sezione 7.</td></tr><tr><td>Rettifica (art. 16)</td><td>Direttamente dal tuo profilo, in qualsiasi momento.</td></tr><tr><td>Cancellazione, «diritto all&#x27;oblio» (art. 17)</td><td>App: Profilo → Elimina account. Pannello web: scheda «Privacy e dati». L&#x27;operazione è immediata e irreversibile.</td></tr><tr><td>Limitazione, opposizione, revoca del consenso (artt. 18, 21, 7.3)</td><td>Le funzioni basate sul consenso (posizione, viaggi, perimetri, contatti SOS) si disattivano dall&#x27;app. Per il resto scrivi a legal@getcentral.net.</td></tr></table></div>
+<p>Per qualsiasi richiesta puoi comunque scrivere a legal@getcentral.net: rispondiamo entro un mese, come previsto dall&#x27;art. 12.3. Hai inoltre sempre il diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
+<h2>7. Esportazione dei tuoi dati</h2>
+<p>Puoi scaricare in autonomia una copia completa dei dati collegati al tuo account: profilo, registrazioni dei consensi, conversazioni, lavagne condivise, galleria, community, contatti SOS, collegamenti con i tuoi guardiani, perimetri di sicurezza, check-in, viaggi, dispositivi collegati e registro delle chiamate. Il file è in formato JSON, strutturato e leggibile da una macchina, come richiesto dall&#x27;art. 20.</p>
+<h3>Due canali, una sola copia</h3>
+<ul><li>Dall&#x27;app (Profilo → I miei dati): oltre al file JSON ricevi una trascrizione leggibile delle tue conversazioni. È il canale consigliato, perché la chiave di cifratura è già sul tuo telefono e i contenuti vengono aperti automaticamente.</li>
+<li>Dal pannello web (scheda «Privacy e dati»): utile se non hai più il telefono. Per ottenere i messaggi in chiaro devi inserire la passphrase di recupero che hai scelto nell&#x27;app; senza, il file arriva completo ma con i contenuti ancora cifrati.</li>
+</ul><p>In entrambi i casi ti viene richiesta la password dell&#x27;account: un file che contiene tutti i tuoi dati insieme non deve poter essere scaricato da chi trovasse una sessione lasciata aperta.</p>
+<h3>Il limite che la cifratura impone</h3>
+<p>I contenuti delle conversazioni sono cifrati end-to-end e il titolare non possiede le chiavi: non può quindi consegnarli in chiaro, e non si tratta di una limitazione dell&#x27;export ma di una conseguenza diretta della protezione applicata ai tuoi messaggi. La decifratura avviene sul tuo dispositivo, prima che il file venga salvato. Nel file esportato i contenuti originali cifrati restano accanto al testo in chiaro, così puoi verificarli in autonomia con la tua chiave.</p>
+<p>Se hai perso sia il telefono sia la passphrase di recupero, i messaggi esportati non sono più apribili da nessuno, titolare compreso. È il prezzo della cifratura end-to-end, ed è la ragione per cui l&#x27;app insiste perché la passphrase venga impostata e conservata.</p>
+<h3>Conversazioni di gruppo e dati di altre persone</h3>
+<p>Le conversazioni esportate contengono anche messaggi scritti da altri partecipanti, insieme al loro nome e alla loro chiave pubblica: sono gli stessi contenuti che l&#x27;app ti mostra già sul telefono e senza i quali una conversazione esportata sarebbe incomprensibile. Il file ti viene consegnato per uso personale: se decidi di diffonderlo o di trattarlo per altre finalità, diventi tu titolare di quel trattamento e ne rispondi ai sensi del GDPR. Non sono inclusi dati che riguardano scelte altrui e non tue — per esempio l&#x27;elenco di chi ti ha eventualmente bloccato.</p>
+<p>Per ragioni tecniche, le conversazioni molto lunghe possono essere troncate ai messaggi più recenti: quando accade, il file lo dichiara esplicitamente.</p>
+<h2>8. Minori</h2>
+<p>Central non è destinata a persone di età inferiore a 14 anni: è l&#x27;età del consenso digitale stabilita dalla legge italiana (d.lgs. 101/2018, art. 2-quinquies), che il GDPR consente a ciascuno Stato membro di fissare tra i 13 e i 16 anni. In fase di registrazione viene richiesta una dichiarazione esplicita di aver compiuto 14 anni.</p>
+<p>Non chiediamo la data di nascita: sarebbe un dato personale in più da conservare senza offrire una garanzia maggiore rispetto alla dichiarazione, e il principio di minimizzazione (art. 5.1.c) impone di raccogliere solo ciò che serve davvero. Se veniamo a conoscenza di un account creato da una persona al di sotto dell&#x27;età minima, procediamo alla cancellazione.</p>
+<p>Se ti registri da un altro Paese dell&#x27;Unione Europea, l&#x27;età del consenso digitale può essere più alta (16 anni in Germania e Irlanda, 15 in Francia): in quel caso è necessaria l&#x27;autorizzazione di chi esercita la responsabilità genitoriale.</p>
+<h3>Nessun identificativo pubblicitario</h3>
+<p>Central non raccoglie l&#x27;identificativo pubblicitario del dispositivo (Advertising ID), non lo condivide con terzi, non contiene pubblicità e non effettua profilazione a fini di marketing. Il servizio di notifiche push tratta esclusivamente il token necessario a recapitare le notifiche.</p>
+<h2>9. Modifiche a questa informativa</h2>
+<p>In caso di modifiche sostanziali, la nuova versione sarà resa disponibile a questo stesso indirizzo con un numero di versione aggiornato, e potrà essere richiesta una nuova accettazione esplicita all&#x27;accesso successivo.</p>
+<p>Questa informativa è predisposta come base di conformità GDPR e non costituisce consulenza legale professionale. Si raccomanda una revisione da parte di un professionista prima della pubblicazione definitiva.</p></article></section>
+</main>
+<footer><div class="wrap"><div class="foot-brand">Central</div><div class="footer-links"><a href="index.html">Home</a><a href="beta.html">Prova la Beta</a><a href="segnala.html">Segnala</a><a href="privacy.html">Informativa Privacy</a></div><div>© Central</div></div></footer>
+</body></html>
