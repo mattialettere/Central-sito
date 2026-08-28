@@ -278,10 +278,18 @@
     /* Su mobile manteniamo entrambi i pulsanti: testo compatto per evitare
        sovrapposizioni e mantenere la dashboard subito accessibile. */
     .site-nav .wrap{gap:8px;}
-    .nav-actions{gap:6px; flex-shrink:0;}
+    .nav-actions{gap:6px; flex-shrink:0; display:flex;}
     .nav-report,.nav-cta-alt,.nav-cta{padding:9px 10px; font-size:11.5px; white-space:nowrap;}
+    /* Segnala è visibile anche su mobile, accanto a Login e Prova la Beta. */
+    .nav-report{display:inline-flex; align-items:center; justify-content:center;}
     .nav-cta-alt .desktop-label{display:none;}
     .nav-cta-alt .mobile-label{display:inline;}
+  }
+
+  @media (max-width:390px){
+    .site-nav .wrap{align-items:center;}
+    .nav-actions{gap:4px;}
+    .nav-report,.nav-cta-alt,.nav-cta{padding:8px 8px; font-size:10.5px;}
   }
   @media (min-width:561px){
     .nav-cta-alt .mobile-label{display:none;}
