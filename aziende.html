@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central per le aziende — sicurezza per chi lavora da solo</title>
+<meta name="description" content="Central per le aziende: SOS, check-in, Viaggia sicuro e pannello web per proteggere chi lavora da solo o fuori sede. Da 6 € al mese per persona, prova gratuita di 30 giorni.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-top:#FFF8F0; --bg-bot:#FDEBDA; --card:#FFFDFA; --card-border:#F2E3D3;
+    --ink:#2A1F16; --ink-muted:#9C8C7E; --ink-soft:#6E5F53;
+    --coral-300:#FDBE99; --coral-400:#F5936A; --coral-500:#EA5B2E; --coral-600:#D8481E;
+    --red:#EF4B4A; --green:#487B5C; --tint:#FCEFE6; --radius:22px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 60%, var(--bg-bot)); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--coral-500); color:#fff;}
+  .brand-font{font-family:'Fredoka',sans-serif;}
+  a:focus-visible, button:focus-visible, input:focus-visible{outline:2px solid var(--coral-500); outline-offset:2px;}
+
+  /* nav (come la home) */
+  .site-nav{position:sticky; top:0; z-index:50; background:rgba(255,248,240,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--card-border);}
+  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px; gap:10px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px; letter-spacing:-.01em;}
+  .mark-img{width:34px; height:34px; border-radius:10px; flex-shrink:0; object-fit:cover; box-shadow:0 4px 10px -3px rgba(216,72,30,.5);}
+  .mark-img-sm{width:26px; height:26px; border-radius:8px;}
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links a{font-size:14.5px; color:var(--ink-muted); font-weight:500; transition:color .15s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-actions{display:flex; align-items:center; gap:10px;}
+  .nav-cta{padding:10px 22px; border-radius:999px; font-size:14px; font-weight:600; color:#fff; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); box-shadow:0 6px 16px -6px rgba(216,72,30,.55); transition:transform .15s; white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .nav-cta-alt{padding:10px 20px; border-radius:999px; font-size:14px; font-weight:600; color:var(--coral-600); background:#fff; border:1px solid var(--card-border); transition:border-color .15s, transform .15s; white-space:nowrap;}
+  .nav-cta-alt:hover{border-color:var(--coral-400); transform:translateY(-1px);}
+
+  /* hero */
+  .hero{padding:80px 0 56px;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--coral-600); margin-bottom:18px;}
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--coral-500);}
+  h1{font-family:'Fredoka',sans-serif; font-size:clamp(34px,4.6vw,52px); font-weight:700; letter-spacing:-.01em; line-height:1.08; margin-bottom:20px; text-wrap:balance;}
+  h1 em{font-style:normal; color:var(--coral-500);}
+  .lead{font-size:17.5px; color:var(--ink-soft); max-width:520px; margin-bottom:30px;}
+  .actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary, .btn-ghost{display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:999px; font-size:15px; font-weight:600; cursor:pointer; transition:transform .15s; border:1px solid transparent;}
+  .btn-primary{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; box-shadow:0 10px 22px -8px rgba(216,72,30,.55);}
+  .btn-ghost{background:#fff; color:var(--ink); border-color:var(--card-border);}
+  .btn-primary:hover, .btn-ghost:hover{transform:translateY(-1px);}
+  .hero-note{margin-top:22px; font-size:13px; color:var(--ink-muted);}
+
+  .alert-card{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:20px; box-shadow:0 30px 60px -22px rgba(120,70,40,.28); max-width:380px; margin-left:auto; width:100%;}
+  .alert-card .ttl{font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:12px;}
+  .ev{display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid var(--card-border);}
+  .ev:last-child{border-bottom:none;}
+  .dot{width:10px; height:10px; border-radius:50%; margin-top:6px; flex-shrink:0;}
+  .ev .t{font-size:13.5px; font-weight:700;}
+  .ev .d{font-size:12px; color:var(--ink-muted);}
+  .ev .h{margin-left:auto; font-size:11.5px; color:var(--ink-muted); font-variant-numeric:tabular-nums; white-space:nowrap;}
+
+  section{padding:72px 0;}
+  .section-head{max-width:640px; margin-bottom:40px;}
+  .section-head h2{font-family:'Fredoka',sans-serif; font-size:clamp(26px,3.2vw,36px); font-weight:700; letter-spacing:-.01em; margin-bottom:12px; text-wrap:balance;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+
+  /* settori */
+  .sectors{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .sector{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:22px;}
+  .sector h3{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  .sector p{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+
+  /* funzioni */
+  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .feature{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:24px;}
+  .feature .ic{width:42px; height:42px; border-radius:12px; background:var(--tint); display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--coral-600);}
+  .feature h3{font-size:16px; font-weight:700; margin-bottom:6px;}
+  .feature p{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+  .plan-tag{display:inline-block; margin-top:10px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:#F4EFE9; color:var(--ink-muted);}
+  .plan-tag.full{background:var(--tint); color:var(--coral-600);}
+
+  /* prezzi */
+  .plans{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px;}
+  .plan{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:30px; display:flex; flex-direction:column;}
+  .plan.featured{border:2px solid var(--coral-400); box-shadow:0 24px 50px -26px rgba(216,72,30,.45); position:relative;}
+  .plan .badge{position:absolute; top:-12px; left:28px; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; font-size:11.5px; font-weight:700; padding:5px 12px; border-radius:999px;}
+  .plan h3{font-family:'Fredoka',sans-serif; font-size:22px; margin-bottom:4px;}
+  .plan .for{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .price{display:flex; align-items:baseline; gap:6px; margin-bottom:4px;}
+  .price .n{font-family:'Fredoka',sans-serif; font-size:48px; font-weight:700; line-height:1;}
+  .price .u{font-size:14px; color:var(--ink-soft);}
+  .vat{font-size:12px; color:var(--ink-muted); margin-bottom:20px;}
+  .plan ul{list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:24px; flex:1;}
+  .plan li{font-size:14px; display:flex; gap:10px; align-items:flex-start;}
+  .plan li::before{content:""; width:16px; height:16px; margin-top:2px; flex-shrink:0; border-radius:50%; background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D8481E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat;}
+  .plan li.inh{color:var(--ink-soft); font-weight:600;}
+  .terms{margin-top:22px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:880px;}
+  .term{background:rgba(255,255,255,.6); border:1px solid var(--card-border); border-radius:16px; padding:14px 16px;}
+  .term b{display:block; font-size:14px; margin-bottom:2px;}
+  .term span{font-size:12.5px; color:var(--ink-soft);}
+
+  /* calcolatore */
+  .calc{margin-top:28px; max-width:880px; background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:26px 28px; display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;}
+  .calc h3{font-family:'Fredoka',sans-serif; font-size:20px; margin-bottom:14px;}
+  .calc label{display:block; font-size:13px; font-weight:700; margin-bottom:7px;}
+  .calc .field{margin-bottom:16px;}
+  .num{display:flex; align-items:center; gap:8px;}
+  .num input{width:110px; border:1px solid var(--card-border); background:#fff; border-radius:12px; padding:11px 13px; font:inherit; font-size:16px; color:var(--ink); font-variant-numeric:tabular-nums;}
+  .num span{font-size:13.5px; color:var(--ink-soft);}
+  .seg{display:inline-flex; background:#F4EFE9; border-radius:999px; padding:4px; gap:4px; flex-wrap:wrap;}
+  .seg button{border:0; background:transparent; font:inherit; font-size:13.5px; font-weight:600; color:var(--ink-soft); padding:8px 15px; border-radius:999px; cursor:pointer;}
+  .seg button[aria-pressed="true"]{background:#fff; color:var(--coral-600); box-shadow:0 2px 6px -2px rgba(120,70,40,.25);}
+  .result{background:var(--tint); border-radius:20px; padding:22px;}
+  .result .big{font-family:'Fredoka',sans-serif; font-size:40px; font-weight:700; line-height:1.05; font-variant-numeric:tabular-nums;}
+  .result .big small{font-family:'Inter',sans-serif; font-size:14px; font-weight:500; color:var(--ink-soft);}
+  .result .lines{margin-top:12px; font-size:13px; color:var(--ink-soft); display:flex; flex-direction:column; gap:4px; font-variant-numeric:tabular-nums;}
+
+  /* prova + dati */
+  .twin{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .panel{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:30px;}
+  .panel h3{font-family:'Fredoka',sans-serif; font-size:21px; margin-bottom:10px;}
+  .panel p{font-size:14.5px; color:var(--ink-soft); margin-bottom:12px;}
+  .steps{list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:12px; margin-top:6px;}
+  .steps li{counter-increment:s; display:flex; gap:12px; font-size:14px; color:var(--ink-soft);}
+  .steps li::before{content:counter(s); width:25px; height:25px; border-radius:50%; display:grid; place-items:center; background:#fff; color:var(--coral-600); border:1px solid var(--card-border); font-size:12px; font-weight:700; flex-shrink:0;}
+  .checks{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .checks li{font-size:14px; color:var(--ink-soft); padding-left:18px; position:relative;}
+  .checks li::before{content:""; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--coral-500);}
+
+  /* faq */
+  .faq{max-width:820px; display:flex; flex-direction:column; gap:10px;}
+  .faq details{background:var(--card); border:1px solid var(--card-border); border-radius:16px;}
+  .faq summary{cursor:pointer; list-style:none; padding:16px 20px; font-weight:700; font-size:15px; display:flex; justify-content:space-between; gap:12px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; color:var(--coral-500); font-size:20px; line-height:1;}
+  .faq details[open] summary::after{content:"−";}
+  .faq details p{padding:0 20px 18px; font-size:14.5px; color:var(--ink-soft); max-width:68ch;}
+
+  /* contatti */
+  .contact{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; border-radius:30px; padding:44px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center;}
+  .contact h2{font-family:'Fredoka',sans-serif; font-size:clamp(26px,3vw,34px); margin-bottom:10px; text-wrap:balance;}
+  .contact p{opacity:.92; font-size:15.5px; max-width:520px;}
+  .contact .box{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); border-radius:20px; padding:22px;}
+  .contact .box .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.06em; opacity:.85; margin-bottom:6px;}
+  .contact .box .mail{font-size:18px; font-weight:700; word-break:break-all; margin-bottom:16px; display:block;}
+  .btn-white{display:inline-flex; justify-content:center; width:100%; padding:13px 20px; border-radius:999px; background:#fff; color:var(--coral-600); font-weight:700; font-size:15px;}
+
+  footer{border-top:1px solid var(--card-border); padding:40px 0; margin-top:40px;}
+  footer .wrap{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .tag{font-size:13px; color:var(--ink-muted);}
+  footer .links{display:flex; gap:22px; font-size:13px; color:var(--ink-muted); flex-wrap:wrap;}
+  footer .links a:hover{color:var(--ink);}
+
+  @media (max-width:980px){
+    .sectors{grid-template-columns:1fr 1fr;}
+    .features{grid-template-columns:1fr 1fr;}
+    .terms{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .alert-card{margin:0 auto;}
+    .plans, .twin, .calc, .contact{grid-template-columns:1fr;}
+    .contact{padding:30px 22px;}
+    footer .wrap{flex-direction:column; text-align:center;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    .nav-links{display:none;}
+    .nav-cta,.nav-cta-alt{padding:9px 12px; font-size:12px;}
+    .sectors, .features, .terms{grid-template-columns:1fr;}
+    section{padding:52px 0;}
+    .hero{padding:44px 0 30px;}
+    .plan, .panel, .calc{padding:22px 18px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} .btn-primary:hover,.btn-ghost:hover,.nav-cta:hover{transform:none;} }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/central-logo.png" alt="Central" class="mark-img"><span class="brand-font">Central</span></a>
+    <nav class="nav-links">
+      <a href="#funzioni">Funzioni</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="#faq">Domande</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-cta-alt" href="index.html">Torna al sito</a>
+      <a class="nav-cta" href="#contatti">Prova gratis</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Central per le aziende</div>
+      <h1>Chi lavora da solo <em>non resta mai solo</em>.</h1>
+      <p class="lead">Turni di notte in uffici vuoti, interventi in reperibilità, visite a domicilio, ronde e presidi. Con Central ogni operatore ha un SOS in tasca e chi coordina sa subito quando qualcosa non va, dal telefono o dal pannello web.</p>
+      <div class="actions">
+        <a class="btn-primary" href="#contatti">Richiedi 30 giorni gratis</a>
+        <a class="btn-ghost" href="#prezzi">Vedi i prezzi</a>
+      </div>
+      <p class="hero-note">Da 6 € al mese per persona · IVA esclusa · coordinatori gratis</p>
+    </div>
+    <div class="alert-card" aria-label="Esempio di avvisi nel pannello">
+      <div class="ttl">Pannello coordinatore · esempio</div>
+      <div class="ev"><span class="dot" style="background:var(--green)"></span><div><div class="t">Check-in confermato</div><div class="d">Giulia · fine turno, Via Tortona</div></div><div class="h">05:58</div></div>
+      <div class="ev"><span class="dot" style="background:#C79A3F"></span><div><div class="t">Check-in mancato</div><div class="d">Marco · atteso alle 06:00</div></div><div class="h">06:10</div></div>
+      <div class="ev"><span class="dot" style="background:var(--green)"></span><div><div class="t">Arrivato a destinazione</div><div class="d">Luca · intervento centrale termica, Rho</div></div><div class="h">06:24</div></div>
+      <div class="ev"><span class="dot" style="background:var(--red)"></span><div><div class="t">SOS</div><div class="d">Sara · posizione e video inviati</div></div><div class="h">06:31</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="settori">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Pensata per chi manda persone fuori sede</h2>
+      <p>Il lavoro isolato è un rischio da valutare per legge. Central dà ai vostri operatori un modo semplice per chiedere aiuto, e a voi un modo per accorgervi se qualcosa non torna.</p>
+    </div>
+    <div class="sectors">
+      <div class="sector"><h3>Imprese di pulizie</h3><p>Turni la sera e all'alba in uffici, condomini e data center, quando l'operatore è l'unica persona nell'edificio.</p></div>
+      <div class="sector"><h3>Vigilanza e portierato</h3><p>Presidi notturni, piantonamenti in cantiere e ronde: la guardia scende dall'auto e ha con sé solo il telefono.</p></div>
+      <div class="sector"><h3>Assistenza domiciliare</h3><p>OSS, ASA, infermieri e caregiver entrano da soli nelle case, anche di notte, con situazioni difficili da prevedere.</p></div>
+      <div class="sector"><h3>Manutenzione e reperibilità</h3><p>Tecnici chiamati di notte in centrali termiche, locali tecnici e cabine elettriche, spesso lontano dalla sede.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="funzioni">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cosa fa Central</h2>
+      <p>Tutto nell'app che l'operatore ha già sul telefono, più un pannello web per l'ufficio.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><h3>SOS con un tocco</h3><p>Dall'app, dal widget o dal riquadro rapido, anche a schermo bloccato. Invia la posizione e un breve video alle persone scelte.</p><span class="plan-tag">Base e Completo</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Check-in a orario</h3><p>Si concorda un orario, per esempio la fine del turno. Se l'operatore non conferma entro il margine, il coordinatore riceve un avviso.</p><span class="plan-tag">Base e Completo</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Chat cifrata di servizio</h3><p>Messaggi, gruppi e chiamate cifrati end-to-end, al posto dei gruppi WhatsApp. Adatta anche a informazioni delicate su clienti e assistiti.</p><span class="plan-tag">Base e Completo</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div><h3>Viaggia sicuro</h3><p>L'operatore avvia il tragitto verso l'intervento. Se non arriva entro l'orario previsto, chi coordina riceve un avviso con l'ultima posizione.</p><span class="plan-tag full">Completo</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/></svg></div><h3>Perimetri di sicurezza</h3><p>Un'area concordata, come un cantiere o la sede di un cliente. Il coordinatore viene avvisato all'uscita e al rientro.</p><span class="plan-tag full">Completo</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Pannello web</h3><p>Avvisi, check-in, mappa e storico in un'unica schermata dal computer. Lo storico si esporta in CSV per verifiche e assicurazioni.</p><span class="plan-tag">Base · Completo con mappa e CSV</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="prezzi">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Prezzi semplici, per persona</h2>
+      <p>Pagate solo le persone che lavorano da sole. Coordinatori e responsabili che ricevono gli avvisi e usano il pannello non pagano.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Base</h3>
+        <p class="for">Per proteggere chi lavora da solo, con SOS e check-in.</p>
+        <div class="price"><span class="n">6 €</span><span class="u">al mese per persona</span></div>
+        <div class="vat">IVA esclusa</div>
+        <ul>
+          <li>SOS con posizione e video</li>
+          <li>Check-in a orario con avviso al coordinatore</li>
+          <li>Chat, gruppi e chiamate cifrati</li>
+          <li>Pannello web con avvisi</li>
+          <li>Coordinatori illimitati e gratuiti</li>
+        </ul>
+        <a class="btn-ghost" href="#contatti">Richiedi la prova</a>
+      </div>
+      <div class="plan featured">
+        <span class="badge">Il più scelto</span>
+        <h3>Completo</h3>
+        <p class="for">Per chi si sposta tra clienti, cantieri e interventi.</p>
+        <div class="price"><span class="n">9 €</span><span class="u">al mese per persona</span></div>
+        <div class="vat">IVA esclusa</div>
+        <ul>
+          <li class="inh">Tutto quello che c'è nel piano Base, più:</li>
+          <li>Viaggia sicuro sugli spostamenti</li>
+          <li>Perimetri di sicurezza</li>
+          <li>Mappa in tempo reale nel pannello</li>
+          <li>Storico di 12 mesi ed esportazione CSV</li>
+        </ul>
+        <a class="btn-primary" href="#contatti">Richiedi la prova</a>
+      </div>
+    </div>
+
+    <div class="terms">
+      <div class="term"><b>30 giorni gratis</b><span>Prova completa, senza impegno e senza carta.</span></div>
+      <div class="term"><b>−10% da 25 persone</b><span>e −20% da 100 persone.</span></div>
+      <div class="term"><b>2 mesi gratis</b><span>con il pagamento annuale: 12 mesi al prezzo di 10.</span></div>
+      <div class="term"><b>Minimo 49 € al mese</b><span>per account, IVA esclusa.</span></div>
+    </div>
+
+    <div class="calc" aria-labelledby="calc-title">
+      <div>
+        <h3 id="calc-title">Quanto costa per voi</h3>
+        <div class="field">
+          <label for="persone">Persone che lavorano da sole</label>
+          <div class="num"><input id="persone" type="number" min="1" max="5000" value="20" inputmode="numeric"><span>persone</span></div>
+        </div>
+        <div class="field">
+          <label id="lbl-piano">Piano</label>
+          <div class="seg" role="group" aria-labelledby="lbl-piano">
+            <button type="button" data-piano="6" aria-pressed="false">Base</button>
+            <button type="button" data-piano="9" aria-pressed="true">Completo</button>
+          </div>
+        </div>
+        <div class="field">
+          <label id="lbl-fatt">Fatturazione</label>
+          <div class="seg" role="group" aria-labelledby="lbl-fatt">
+            <button type="button" data-fatt="mese" aria-pressed="true">Mensile</button>
+            <button type="button" data-fatt="anno" aria-pressed="false">Annuale</button>
+          </div>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="big" id="tot">180 € <small>al mese</small></div>
+        <div class="lines" id="righe"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap twin">
+    <div class="panel">
+      <h3>Come funziona la prova</h3>
+      <p>Trenta giorni con tutte le funzioni del piano Completo, per il numero di persone che volete.</p>
+      <ol class="steps">
+        <li>Ci scrivete e fissiamo una chiamata di 20 minuti.</li>
+        <li>Configuriamo insieme i coordinatori, gli orari di check-in e le persone da avvisare.</li>
+        <li>Gli operatori scaricano Central da Google Play e accettano l'invito.</li>
+        <li>Alla fine dei 30 giorni decidete voi. Se non continuate, non pagate nulla.</li>
+      </ol>
+      <p style="margin-top:16px"><b>Primi clienti:</b> per le aziende che partono con noi adesso, il 30% di sconto bloccato per i primi 12 mesi.</p>
+    </div>
+    <div class="panel">
+      <h3>I vostri dati restano vostri</h3>
+      <ul class="checks">
+        <li>Messaggi, foto e posizioni dei viaggi cifrati end-to-end: nemmeno Central può leggerli.</li>
+        <li>Server in Europa.</li>
+        <li>Nessuna pubblicità e nessuna vendita di dati.</li>
+        <li>Nessun tracciamento continuo: la posizione viene condivisa solo con un SOS, un viaggio avviato o un perimetro concordato.</li>
+        <li>Chi viene seguito vede sempre chi riceve i suoi avvisi.</li>
+      </ul>
+      <p style="margin-top:16px">Central è un'app italiana. Oggi è disponibile per <b>Android</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head"><h2>Domande frequenti</h2></div>
+    <div class="faq">
+      <details><summary>Chi riceve gli SOS e gli avvisi?</summary><p>Le persone che scegliete voi: un coordinatore, un capoturno, la vostra centrale operativa. Ricevono la notifica sul telefono e la vedono nel pannello web. Central non è una centrale di ascolto e non sostituisce il 112: il messaggio SOS invita sempre anche a chiamare i soccorsi.</p></details>
+      <details><summary>Funziona su iPhone?</summary><p>Non ancora: oggi Central è disponibile per Android. Il pannello web per i coordinatori funziona da qualsiasi computer.</p></details>
+      <details><summary>È un sistema di controllo a distanza dei dipendenti?</summary><p>No. Central non segue gli spostamenti in continuo: la posizione parte solo con un SOS, con un viaggio avviato dall'operatore o all'uscita da un perimetro concordato. Chi è seguito lo vede sempre nel proprio profilo. Ogni azienda resta comunque responsabile degli adempimenti per gli strumenti dati ai lavoratori, come l'art. 4 dello Statuto dei Lavoratori e l'informativa privacy: vi consigliamo di valutarli con il vostro consulente prima dell'avvio.</p></details>
+      <details><summary>Serve un telefono aziendale?</summary><p>No. Central funziona sia sul telefono aziendale sia su quello personale dell'operatore, con un account dedicato.</p></details>
+      <details><summary>Come si paga?</summary><p>Con fattura, mensile o annuale. I prezzi sono per persona attiva al mese, IVA esclusa, con un minimo di 49 € al mese per account. Si può aggiungere o togliere una persona in qualsiasi momento.</p></details>
+      <details><summary>Ci sono vincoli o costi di attivazione?</summary><p>Nessun costo di attivazione. Il piano mensile si disdice quando volete; quello annuale vale per 12 mesi.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Proviamo insieme per 30 giorni</h2>
+        <p>Scriveteci quante persone lavorano da sole e in che settore. Vi rispondiamo per fissare una chiamata e attivare la prova.</p>
+      </div>
+      <div class="box">
+        <div class="lbl">Scriveteci a</div>
+        <a class="mail" href="mailto:info@getcentral.net?subject=Prova%20gratuita%20Central%20per%20aziende">info@getcentral.net</a>
+        <a class="btn-white" href="mailto:info@getcentral.net?subject=Prova%20gratuita%20Central%20per%20aziende&amp;body=Azienda%3A%0ASettore%3A%0APersone%20che%20lavorano%20da%20sole%3A%0ATelefono%3A%0A">Richiedi la prova gratuita</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/central-logo.png" alt="Central" class="mark-img mark-img-sm"><span class="brand-font">Central</span></a>
+    <div class="tag">You are Central.</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica ora</a>
+      <a href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var input = document.getElementById('persone');
+    var tot = document.getElementById('tot');
+    var righe = document.getElementById('righe');
+    var prezzo = 9, fatt = 'mese';
+    var MINIMO = 49;
+    var eur = function(v){ return v.toLocaleString('it-IT',{minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits:2}) + ' €'; };
+
+    function calcola(){
+      var n = Math.max(1, Math.min(5000, parseInt(input.value, 10) || 1));
+      var sconto = n >= 100 ? 0.20 : (n >= 25 ? 0.10 : 0);
+      var lordo = n * prezzo;
+      var mese = Math.round(lordo * (1 - sconto) * 100) / 100;
+      var minimo = mese < MINIMO;
+      if (minimo) mese = MINIMO;
+      var linee = [];
+      linee.push(n + (n === 1 ? ' persona' : ' persone') + ' × ' + eur(prezzo) + ' = ' + eur(lordo) + ' al mese');
+      if (sconto) linee.push('Sconto quantità −' + Math.round(sconto * 100) + '%');
+      if (minimo) linee.push('Si applica il minimo di ' + eur(MINIMO) + ' al mese');
+      if (fatt === 'anno'){
+        var anno = Math.round(mese * 10 * 100) / 100;
+        tot.innerHTML = eur(anno) + ' <small>all’anno</small>';
+        linee.push('12 mesi al prezzo di 10 (' + eur(Math.round(anno / 12 * 100) / 100) + ' al mese)');
+      } else {
+        tot.innerHTML = eur(mese) + ' <small>al mese</small>';
+      }
+      linee.push('IVA esclusa · i primi 30 giorni sono gratis');
+      righe.innerHTML = linee.map(function(l){ return '<span>' + l + '</span>'; }).join('');
+    }
+
+    function seg(attr, cb){
+      document.querySelectorAll('[data-' + attr + ']').forEach(function(b){
+        b.addEventListener('click', function(){
+          document.querySelectorAll('[data-' + attr + ']').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          cb(b.getAttribute('data-' + attr)); calcola();
+        });
+      });
+    }
+    seg('piano', function(v){ prezzo = +v; });
+    seg('fatt', function(v){ fatt = v; });
+    input.addEventListener('input', calcola);
+    calcola();
+  })();
+</script>
+</body>
+</html>
