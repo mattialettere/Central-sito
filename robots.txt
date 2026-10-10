@@ -1,0 +1,8 @@
+# getcentral.net
+# Tutto il sito e' pubblico e indicizzabile. La vecchia pagina della beta
+# resta raggiungibile ma porta il tag noindex: non va bloccata qui,
+# altrimenti i motori di ricerca non leggerebbero quel tag.
+User-agent: *
+Allow: /
+
+Sitemap: https://getcentral.net/sitemap.xml

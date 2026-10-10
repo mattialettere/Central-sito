@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://getcentral.net/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/chat.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/sos.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/checkin.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/viaggio.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/perimetri.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/city.webp</image:loc></image:image>
+    <image:image><image:loc>https://getcentral.net/assets/funzioni/pannello.webp</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/qSCHFZCdRO0/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Central: chat cifrata, SOS e una città da vivere con gli amici</video:title>
+      <video:description>Le funzioni di Central in 25 secondi: chat cifrate, check-in, SOS, Viaggia sicuro, perimetri, lavagne, Central City e niente pubblicità.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/qSCHFZCdRO0</video:player_loc>
+      <video:duration>25</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://getcentral.net/aziende.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/white-label.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/privacy.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/segnala.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
