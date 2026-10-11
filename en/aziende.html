@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central for Business – Safety for lone workers</title>
+<meta name="description" content="Central for Business: SOS, check-ins, Safe Trip and a web dashboard to protect lone workers and staff working off-site. From €6 a month per person, with a free 30-day trial.">
+<link rel="canonical" href="https://getcentral.net/en/aziende.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EA5B2E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Central">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://getcentral.net/en/aziende.html">
+<meta property="og:title" content="Central for Business – Safety for lone workers">
+<meta property="og:description" content="Central for Business: SOS, check-ins, Safe Trip and a web dashboard for lone workers and staff working off-site. From €6 a month per person, with a free 30-day trial.">
+<meta property="og:image" content="https://getcentral.net/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url(/assets/fonts/inter-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'Fredoka';font-weight:600;font-display:swap;src:url(/assets/fonts/fredoka-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Fredoka';font-weight:700;font-display:swap;src:url(/assets/fonts/fredoka-latin-700-normal.woff2) format('woff2')}</style>
+<style>
+  :root{
+    --bg-top:#FFF8F0; --bg-bot:#FDEBDA; --card:#FFFDFA; --card-border:#F2E3D3;
+    --ink:#2A1F16; --ink-muted:#9C8C7E; --ink-soft:#6E5F53;
+    --coral-300:#FDBE99; --coral-400:#F5936A; --coral-500:#EA5B2E; --coral-600:#D8481E;
+    --red:#EF4B4A; --green:#487B5C; --tint:#FCEFE6; --radius:22px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 60%, var(--bg-bot)); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--coral-500); color:#fff;}
+  .brand-font{font-family:'Fredoka',sans-serif;}
+  a:focus-visible, button:focus-visible, input:focus-visible{outline:2px solid var(--coral-500); outline-offset:2px;}
+
+  /* nav (come la home) */
+  .site-nav{position:sticky; top:0; z-index:50; background:rgba(255,248,240,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--card-border);}
+  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px; gap:10px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px; letter-spacing:-.01em;}
+  .mark-img{width:34px; height:34px; border-radius:10px; flex-shrink:0; object-fit:cover; box-shadow:0 4px 10px -3px rgba(216,72,30,.5);}
+  .mark-img-sm{width:26px; height:26px; border-radius:8px;}
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links a{font-size:14.5px; color:var(--ink-muted); font-weight:500; transition:color .15s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-actions{display:flex; align-items:center; gap:10px;}
+  .nav-cta{padding:10px 22px; border-radius:999px; font-size:14px; font-weight:600; color:#fff; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); box-shadow:0 6px 16px -6px rgba(216,72,30,.55); transition:transform .15s; white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .nav-cta-alt{padding:10px 20px; border-radius:999px; font-size:14px; font-weight:600; color:var(--coral-600); background:#fff; border:1px solid var(--card-border); transition:border-color .15s, transform .15s; white-space:nowrap;}
+  .nav-cta-alt:hover{border-color:var(--coral-400); transform:translateY(-1px);}
+
+  /* hero */
+  .hero{padding:80px 0 56px;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--coral-600); margin-bottom:18px;}
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--coral-500);}
+  h1{font-family:'Fredoka',sans-serif; font-size:clamp(34px,4.6vw,52px); font-weight:700; letter-spacing:-.01em; line-height:1.08; margin-bottom:20px; text-wrap:balance;}
+  h1 em{font-style:normal; color:var(--coral-500);}
+  .lead{font-size:17.5px; color:var(--ink-soft); max-width:520px; margin-bottom:30px;}
+  .actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary, .btn-ghost{display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:999px; font-size:15px; font-weight:600; cursor:pointer; transition:transform .15s; border:1px solid transparent;}
+  .btn-primary{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; box-shadow:0 10px 22px -8px rgba(216,72,30,.55);}
+  .btn-ghost{background:#fff; color:var(--ink); border-color:var(--card-border);}
+  .btn-primary:hover, .btn-ghost:hover{transform:translateY(-1px);}
+  .hero-note{margin-top:22px; font-size:13px; color:var(--ink-muted);}
+
+  .alert-card{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:20px; box-shadow:0 30px 60px -22px rgba(120,70,40,.28); max-width:380px; margin-left:auto; width:100%;}
+  .alert-card .ttl{font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:12px;}
+  .ev{display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid var(--card-border);}
+  .ev:last-child{border-bottom:none;}
+  .dot{width:10px; height:10px; border-radius:50%; margin-top:6px; flex-shrink:0;}
+  .ev .t{font-size:13.5px; font-weight:700;}
+  .ev .d{font-size:12px; color:var(--ink-muted);}
+  .ev .h{margin-left:auto; font-size:11.5px; color:var(--ink-muted); font-variant-numeric:tabular-nums; white-space:nowrap;}
+
+  section{padding:72px 0;}
+  .section-head{max-width:640px; margin-bottom:40px;}
+  .section-head h2{font-family:'Fredoka',sans-serif; font-size:clamp(26px,3.2vw,36px); font-weight:700; letter-spacing:-.01em; margin-bottom:12px; text-wrap:balance;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+
+  /* settori */
+  .sectors{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .sector{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:22px;}
+  .sector h3{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  .sector p{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+
+  /* funzioni */
+  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .feature{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:24px;}
+  .feature .ic{width:42px; height:42px; border-radius:12px; background:var(--tint); display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--coral-600);}
+  .feature h3{font-size:16px; font-weight:700; margin-bottom:6px;}
+  .feature p{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+  .plan-tag{display:inline-block; margin-top:10px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:#F4EFE9; color:var(--ink-muted);}
+  .plan-tag.full{background:var(--tint); color:var(--coral-600);}
+
+  /* prezzi */
+  .plans{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px;}
+  .plan{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:30px; display:flex; flex-direction:column;}
+  .plan.featured{border:2px solid var(--coral-400); box-shadow:0 24px 50px -26px rgba(216,72,30,.45); position:relative;}
+  .plan .badge{position:absolute; top:-12px; left:28px; background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; font-size:11.5px; font-weight:700; padding:5px 12px; border-radius:999px;}
+  .plan h3{font-family:'Fredoka',sans-serif; font-size:22px; margin-bottom:4px;}
+  .plan .for{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .price{display:flex; align-items:baseline; gap:6px; margin-bottom:4px;}
+  .price .n{font-family:'Fredoka',sans-serif; font-size:48px; font-weight:700; line-height:1;}
+  .price .u{font-size:14px; color:var(--ink-soft);}
+  .vat{font-size:12px; color:var(--ink-muted); margin-bottom:20px;}
+  .plan ul{list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:24px; flex:1;}
+  .plan li{font-size:14px; display:flex; gap:10px; align-items:flex-start;}
+  .plan li::before{content:""; width:16px; height:16px; margin-top:2px; flex-shrink:0; border-radius:50%; background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D8481E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat;}
+  .plan li.inh{color:var(--ink-soft); font-weight:600;}
+  .terms{margin-top:22px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:880px;}
+  .term{background:rgba(255,255,255,.6); border:1px solid var(--card-border); border-radius:16px; padding:14px 16px;}
+  .term b{display:block; font-size:14px; margin-bottom:2px;}
+  .term span{font-size:12.5px; color:var(--ink-soft);}
+
+  /* calcolatore */
+  .calc{margin-top:28px; max-width:880px; background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:26px 28px; display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;}
+  .calc h3{font-family:'Fredoka',sans-serif; font-size:20px; margin-bottom:14px;}
+  .calc label{display:block; font-size:13px; font-weight:700; margin-bottom:7px;}
+  .calc .field{margin-bottom:16px;}
+  .num{display:flex; align-items:center; gap:8px;}
+  .num input{width:110px; border:1px solid var(--card-border); background:#fff; border-radius:12px; padding:11px 13px; font:inherit; font-size:16px; color:var(--ink); font-variant-numeric:tabular-nums;}
+  .num span{font-size:13.5px; color:var(--ink-soft);}
+  .seg{display:inline-flex; background:#F4EFE9; border-radius:999px; padding:4px; gap:4px; flex-wrap:wrap;}
+  .seg button{border:0; background:transparent; font:inherit; font-size:13.5px; font-weight:600; color:var(--ink-soft); padding:8px 15px; border-radius:999px; cursor:pointer;}
+  .seg button[aria-pressed="true"]{background:#fff; color:var(--coral-600); box-shadow:0 2px 6px -2px rgba(120,70,40,.25);}
+  .result{background:var(--tint); border-radius:20px; padding:22px;}
+  .result .big{font-family:'Fredoka',sans-serif; font-size:40px; font-weight:700; line-height:1.05; font-variant-numeric:tabular-nums;}
+  .result .big small{font-family:'Inter',sans-serif; font-size:14px; font-weight:500; color:var(--ink-soft);}
+  .result .lines{margin-top:12px; font-size:13px; color:var(--ink-soft); display:flex; flex-direction:column; gap:4px; font-variant-numeric:tabular-nums;}
+
+  /* prova + dati */
+  .twin{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .panel{background:var(--card); border:1px solid var(--card-border); border-radius:26px; padding:30px;}
+  .panel h3{font-family:'Fredoka',sans-serif; font-size:21px; margin-bottom:10px;}
+  .panel p{font-size:14.5px; color:var(--ink-soft); margin-bottom:12px;}
+  .steps{list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:12px; margin-top:6px;}
+  .steps li{counter-increment:s; display:flex; gap:12px; font-size:14px; color:var(--ink-soft);}
+  .steps li::before{content:counter(s); width:25px; height:25px; border-radius:50%; display:grid; place-items:center; background:#fff; color:var(--coral-600); border:1px solid var(--card-border); font-size:12px; font-weight:700; flex-shrink:0;}
+  .checks{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .checks li{font-size:14px; color:var(--ink-soft); padding-left:18px; position:relative;}
+  .checks li::before{content:""; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--coral-500);}
+
+  /* faq */
+  .faq{max-width:820px; display:flex; flex-direction:column; gap:10px;}
+  .faq details{background:var(--card); border:1px solid var(--card-border); border-radius:16px;}
+  .faq summary{cursor:pointer; list-style:none; padding:16px 20px; font-weight:700; font-size:15px; display:flex; justify-content:space-between; gap:12px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; color:var(--coral-500); font-size:20px; line-height:1;}
+  .faq details[open] summary::after{content:"−";}
+  .faq details p{padding:0 20px 18px; font-size:14.5px; color:var(--ink-soft); max-width:68ch;}
+
+  /* contatti */
+  .contact{background:linear-gradient(135deg,var(--coral-400),var(--coral-600)); color:#fff; border-radius:30px; padding:44px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center;}
+  .contact h2{font-family:'Fredoka',sans-serif; font-size:clamp(26px,3vw,34px); margin-bottom:10px; text-wrap:balance;}
+  .contact p{opacity:.92; font-size:15.5px; max-width:520px;}
+  .contact .box{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); border-radius:20px; padding:22px;}
+  .contact .box .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.06em; opacity:.85; margin-bottom:6px;}
+  .contact .box .mail{font-size:18px; font-weight:700; word-break:break-all; margin-bottom:16px; display:block;}
+  .btn-white{display:inline-flex; justify-content:center; width:100%; padding:13px 20px; border-radius:999px; background:#fff; color:var(--coral-600); font-weight:700; font-size:15px;}
+
+  footer{border-top:1px solid var(--card-border); padding:40px 0; margin-top:40px;}
+  footer .wrap{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .tag{font-size:13px; color:var(--ink-muted);}
+  footer .links{display:flex; gap:22px; font-size:13px; color:var(--ink-muted); flex-wrap:wrap;}
+  footer .links a:hover{color:var(--ink);}
+
+  @media (max-width:980px){
+    .sectors{grid-template-columns:1fr 1fr;}
+    .features{grid-template-columns:1fr 1fr;}
+    .terms{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .alert-card{margin:0 auto;}
+    .plans, .twin, .calc, .contact{grid-template-columns:1fr;}
+    .contact{padding:30px 22px;}
+    footer .wrap{flex-direction:column; text-align:center;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    .nav-links{display:none;}
+    .nav-cta,.nav-cta-alt{padding:9px 12px; font-size:12px;}
+    .sectors, .features, .terms{grid-template-columns:1fr;}
+    section{padding:52px 0;}
+    .hero{padding:44px 0 30px;}
+    .plan, .panel, .calc{padding:22px 18px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} .btn-primary:hover,.btn-ghost:hover,.nav-cta:hover{transform:none;} }
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/lang.css">
+<link rel="alternate" hreflang="it" href="https://getcentral.net/aziende.html">
+<link rel="alternate" hreflang="en" href="https://getcentral.net/en/aziende.html">
+<link rel="alternate" hreflang="fr" href="https://getcentral.net/fr/aziende.html">
+<link rel="alternate" hreflang="x-default" href="https://getcentral.net/aziende.html">
+</head>
+<body>
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/central-logo.png" alt="Central" width="34" height="34" class="mark-img"><span class="brand-font">Central</span></a>
+    <nav class="nav-links">
+      <a href="#funzioni">Features</a>
+      <a href="#prezzi">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/en/white-label.html">White label</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Lingua · Language"><a href="/aziende.html" hreflang="it" lang="it">IT</a><a href="/en/aziende.html" hreflang="en" lang="en" aria-current="true">EN</a><a href="/fr/aziende.html" hreflang="fr" lang="fr">FR</a></div>
+      <a class="nav-cta-alt" href="/en/">Back to site</a>
+      <a class="nav-cta" href="#contatti">Free trial</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Central for Business</div>
+      <h1>Working alone, <em>never on your own</em>.</h1>
+      <p class="lead">Night shifts in empty offices, on-call jobs, home visits, patrols and guard posts. With Central every worker has an SOS in their pocket, and whoever coordinates knows straight away when something's wrong, from their phone or the web dashboard.</p>
+      <div class="actions">
+        <a class="btn-primary" href="#contatti">Get 30 days free</a>
+        <a class="btn-ghost" href="#prezzi">See pricing</a>
+      </div>
+      <p class="hero-note">From €6 a month per person · excl. VAT · coordinators free</p>
+    </div>
+    <div class="alert-card" aria-label="Example of alerts in the dashboard">
+      <div class="ttl">Coordinator dashboard · example</div>
+      <div class="ev"><span class="dot" style="background:var(--green)"></span><div><div class="t">Check-in confirmed</div><div class="d">Giulia · end of shift, Via Tortona</div></div><div class="h">05:58</div></div>
+      <div class="ev"><span class="dot" style="background:#C79A3F"></span><div><div class="t">Missed check-in</div><div class="d">Marco · expected at 06:00</div></div><div class="h">06:10</div></div>
+      <div class="ev"><span class="dot" style="background:var(--green)"></span><div><div class="t">Arrived at destination</div><div class="d">Luca · boiler room callout, Rho</div></div><div class="h">06:24</div></div>
+      <div class="ev"><span class="dot" style="background:var(--red)"></span><div><div class="t">SOS</div><div class="d">Sara · location and video sent</div></div><div class="h">06:31</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="settori">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Built for teams that send people out</h2>
+      <p>Lone working is a risk you're required by law to assess. Central gives your workers a simple way to ask for help, and gives you a way to notice when something isn't right.</p>
+    </div>
+    <div class="sectors">
+      <div class="sector"><h3>Cleaning companies</h3><p>Evening and early-morning shifts in offices, apartment blocks and data centres, when the cleaner is the only person in the building.</p></div>
+      <div class="sector"><h3>Security and concierge</h3><p>Night posts, site guarding and patrols: the guard steps out of the car with nothing but a phone.</p></div>
+      <div class="sector"><h3>Home care</h3><p>Care assistants, nurses and caregivers go into people's homes alone, at night too, facing situations that are hard to predict.</p></div>
+      <div class="sector"><h3>Maintenance and on-call</h3><p>Technicians called out at night to boiler rooms, plant rooms and electrical substations, often far from base.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="funzioni">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What Central does</h2>
+      <p>Everything in the app your workers already have on their phone, plus a web dashboard for the office.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><h3>One-tap SOS</h3><p>From the app, the widget or the quick settings tile, even with the screen locked. Sends the worker's location and a short video to the chosen people.</p><span class="plan-tag">Basic and Complete</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Scheduled check-ins</h3><p>You agree on a time, such as the end of a shift. If the worker doesn't confirm within the grace period, the coordinator gets an alert.</p><span class="plan-tag">Basic and Complete</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Encrypted work chat</h3><p>End-to-end encrypted messages, groups and calls, instead of WhatsApp groups. Also suitable for sensitive information about clients and the people in your care.</p><span class="plan-tag">Basic and Complete</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div><h3>Safe Trip</h3><p>The worker starts the journey to the job. If they don't arrive by the expected time, the coordinator gets an alert with their last known location.</p><span class="plan-tag full">Complete</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/></svg></div><h3>Safety perimeters</h3><p>An agreed area, such as a building site or a client's premises. The coordinator is notified when the worker leaves and when they return.</p><span class="plan-tag full">Complete</span></div>
+      <div class="feature"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Web dashboard</h3><p>Alerts, check-ins, map and history on a single screen from your computer. History can be exported to CSV for audits and insurance.</p><span class="plan-tag">Basic · Complete with map and CSV</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="prezzi">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Simple pricing, per person</h2>
+      <p>You only pay for the people who work alone. Coordinators and managers who receive alerts and use the dashboard don't pay.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Basic</h3>
+        <p class="for">To protect lone workers, with SOS and check-ins.</p>
+        <div class="price"><span class="n">€6</span><span class="u">per person per month</span></div>
+        <div class="vat">excl. VAT</div>
+        <ul>
+          <li>SOS with location and video</li>
+          <li>Scheduled check-ins with coordinator alerts</li>
+          <li>Encrypted chat, groups and calls</li>
+          <li>Web dashboard with alerts</li>
+          <li>Unlimited free coordinators</li>
+        </ul>
+        <a class="btn-ghost" href="#contatti">Request a trial</a>
+      </div>
+      <div class="plan featured">
+        <span class="badge">Most popular</span>
+        <h3>Complete</h3>
+        <p class="for">For people who move between clients, sites and jobs.</p>
+        <div class="price"><span class="n">€9</span><span class="u">per person per month</span></div>
+        <div class="vat">excl. VAT</div>
+        <ul>
+          <li class="inh">Everything in Basic, plus:</li>
+          <li>Safe Trip for journeys</li>
+          <li>Safety perimeters</li>
+          <li>Real-time map in the dashboard</li>
+          <li>12-month history and CSV export</li>
+        </ul>
+        <a class="btn-primary" href="#contatti">Request a trial</a>
+      </div>
+    </div>
+
+    <div class="terms">
+      <div class="term"><b>30 days free</b><span>Full trial, no commitment and no card needed.</span></div>
+      <div class="term"><b>−10% from 25 people</b><span>and −20% from 100 people.</span></div>
+      <div class="term"><b>2 months free</b><span>with annual billing: 12 months for the price of 10.</span></div>
+      <div class="term"><b>Minimum €49 a month</b><span>per account, excl. VAT.</span></div>
+    </div>
+
+    <div class="calc" aria-labelledby="calc-title">
+      <div>
+        <h3 id="calc-title">What it would cost you</h3>
+        <div class="field">
+          <label for="persone">People who work alone</label>
+          <div class="num"><input id="persone" type="number" min="1" max="5000" value="20" inputmode="numeric"><span>people</span></div>
+        </div>
+        <div class="field">
+          <label id="lbl-piano">Plan</label>
+          <div class="seg" role="group" aria-labelledby="lbl-piano">
+            <button type="button" data-piano="6" aria-pressed="false">Basic</button>
+            <button type="button" data-piano="9" aria-pressed="true">Complete</button>
+          </div>
+        </div>
+        <div class="field">
+          <label id="lbl-fatt">Billing</label>
+          <div class="seg" role="group" aria-labelledby="lbl-fatt">
+            <button type="button" data-fatt="mese" aria-pressed="true">Monthly</button>
+            <button type="button" data-fatt="anno" aria-pressed="false">Annual</button>
+          </div>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="big" id="tot">€180 <small>a month</small></div>
+        <div class="lines" id="righe"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap twin">
+    <div class="panel">
+      <h3>How the trial works</h3>
+      <p>Thirty days with every feature of the Complete plan, for as many people as you like.</p>
+      <ol class="steps">
+        <li>You get in touch and we book a 20-minute call.</li>
+        <li>Together we set up the coordinators, check-in times and who gets alerted.</li>
+        <li>Your workers download Central from Google Play and accept the invitation.</li>
+        <li>At the end of the 30 days, it's your call. If you don't continue, you pay nothing.</li>
+      </ol>
+      <p style="margin-top:16px"><b>Early customers:</b> businesses that start with us now get 30% off, locked in for the first 12 months.</p>
+    </div>
+    <div class="panel">
+      <h3>Your data stays yours</h3>
+      <ul class="checks">
+        <li>Messages, photos and trip locations are end-to-end encrypted: not even Central can read them.</li>
+        <li>Servers in Europe.</li>
+        <li>No ads and no selling of data.</li>
+        <li>No continuous tracking: location is shared only with an SOS, a trip that has been started or an agreed safety perimeter.</li>
+        <li>The person being looked out for can always see who receives their alerts.</li>
+      </ul>
+      <p style="margin-top:16px">Central is an Italian app. It's currently available for <b>Android</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head"><h2>Frequently asked questions</h2></div>
+    <div class="faq">
+      <details><summary>Who receives SOS alerts and notifications?</summary><p>The people you choose: a coordinator, a shift supervisor, your control room. They get a notification on their phone and see it in the web dashboard. Central is not a monitoring centre and does not replace 112 (the European emergency number): the SOS message always prompts people to call emergency services too.</p></details>
+      <details><summary>Does it work on iPhone?</summary><p>Not yet: Central is currently available for Android. The web dashboard for coordinators works on any computer.</p></details>
+      <details><summary>Is it a system for remotely monitoring employees?</summary><p>No. Central doesn't track movements continuously: location is shared only with an SOS, a trip started by the worker or when they leave an agreed safety perimeter. The person being looked out for can always see this in their own profile. Each company nonetheless remains responsible for its obligations regarding the tools given to workers, such as Article 4 of the Italian Workers' Statute (Statuto dei Lavoratori) and the privacy notice: we recommend reviewing them with your adviser before you start.</p></details>
+      <details><summary>Do we need company phones?</summary><p>No. Central works on both company phones and workers' personal phones, with a dedicated account.</p></details>
+      <details><summary>How do we pay?</summary><p>By invoice, monthly or annually. Prices are per active person per month, excl. VAT, with a minimum of €49 a month per account. You can add or remove people at any time.</p></details>
+      <details><summary>Is there a lock-in or a setup fee?</summary><p>No setup fee. The monthly plan can be cancelled whenever you like; the annual plan runs for 12 months.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's try it together for 30 days</h2>
+        <p>Tell us how many people work alone and in which sector. We'll get back to you to book a call and start the trial.</p>
+      </div>
+      <div class="box">
+        <div class="lbl">Email us at</div>
+        <a class="mail" href="mailto:info@getcentral.net?subject=Central%20for%20Business%20free%20trial">info@getcentral.net</a>
+        <a class="btn-white" href="mailto:info@getcentral.net?subject=Central%20for%20Business%20free%20trial&amp;body=Company%3A%0ASector%3A%0APeople%20working%20alone%3A%0APhone%3A%0A">Request your free trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/central-logo.png" alt="Central" class="mark-img mark-img-sm"><span class="brand-font">Central</span></a>
+    <div class="tag">You are Central.</div>
+    <div class="links">
+      <a href="/en/">Home</a>
+      <a href="#prezzi">Pricing</a>
+      <a href="/en/white-label.html">White label</a>
+      <a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Download</a>
+      <a href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard</a>
+      <a href="/en/privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var input = document.getElementById('persone');
+    var tot = document.getElementById('tot');
+    var righe = document.getElementById('righe');
+    var prezzo = 9, fatt = 'mese';
+    var MINIMO = 49;
+    var eur = function(v){ return '€' + v.toLocaleString('en-GB',{minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits:2}); };
+
+    function calcola(){
+      var n = Math.max(1, Math.min(5000, parseInt(input.value, 10) || 1));
+      var sconto = n >= 100 ? 0.20 : (n >= 25 ? 0.10 : 0);
+      var lordo = n * prezzo;
+      var mese = Math.round(lordo * (1 - sconto) * 100) / 100;
+      var minimo = mese < MINIMO;
+      if (minimo) mese = MINIMO;
+      var linee = [];
+      linee.push(n + (n === 1 ? ' person' : ' people') + ' × ' + eur(prezzo) + ' = ' + eur(lordo) + ' a month');
+      if (sconto) linee.push('Volume discount −' + Math.round(sconto * 100) + '%');
+      if (minimo) linee.push('The minimum of ' + eur(MINIMO) + ' a month applies');
+      if (fatt === 'anno'){
+        var anno = Math.round(mese * 10 * 100) / 100;
+        tot.innerHTML = eur(anno) + ' <small>a year</small>';
+        linee.push('12 months for the price of 10 (' + eur(Math.round(anno / 12 * 100) / 100) + ' a month)');
+      } else {
+        tot.innerHTML = eur(mese) + ' <small>a month</small>';
+      }
+      linee.push('Excl. VAT · the first 30 days are free');
+      righe.innerHTML = linee.map(function(l){ return '<span>' + l + '</span>'; }).join('');
+    }
+
+    function seg(attr, cb){
+      document.querySelectorAll('[data-' + attr + ']').forEach(function(b){
+        b.addEventListener('click', function(){
+          document.querySelectorAll('[data-' + attr + ']').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          cb(b.getAttribute('data-' + attr)); calcola();
+        });
+      });
+    }
+    seg('piano', function(v){ prezzo = +v; });
+    seg('fatt', function(v){ fatt = v; });
+    input.addEventListener('input', calcola);
+    calcola();
+  })();
+</script>
+<script>
+/* Contatore visite di Central: niente cookie, nessun servizio esterno. */
+(function(){try{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){navigator.sendBeacon(u,new Blob([d],{type:"text/plain"}));}else{fetch(u,{method:"POST",body:d,keepalive:true,mode:"no-cors"});}}catch(e){}})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* Selettore di lingua nell'intestazione: IT · EN · FR */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;background:#fff;border:1px solid #F1E3DA;font:600 13px/1 Inter,system-ui,sans-serif;flex:none}
+.lang-switch a{padding:6px 9px;border-radius:999px;color:#6B5C54;text-decoration:none;letter-spacing:.3px}
+.lang-switch a:hover{color:#D8481E}
+.lang-switch a[aria-current="true"]{background:linear-gradient(135deg,#F2854F,#E8613C);color:#fff}
+@media (max-width:600px){.lang-switch{font-size:11px;padding:2px}.lang-switch a{padding:5px 6px}}
+/* Con il selettore in più, i collegamenti centrali si nascondono un po' prima */
+@media (max-width:1200px){.site-nav .nav-links{display:none}}
+/* Sul telefono resta il logo senza scritta, per far stare tutto su una riga */
+@media (max-width:600px){.site-nav .brand .brand-font{display:none}.lang-switch{font-size:10.5px}.lang-switch a{padding:5px 5px}}
+/* La home ha piu' voci nel menu: si nascondono prima che vadano a capo */
+/* gap e corpo un po' piu' stretti per far stare sei voci + selettore */
+.site-nav-wide .nav-links{gap:16px}.site-nav-wide .nav-links a{font-size:14px}
+.site-nav .nav-links a{white-space:nowrap}
+.site-nav .brand{flex:none}
+@media (max-width:420px){.site-nav .nav-actions{gap:5px}.site-nav .nav-cta,.site-nav .nav-cta-alt,.site-nav .nav-report{padding:8px 8px}}
+@media (max-width:400px){.site-nav .nav-report{display:none}}

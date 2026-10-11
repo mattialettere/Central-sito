@@ -17,7 +17,6 @@
 <meta property="og:image" content="https://getcentral.net/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/favicon.ico">
 <style>
 :root{--bg:#fff8f5;--ink:#2d1c19;--muted:#705e58;--coral:#f15d3d;--coral-dark:#cf4326;--line:#f0d9d0;--card:#fff;--soft:#fff0ea}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -40,11 +39,21 @@ table{width:100%;border-collapse:collapse;min-width:650px} th,td{padding:14px 16
 footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted)} footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap} .foot-brand{font-weight:800;color:var(--ink)} .footer-links{display:flex;gap:18px;flex-wrap:wrap} .footer-links a{text-decoration:none;color:var(--muted)} .footer-links a:hover{color:var(--coral-dark)}
 @media(max-width:700px){.wrap{padding:0 16px}.nav{height:auto;min-height:68px;padding:12px 0}.brand{font-size:20px}.nav-links{justify-content:flex-end}.nav-links .btn{padding:8px 11px;font-size:13px}.privacy-card{border-radius:20px;padding:22px 18px}.hero{padding:46px 0 24px}h2{font-size:24px;margin-top:40px}}
 </style>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/lang.css">
+<link rel="alternate" hreflang="it" href="https://getcentral.net/privacy.html">
+<link rel="alternate" hreflang="en" href="https://getcentral.net/en/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://getcentral.net/fr/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://getcentral.net/privacy.html">
 </head>
 <body>
 <header><div class="wrap nav">
-<a class="brand" href="index.html"><img src="assets/central-logo.png" alt="Central">Central</a>
-<div class="nav-links"><a class="btn" href="index.html">Torna al sito</a><a class="btn primary" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica ora</a></div>
+<a class="brand" href="/"><img src="/assets/central-logo.png" alt="Central">Central</a>
+<div class="nav-links"><div class="lang-switch" role="navigation" aria-label="Lingua · Language"><a href="/privacy.html" hreflang="it" lang="it" aria-current="true">IT</a><a href="/en/privacy.html" hreflang="en" lang="en">EN</a><a href="/fr/privacy.html" hreflang="fr" lang="fr">FR</a></div><a class="btn" href="/">Torna al sito</a><a class="btn primary" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica ora</a></div>
 </div></header>
 <main>
 <section class="hero wrap"><div class="version">Versione 1.4</div><h1>Informativa sulla Privacy di Central</h1><div class="effective">In vigore dal 14 agosto 2026</div></section>
@@ -100,7 +109,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted)} 
 <p>In caso di modifiche sostanziali, la nuova versione sarà resa disponibile a questo stesso indirizzo con un numero di versione aggiornato, e potrà essere richiesta una nuova accettazione esplicita all&#x27;accesso successivo.</p>
 <p>Questa informativa è predisposta come base di conformità GDPR e non costituisce consulenza legale professionale. Si raccomanda una revisione da parte di un professionista prima della pubblicazione definitiva.</p></article></section>
 </main>
-<footer><div class="wrap"><div class="foot-brand">Central</div><div class="footer-links"><a href="index.html">Home</a><a href="aziende.html">Per le aziende</a><a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica ora</a><a href="segnala.html">Segnala</a><a href="privacy.html">Informativa Privacy</a></div><div>© Central</div></div></footer>
+<footer><div class="wrap"><div class="foot-brand">Central</div><div class="footer-links"><a href="/">Home</a><a href="/aziende.html">Per le aziende</a><a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica ora</a><a href="/segnala.html">Segnala</a><a href="/privacy.html">Informativa Privacy</a></div><div>© Central</div></div></footer>
 <script>
 /* Contatore visite di Central: niente cookie, nessun servizio esterno. */
 (function(){try{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){navigator.sendBeacon(u,new Blob([d],{type:"text/plain"}));}else{fetch(u,{method:"POST",body:d,keepalive:true,mode:"no-cors"});}}catch(e){}})();
