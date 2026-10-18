@@ -37,7 +37,12 @@
     '.mm-sheet .mm-dl{margin-top:16px;border:0;border-radius:999px;text-align:center;color:#fff;background:linear-gradient(135deg,#F2854F,#E8613C);padding:16px}' +
     '@media (max-width:1200px){.mm-btn{display:inline-flex}}' +
     /* sul telefono Login e Segnala stanno nel menu: si liberano posto in testata */
-    '@media (max-width:600px){.site-nav .nav-cta-alt,.site-nav .nav-report{display:none}.mm-btn{margin-left:4px;width:40px;height:40px}}' +
+    '@media (max-width:600px){.site-nav .nav-cta-alt:not(.nav-login),.site-nav .nav-report{display:none}.mm-btn{margin-left:4px;width:40px;height:40px}}' +
+    /* sul telefono resta "Registrati / Login", subito a destra di Scarica; le azioni si accostano al menu */
+    '@media (max-width:600px){.site-nav .nav-actions{margin-left:auto;gap:6px}.site-nav .nav-cta{order:1}.site-nav .nav-login{order:2}}' +
+    '.site-nav .nav-login .mobile-label{line-height:1.12;text-align:center}' +
+    '@media (max-width:600px){.site-nav .nav-login{display:inline-flex;align-items:center;padding:4px 10px;min-height:34px;font-size:11px;white-space:nowrap}.site-nav .nav-login .mobile-label{display:block}}' +
+    '@media (max-width:400px){.site-nav .wrap{gap:8px}.site-nav .nav-actions{gap:4px}.site-nav .nav-cta{padding:8px 8px;font-size:11px}.site-nav .nav-login{padding:4px 7px}}' +
     /* pagina privacy: i pulsanti "Torna al sito" e "Scarica" sono nel menu */
     '@media (max-width:700px){header .wrap.nav{flex-wrap:nowrap}header .wrap.nav .nav-links{flex-wrap:nowrap;margin-left:auto}header .wrap.nav .nav-links .btn{display:none}}' +
     'body.mm-lock{overflow:hidden}';
