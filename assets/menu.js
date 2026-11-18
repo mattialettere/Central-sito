@@ -7,11 +7,14 @@
   var lang = (document.documentElement.lang || 'it').slice(0, 2);
   var p = lang === 'en' ? '/en/' : lang === 'fr' ? '/fr/' : '/';
   var T = {
-    it: { menu: 'Menu', close: 'Chiudi', home: 'Home', f: 'Funzioni', s: 'Sicurezza', v: 'Video', b: 'Aziende', r: 'Segnala un problema', pr: 'Privacy', login: 'Dashboard Login', dl: 'Scarica gratis su Google Play' },
-    en: { menu: 'Menu', close: 'Close', home: 'Home', f: 'Features', s: 'Safety', v: 'Video', b: 'Business', r: 'Report a problem', pr: 'Privacy', login: 'Dashboard Login', dl: 'Get it free on Google Play' },
-    fr: { menu: 'Menu', close: 'Fermer', home: 'Accueil', f: 'Fonctions', s: 'Sécurité', v: 'Vidéo', b: 'Entreprises', r: 'Signaler un problème', pr: 'Confidentialité', login: 'Tableau de bord', dl: 'Gratuit sur Google Play' }
+    it: { menu: 'Menu', close: 'Chiudi', home: 'Home', f: 'Funzioni', s: 'Sicurezza', v: 'Video', b: 'Aziende', r: 'Segnala un problema', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Scarica per iPhone', dlA: 'Scarica per Android' },
+    en: { menu: 'Menu', close: 'Close', home: 'Home', f: 'Features', s: 'Safety', v: 'Video', b: 'Business', r: 'Report a problem', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Download for iPhone', dlA: 'Download for Android' },
+    fr: { menu: 'Menu', close: 'Fermer', home: 'Accueil', f: 'Fonctions', s: 'Sécurité', v: 'Vidéo', b: 'Entreprises', r: 'Signaler un problème', pr: 'Confidentialité', login: 'Tableau de bord', dlI: 'Télécharger pour iPhone', dlA: 'Télécharger pour Android' }
   }[lang] || null;
   if (!T) return;
+
+  var APPS = 'https://apps.apple.com/app/id6826663138';
+  var PLAY = 'https://play.google.com/store/apps/details?id=net.getcentral.central';
 
   var voci = [
     [T.home, p], [T.f, p + '#funzioni'], [T.s, p + '#sicurezza'], ['Central City', p + '#city'], [T.v, p + '#video'],
@@ -34,7 +37,7 @@
     '.mm-sheet a:active{color:#D8481E}.mm-sheet a[aria-current="page"]{color:#D8481E}' +
     '.mm-sheet hr{border:0;height:10px;margin:0}' +
     '.mm-sheet .mm-small{font-size:15px;font-weight:500;color:#6B5C54}' +
-    '.mm-sheet .mm-dl{margin-top:16px;border:0;border-radius:999px;text-align:center;color:#fff;background:linear-gradient(135deg,#F2854F,#E8613C);padding:16px}' +
+    '.mm-sheet .mm-dl{margin-top:12px;border:0;border-radius:999px;text-align:center;color:#fff;background:linear-gradient(135deg,#F2854F,#E8613C);padding:16px}' +
     '@media (max-width:1200px){.mm-btn{display:inline-flex}}' +
     /* sul telefono Login e Segnala stanno nel menu: si liberano posto in testata */
     '@media (max-width:600px){.site-nav .nav-cta-alt:not(.nav-login),.site-nav .nav-report{display:none}.mm-btn{margin-left:4px;width:40px;height:40px}}' +
@@ -71,10 +74,23 @@
       if (v[1] === qui) a.setAttribute('aria-current', 'page');
       sheet.appendChild(a);
     });
-    var dl = document.createElement('a');
-    dl.className = 'mm-dl'; dl.textContent = T.dl; dl.target = '_blank'; dl.rel = 'noopener';
-    dl.href = 'https://play.google.com/store/apps/details?id=net.getcentral.central';
-    sheet.appendChild(dl);
+    [[T.dlI, APPS], [T.dlA, PLAY]].forEach(function (d) {
+      var dl = document.createElement('a');
+      dl.className = 'mm-dl'; dl.textContent = d[0]; dl.target = '_blank'; dl.rel = 'noopener';
+      dl.href = d[1];
+      sheet.appendChild(dl);
+    });
+
+    // "Scarica" in testata: su iPhone/iPad porta all'App Store, su Android a
+    // Google Play; sul computer resta il collegamento alla sezione con entrambi.
+    var store = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ? APPS :
+      /Android/i.test(navigator.userAgent) ? PLAY : null;
+    if (store) {
+      Array.prototype.forEach.call(document.querySelectorAll('.site-nav a.nav-cta[href$="#scarica"]'), function (a) {
+        a.href = store; a.target = '_blank'; a.rel = 'noopener';
+      });
+    }
     panel.appendChild(sheet);
     document.body.appendChild(panel);
 

@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://getcentral.net/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/aziende.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/aziende.html"/>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/white-label.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/white-label.html"/>
@@ -49,7 +49,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/privacy.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/privacy.html"/>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/en/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -79,7 +79,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/en/aziende.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/aziende.html"/>
@@ -89,7 +89,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/en/white-label.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/white-label.html"/>
@@ -99,7 +99,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/en/privacy.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/privacy.html"/>
@@ -119,7 +119,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/fr/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/fr/aziende.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/aziende.html"/>
@@ -139,7 +139,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/fr/white-label.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/white-label.html"/>
@@ -149,7 +149,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/fr/privacy.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/privacy.html"/>
