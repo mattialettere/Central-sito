@@ -3,51 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pulizie – Video Central</title>
-<meta name="description" content="Per chi pulisce uffici e cantieri da solo, prima dell'apertura o dopo la chiusura.">
+<title>Central per le imprese di pulizie – Central</title>
+<meta name="description" content="Central per le imprese di pulizie: SOS, check-in di fine turno e pannello web per proteggere gli operatori che puliscono da soli, la sera o all&#x27;alba. Prova gratuita di 30 giorni.">
 <link rel="canonical" href="https://getcentral.net/video/pulizie.html">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#EA5B2E">
-<meta property="og:type" content="video.other">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Central">
-<meta property="og:title" content="Pulizie – Video Central">
-<meta property="og:description" content="Per chi pulisce uffici e cantieri da solo, prima dell'apertura o dopo la chiusura.">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://getcentral.net/video/pulizie.html">
+<meta property="og:title" content="Central per le imprese di pulizie">
+<meta property="og:description" content="Central per le imprese di pulizie: SOS, check-in di fine turno e pannello web per proteggere gli operatori che puliscono da soli, la sera o all&#x27;alba. Prova gratuita di 30 giorni.">
 <meta property="og:image" content="https://getcentral.net/video/central-aziende-pulizie-poster.jpg">
 <meta property="og:video" content="https://getcentral.net/video/central-aziende-pulizie.mp4">
 <meta property="og:video:type" content="video/mp4">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url(/assets/fonts/inter-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'Fredoka';font-weight:600;font-display:swap;src:url(/assets/fonts/fredoka-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Fredoka';font-weight:700;font-display:swap;src:url(/assets/fonts/fredoka-latin-700-normal.woff2) format('woff2')}</style>
 <style>
-:root{--bg-top:#FFF8F0;--bg-bot:#FDEBDA;--card:#FFFDFA;--card-border:#F2E3D3;--ink:#2A1F16;--ink-soft:#6E5F53;--coral-400:#F5936A;--coral-500:#EA5B2E;--coral-600:#D8481E}
-@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format('woff2')}
-@font-face{font-family:'Fredoka';font-weight:700;font-display:swap;src:url(/assets/fonts/fredoka-latin-700-normal.woff2) format('woff2')}
+:root{--bg-top:#FFF8F0;--bg-bot:#FDEBDA;--card:#FFFDFA;--card-border:#F2E3D3;--ink:#2A1F16;--ink-muted:#9C8C7E;--ink-soft:#6E5F53;--coral-300:#FDBE99;--coral-400:#F5936A;--coral-500:#EA5B2E;--coral-600:#D8481E;--tint:#FCEFE6;--radius:22px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:linear-gradient(180deg,var(--bg-top),var(--bg-bot));min-height:100vh;color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.5}
-a{color:inherit}
-.wrap{max-width:440px;margin:0 auto;padding:24px 16px 48px}
-.brand{display:flex;align-items:center;gap:10px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:20px;text-decoration:none;margin-bottom:24px}
+body{background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 60%,var(--bg-bot));color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a:focus-visible{outline:2px solid var(--coral-500);outline-offset:2px}
+.site-nav{position:sticky;top:0;z-index:50;background:rgba(255,248,240,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--card-border)}
+.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:19px}
 .brand img{width:32px;height:32px;border-radius:9px}
-h1{font-family:'Fredoka',sans-serif;font-size:clamp(26px,5vw,36px);line-height:1.1;margin-bottom:8px}
-p.lead{color:var(--ink-soft);margin-bottom:20px}
-video{width:100%;height:auto;border-radius:18px;background:#000;box-shadow:0 18px 40px -20px rgba(42,31,22,.45);display:block}
-.stores{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 12px}
-.btn{padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--coral-400),var(--coral-600))}
-.btn.alt{color:var(--coral-600);background:#fff;border:1px solid var(--card-border)}
-.more{font-size:15px;color:var(--ink-soft)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.nav-link{font-size:14px;color:var(--ink-soft);font-weight:500;padding:8px 10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--coral-400),var(--coral-600));box-shadow:0 6px 16px -6px rgba(216,72,30,.55);white-space:nowrap}
+.btn.sm{padding:9px 18px;font-size:14px}
+.btn.alt{color:var(--coral-600);background:#fff;border:1px solid var(--card-border);box-shadow:none}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:14px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral-500)}
+h1{font-family:'Fredoka',sans-serif;font-size:clamp(30px,4.4vw,48px);font-weight:700;line-height:1.1;margin-bottom:18px;text-wrap:balance}
+h1 em,h2 em{font-style:normal;color:var(--coral-500)}
+h2{font-family:'Fredoka',sans-serif;font-size:clamp(24px,3vw,34px);line-height:1.15;margin-bottom:10px;text-wrap:balance}
+.lead{font-size:17px;color:var(--ink-soft);margin-bottom:26px;max-width:560px}
+.sub{color:var(--ink-soft);max-width:620px;margin-bottom:28px}
+.hero{padding:48px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero.wide .wrap{grid-template-columns:1fr}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.note{font-size:13.5px;color:var(--ink-muted);margin-top:14px}
+.player{justify-self:center;width:100%;max-width:340px}
+.hero.wide .player{max-width:900px}
+video{width:100%;height:auto;border-radius:20px;background:#000;box-shadow:0 22px 44px -22px rgba(42,31,22,.5);display:block}
+section{padding:44px 0}
+.case{display:grid;gap:14px;margin-top:8px;counter-reset:s}
+.step{display:grid;grid-template-columns:96px 1fr;gap:16px;background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:18px 20px}
+.step .t{font-weight:700;color:var(--coral-600);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--ink-soft);font-size:15px}
+.plan{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:var(--coral-600);background:var(--tint);border-radius:999px;padding:3px 10px}
+.vant .card{border-left:4px solid var(--coral-400)}
+.privacy{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font-size:14.5px;color:var(--ink-soft)}
+.privacy b{display:block;color:var(--ink);margin-bottom:4px}
+.cta{background:linear-gradient(135deg,var(--coral-400),var(--coral-600));color:#fff;border-radius:28px;padding:36px 28px;text-align:center}
+.cta h2{color:#fff}
+.cta p{opacity:.92;max-width:560px;margin:0 auto 22px}
+.cta .btn{background:#fff;color:var(--coral-600);box-shadow:none}
+.cta .btn.alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.cta .actions{justify-content:center}
+.stores{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px;font-size:14px}
+.stores a{text-decoration:underline;text-underline-offset:3px}
+.others{display:flex;flex-wrap:wrap;gap:10px}
+.others a{padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--card-border);font-size:14px;font-weight:500}
+.others a:hover{border-color:var(--coral-400)}
+.others a[aria-current]{background:var(--tint);border-color:var(--coral-300);color:var(--coral-600)}
+footer{padding:36px 0 44px;border-top:1px solid var(--card-border);margin-top:40px;font-size:14px;color:var(--ink-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+footer .links{display:flex;flex-wrap:wrap;gap:16px}
+footer a:hover{color:var(--ink)}
+@media (max-width:860px){
+ .hero .wrap{grid-template-columns:1fr;gap:28px}
+ .grid,.grid.two{grid-template-columns:1fr}
+ .privacy{grid-template-columns:1fr 1fr}
+ .nav-link{display:none}
+}
+@media (max-width:520px){
+ .wrap{padding:0 16px}
+ .hero{padding:28px 0 24px}
+ .step{grid-template-columns:1fr;gap:4px;padding:16px}
+ .privacy{grid-template-columns:1fr}
+ .cta{padding:28px 18px}
+ .btn{white-space:normal;text-align:center}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<nav class="site-nav"><div class="wrap">
 <a class="brand" href="/"><img src="/assets/central-logo.png" alt="">Central</a>
-<h1>Pulizie</h1>
-<p class="lead">Per chi pulisce uffici e cantieri da solo, prima dell'apertura o dopo la chiusura.</p>
-<video controls playsinline preload="metadata" poster="/video/central-aziende-pulizie-poster.jpg">
+<div class="nav-actions">
+<a class="nav-link" href="/aziende.html">Per le aziende</a>
+<a class="nav-link" href="/aziende.html#prezzi">Prezzi</a>
+<a class="btn sm" href="/aziende.html#contatti">Prova gratis</a>
+</div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div>
+<div class="eyebrow">Imprese di pulizie</div>
+<h1>Pulizie la sera e all'alba, <em>mai davvero da soli</em>.</h1>
+<p class="lead">Uffici vuoti, condomini, data center, cantieri: spesso l'operatore è l'unica persona nell'edificio. Con Central ha un SOS in tasca, e l'ufficio sa subito se un turno non si chiude come previsto.</p>
+<div class="actions">
+<a class="btn" href="/aziende.html#contatti">Richiedi 30 giorni gratis</a>
+<a class="btn alt" href="/aziende.html#prezzi">Vedi i prezzi</a>
+</div>
+<p class="note">Da 6 € al mese per persona · IVA esclusa · coordinatori gratis · iPhone e Android</p>
+</div>
+<div class="player">
+<video controls playsinline preload="metadata" poster="/video/central-aziende-pulizie-poster.jpg" aria-label="Video: Central per le imprese di pulizie">
 <source src="/video/central-aziende-pulizie.mp4" type="video/mp4">
 </video>
+</div>
+</div></header>
+
+<section><div class="wrap">
+<div class="eyebrow">Caso d'uso</div>
+<h2>Un turno tipo</h2>
+<p class="sub">Anna pulisce tre uffici in centro dopo la chiusura. Nessun collega con lei, nessuno in portineria.</p>
+<div class="case">
+<div class="step"><div class="t">21:00</div><div>Il turno di Anna è già nel pannello, caricato dal foglio Excel dei turni. Al primo ufficio conferma l'inizio con un tocco.</div></div>
+<div class="step"><div class="t">22:40</div><div>Nel secondo ufficio entra una persona che non dovrebbe esserci. Anna apre il Centro di Controllo e preme SOS: il responsabile riceve posizione e un breve video.</div></div>
+<div class="step"><div class="t">22:41</div><div>Il responsabile tocca "Me ne occupo io" e la chiama. Gli altri referenti vedono che qualcuno se ne sta già occupando.</div></div>
+<div class="step"><div class="t">00:30</div><div>Le sere normali, Anna conferma la fine del turno. Se non lo fa entro il margine, l'ufficio riceve un avviso.</div></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="eyebrow">Cosa usate di Central</div>
+<h2>Le funzioni che servono a voi</h2>
+<p class="sub">Tutto nell'app che l'operatore ha già sul telefono, più un pannello web per chi coordina.</p>
+<div class="grid">
+<div class="card"><h3>Check-in a orario</h3><p>Si concorda un orario, per esempio la fine del turno. Se l'operatore non conferma entro il margine, il coordinatore riceve un avviso.</p><span class="plan">Base e Completo</span></div>
+<div class="card"><h3>Turni caricati da Excel</h3><p>Il piano turni che avete già si carica nel pannello web così com'è, in CSV o Excel: i check-in di inizio e fine turno partono da soli, anche per i turni di notte.</p><span class="plan">Base e Completo</span></div>
+<div class="card"><h3>SOS con un tocco</h3><p>Dall'app anche a schermo bloccato: su Android dal widget o dal riquadro rapido, su iPhone dal Centro di Controllo o con Siri. Invia la posizione e un breve video alle persone scelte.</p><span class="plan">Base e Completo</span></div>
+<div class="card"><h3>Chat cifrata di servizio</h3><p>Messaggi, gruppi e chiamate vocali cifrati end-to-end, al posto dei gruppi WhatsApp. Adatta anche a informazioni delicate su clienti e assistiti.</p><span class="plan">Base e Completo</span></div>
+<div class="card"><h3>Pannello web</h3><p>Avvisi, check-in, mappa e storico in un'unica schermata dal computer, per la centrale o per l'ufficio. Lo storico si esporta in CSV.</p><span class="plan">Base · Completo con mappa e CSV</span></div>
+<div class="card"><h3>Rapporto mensile</h3><p>Il primo del mese i referenti ricevono il riepilogo per operatore: check-in previsti e mancati, SOS e tempi di presa in carico, viaggi. In CSV, senza posizioni né contenuti dei messaggi.</p><span class="plan">Completo</span></div>
+</div>
+</div></section>
+
+<section class="vant"><div class="wrap">
+<div class="eyebrow">Vantaggi</div>
+<h2>Cosa cambia per la vostra azienda</h2>
+<div class="grid two" style="margin-top:22px">
+<div class="card"><h3>Valutazione dei rischi più solida</h3><p>Un sistema concreto per il lavoro isolato, da indicare nel DVR e da mostrare a RSPP e committenti.</p></div>
+<div class="card"><h3>Zero lavoro in più per l'ufficio</h3><p>I turni si caricano dal file che usate già. Nessuno deve ricordarsi di telefonare a fine serata.</p></div>
+<div class="card"><h3>Gli operatori lo usano davvero</h3><p>È un'app semplice sul telefono che hanno già, su iPhone o Android. Un tocco per dire "ho finito, sto bene".</p></div>
+<div class="card"><h3>Documenti per gare e certificazioni</h3><p>Storico e rapporto mensile esportabili: utili per ISO 45001, SA8000 e capitolati che chiedono tutele per chi lavora da solo.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="privacy">
+<div><b>Cifrato end-to-end</b>Messaggi, foto e posizioni dei viaggi: nemmeno Central può leggerli.</div>
+<div><b>Server in Europa</b>Nessuna pubblicità e nessuna vendita di dati.</div>
+<div><b>Niente tracciamento continuo</b>La posizione parte solo con un SOS, un viaggio avviato o un perimetro concordato.</div>
+<div><b>App italiana</b>Su iPhone e Android, nella stessa squadra.</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="cta">
+<h2>Proviamo insieme per 30 giorni</h2>
+<p>Tutte le funzioni del piano Completo, per il numero di persone che volete. Una chiamata di 20 minuti per configurare tutto, senza impegno e senza carta.</p>
+<div class="actions">
+<a class="btn" href="mailto:info@getcentral.net?subject=Prova Central – Imprese di pulizie">Scriveteci a info@getcentral.net</a>
+<a class="btn alt" href="/aziende.html">Scopri Central per le aziende</a>
+</div>
 <div class="stores">
-<a class="btn" href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">App Store (iPhone)</a>
-<a class="btn" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Google Play (Android)</a>
+<a href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">Scarica su App Store</a>
+<a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica su Google Play</a>
 </div>
-<p class="more"><a href="/aziende.html">Central per le aziende: prezzi e prova gratuita di 30 giorni</a></p>
 </div>
+</div></section>
+
+<section><div class="wrap">
+<div class="eyebrow">Altri settori</div>
+<div class="others">
+<a href="/video/pulizie.html" aria-current="page">Imprese di pulizie</a>
+<a href="/video/vigilanza.html">Vigilanza e portierato</a>
+<a href="/video/domiciliare.html">Assistenza domiciliare</a>
+<a href="/video/tecnici.html">Manutenzione e reperibilità</a>
+<a href="/video/remoti.html">Lavoro in zone isolate</a>
+<a href="/video/appuntamenti.html">Visite e appuntamenti</a>
+<a href="/video/aziende.html">Panoramica</a>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<a class="brand" href="/"><img src="/assets/central-logo.png" alt="">Central</a>
+<div class="links">
+<a href="/">Home</a>
+<a href="/aziende.html">Per le aziende</a>
+<a href="/white-label.html">White label</a>
+<a href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">App Store</a>
+<a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Google Play</a>
+<a href="/privacy.html">Privacy</a>
+</div>
+</div></footer>
 </body>
 </html>
