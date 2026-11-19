@@ -167,4 +167,39 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://getcentral.net/fr/segnala.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/segnala.html"/>
   </url>
+  <url>
+    <loc>https://getcentral.net/video/pulizie.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/vigilanza.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/domiciliare.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/tecnici.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/remoti.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/appuntamenti.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/video/aziende.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
