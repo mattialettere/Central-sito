@@ -1,0 +1,49 @@
+    <div class="answer">
+      <p><strong>In short:</strong> in Central, messages, photos, videos, voice notes, whiteboards, trip locations and SOS alerts are end-to-end encrypted on the phone with X25519 and AES-256-GCM. Private keys stay on the devices and the cryptographic code is <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">public on GitHub</a>. The server does see metadata, meaning who talks to whom and when, and the system does not yet offer forward secrecy.</p>
+    </div>
+
+    <h2>What end-to-end encryption means</h2>
+    <p>With end-to-end encryption a message is encrypted on the sender's phone and decrypted only on the recipient's phone. The server in between carries unreadable data: whoever runs the service, a hosting provider or someone who broke into the server cannot read the content.</p>
+    <p>This is different from encryption "in transit" (HTTPS), which protects data while it travels but leaves it readable to the server. The EFF guide <a href="https://ssd.eff.org/module/what-should-i-know-about-encryption" target="_blank" rel="noopener">"What should I know about encryption?"</a> explains the difference well.</p>
+
+    <h2>How it works in Central</h2>
+    <h3>Keys</h3>
+    <p>On first sign-in the phone generates an X25519 key pair for your account. The public key goes to the server so others can encrypt for you; the private key stays on the phone, stored with the system's protections (Keychain on iPhone, Keystore on Android). It only leaves the phone if you choose to save a backup, and then it is already encrypted.</p>
+    <h3>One-to-one chats</h3>
+    <p>The two phones derive a shared key with X25519 and encrypt every message with AES-256-GCM, which also protects against tampering: an altered message is rejected.</p>
+    <h3>Groups</h3>
+    <p>Each group has its own AES-256 key, delivered to every member encrypted with their public key.</p>
+    <h3>Photos, videos and files</h3>
+    <p>Every file is encrypted with AES-GCM before upload. It reaches the storage server, in France, already encrypted.</p>
+    <h3>Key backup</h3>
+    <p>To recover your chats on a new phone you can save a key backup protected by a passphrase. The backup key is derived from the passphrase with PBKDF2-SHA256 at 210,000 iterations, which makes guessing it slow and expensive.</p>
+    <h3>Voice calls</h3>
+    <p>Call audio travels encrypted between the two phones with DTLS-SRTP, the WebRTC standard. When a relay server (TURN) is needed, it carries the encrypted audio without being able to listen to it.</p>
+
+    <h2>What encryption does not cover</h2>
+    <p>We prefer to say this plainly, because promising "absolute security" is not honest for any app.</p>
+    <ul>
+      <li><strong>Metadata</strong>: the server knows who is in touch with whom, when messages are sent and how large they are. It needs this to deliver them.</li>
+      <li><strong>No forward secrecy</strong>: Central does not change keys with every message the way "double ratchet" protocols do (for example <a href="https://signal.org/docs/" target="_blank" rel="noopener">Signal's</a>). If someone obtained a device's private key, they could also read past encrypted messages they had stored.</li>
+      <li><strong>The phone itself</strong>: anyone with your unlocked phone sees your chats as you do. Lock your screen with a passcode.</li>
+      <li><strong>Safe zones</strong>: to alert your followers when you leave a zone, the server knows the zone's centre and radius and the exit locations, which it deletes after 3 days.</li>
+      <li><strong>Not anonymous</strong>: you need an account to use Central. Encryption protects content; it does not hide who you are.</li>
+    </ul>
+
+    <h2>Open and verifiable code</h2>
+    <p>Central's cryptographic code is published under the Apache-2.0 licence in the <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">central-crypto</a> repository, with test vectors shared between Android and iPhone. Anyone can check that both apps encrypt the same way. The rest of the app is not open source.</p>
+
+    <h2>Where the data lives</h2>
+    <p>Central's server runs on Railway in its European region; Railway is a US company. Encrypted photos, videos and files are stored by Scaleway in France. Some technical services come from US providers: push notifications (Google Firebase and Apple), maps (Mapbox) and email (Resend). The full list is in the <a href="/en/privacy.html">privacy policy</a>.</p>
+
+    <h2>How to choose a private messaging app</h2>
+    <p>A few useful questions that apply to any app:</p>
+    <ul>
+      <li>Is end-to-end encryption on for every chat, or do you have to turn it on?</li>
+      <li>Is the cryptographic code public and verifiable?</li>
+      <li>Does the app live on advertising or sell data?</li>
+      <li>Does the company say openly what it can see, such as metadata?</li>
+      <li>Where are the servers and which providers handle the data?</li>
+    </ul>
+    <p>If what you need most is maximum message protection, a dedicated app such as Signal remains the benchmark. Central is designed for people who want encrypted chat and personal safety tools in the same app.</p>
+    <p class="see-also">See also: <a href="/en/features.html">all features</a> · <a href="/en/faq.html">FAQ</a> · <a href="/en/privacy.html">privacy policy</a></p>

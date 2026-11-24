@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>End-to-end encrypted chat: how Central protects your messages</title>
+<meta name="description" content="What end-to-end encryption means and how Central uses it: X25519, AES-256-GCM, keys on the phone and open source code. With its limits stated openly.">
+<link rel="canonical" href="https://getcentral.net/en/encrypted-chat.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#EA5B2E">
+<meta name="apple-itunes-app" content="app-id=6826663138">
+<link rel="alternate" hreflang="it" href="https://getcentral.net/chat-crittografata.html">
+<link rel="alternate" hreflang="en" href="https://getcentral.net/en/encrypted-chat.html">
+<link rel="alternate" hreflang="x-default" href="https://getcentral.net/chat-crittografata.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Central">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:url" content="https://getcentral.net/en/encrypted-chat.html">
+<meta property="og:title" content="End-to-end encrypted chat: how Central protects your messages">
+<meta property="og:description" content="What end-to-end encryption means and how Central uses it: X25519, AES-256-GCM, keys on the phone and open source code. With its limits stated openly.">
+<meta property="og:image" content="https://getcentral.net/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Central end-to-end encrypted chat with messages, photos and voice notes">
+<meta property="article:modified_time" content="2026-11-24">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="End-to-end encrypted chat: how Central protects your messages">
+<meta name="twitter:description" content="What end-to-end encryption means and how Central uses it: X25519, AES-256-GCM, keys on the phone and open source code. With its limits stated openly.">
+<meta name="twitter:image" content="https://getcentral.net/assets/og-image.jpg">
+
+<link rel="preload" href="/assets/fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/lang.css">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://getcentral.net/en/encrypted-chat.html#webpage",
+   "url": "https://getcentral.net/en/encrypted-chat.html",
+   "name": "End-to-end encrypted chat: what it really protects",
+   "headline": "End-to-end encrypted chat: how Central protects your messages",
+   "description": "What end-to-end encryption means and how Central uses it: X25519, AES-256-GCM, keys on the phone and open source code. With its limits stated openly.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://getcentral.net/#website"
+   },
+   "about": {
+    "@id": "https://getcentral.net/#app"
+   },
+   "publisher": {
+    "@id": "https://getcentral.net/#org"
+   },
+   "primaryImageOfPage": "https://getcentral.net/assets/funzioni/chat.webp",
+   "dateModified": "2026-11-24",
+   "breadcrumb": {
+    "@id": "https://getcentral.net/en/encrypted-chat.html#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://getcentral.net/en/encrypted-chat.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://getcentral.net/en/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Encrypted chat",
+     "item": "https://getcentral.net/en/encrypted-chat.html"
+    }
+   ]
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://getcentral.net/#org",
+   "name": "Central",
+   "url": "https://getcentral.net/",
+   "logo": "https://getcentral.net/assets/favicon-512.png",
+   "email": "info@getcentral.net"
+  },
+  {
+   "@type": "MobileApplication",
+   "@id": "https://getcentral.net/#app",
+   "name": "Central: chat e sicurezza",
+   "alternateName": "Central",
+   "operatingSystem": "iOS, Android",
+   "applicationCategory": "CommunicationApplication",
+   "url": "https://getcentral.net/",
+   "downloadUrl": [
+    "https://apps.apple.com/app/id6826663138",
+    "https://play.google.com/store/apps/details?id=net.getcentral.central"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+   },
+   "publisher": {
+    "@id": "https://getcentral.net/#org"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Skip to content</a>
+
+<header class="site-nav site-nav-wide">
+  <div class="wrap">
+    <a class="brand" href="/en/" aria-label="Central, home page"><img src="/assets/central-logo.png" alt="" width="34" height="34" class="mark-img"><span class="brand-font">Central</span></a>
+    <nav class="nav-links" aria-label="Guides">
+      <a href="/en/features.html">Features</a>
+      <a href="/en/sos-emergency-app.html">SOS</a>
+      <a href="/en/encrypted-chat.html" aria-current="page">Encrypted chat</a>
+      <a href="/en/family-safety.html">Family</a>
+      <a href="/en/faq.html">FAQ</a>
+      <a href="/en/aziende.html">Business</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Lingua · Language"><a href="/chat-crittografata.html" hreflang="it" lang="it">IT</a><a href="/en/encrypted-chat.html" hreflang="en" lang="en" aria-current="true">EN</a></div>
+      <a class="nav-report" href="/en/segnala.html">Report</a>
+      <a class="nav-cta-alt nav-login" aria-label="Sign up / Login" href="https://online.getcentral.net/guardian-dashboard/panel"><span class="desktop-label">Dashboard Login</span><span class="mobile-label">Sign up<br>Login</span></a>
+      <a class="nav-cta" href="#scarica">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenuto">
+<section class="hero guide-hero">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Encrypted chat</span></nav>
+      <div class="eyebrow">Private chat</div>
+      <h1>End-to-end encrypted chat: <em>what it really protects</em></h1>
+      <p class="lead">A chat is private when only the sender and the recipients can open the messages. Here we explain what end-to-end encryption means, how Central implements it and, just as clearly, what it does not cover.</p>
+      <div class="actions" style="margin-top:24px">
+        <a class="btn-primary" href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">Download for iPhone</a>
+        <a class="btn-primary" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Download for Android</a>
+      </div>
+      <p class="updated">Updated on <time datetime="2026-11-24">24 November 2026</time></p>
+    </div>
+    <div class="hero-visual">
+      <img src="/assets/funzioni/chat.webp" width="480" height="960" alt="Central end-to-end encrypted chat with messages, photos and voice notes" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<section class="guide">
+  <div class="wrap prose">
+    <div class="answer">
+      <p><strong>In short:</strong> in Central, messages, photos, videos, voice notes, whiteboards, trip locations and SOS alerts are end-to-end encrypted on the phone with X25519 and AES-256-GCM. Private keys stay on the devices and the cryptographic code is <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">public on GitHub</a>. The server does see metadata, meaning who talks to whom and when, and the system does not yet offer forward secrecy.</p>
+    </div>
+
+    <h2>What end-to-end encryption means</h2>
+    <p>With end-to-end encryption a message is encrypted on the sender's phone and decrypted only on the recipient's phone. The server in between carries unreadable data: whoever runs the service, a hosting provider or someone who broke into the server cannot read the content.</p>
+    <p>This is different from encryption "in transit" (HTTPS), which protects data while it travels but leaves it readable to the server. The EFF guide <a href="https://ssd.eff.org/module/what-should-i-know-about-encryption" target="_blank" rel="noopener">"What should I know about encryption?"</a> explains the difference well.</p>
+
+    <h2>How it works in Central</h2>
+    <h3>Keys</h3>
+    <p>On first sign-in the phone generates an X25519 key pair for your account. The public key goes to the server so others can encrypt for you; the private key stays on the phone, stored with the system's protections (Keychain on iPhone, Keystore on Android). It only leaves the phone if you choose to save a backup, and then it is already encrypted.</p>
+    <h3>One-to-one chats</h3>
+    <p>The two phones derive a shared key with X25519 and encrypt every message with AES-256-GCM, which also protects against tampering: an altered message is rejected.</p>
+    <h3>Groups</h3>
+    <p>Each group has its own AES-256 key, delivered to every member encrypted with their public key.</p>
+    <h3>Photos, videos and files</h3>
+    <p>Every file is encrypted with AES-GCM before upload. It reaches the storage server, in France, already encrypted.</p>
+    <h3>Key backup</h3>
+    <p>To recover your chats on a new phone you can save a key backup protected by a passphrase. The backup key is derived from the passphrase with PBKDF2-SHA256 at 210,000 iterations, which makes guessing it slow and expensive.</p>
+    <h3>Voice calls</h3>
+    <p>Call audio travels encrypted between the two phones with DTLS-SRTP, the WebRTC standard. When a relay server (TURN) is needed, it carries the encrypted audio without being able to listen to it.</p>
+
+    <h2>What encryption does not cover</h2>
+    <p>We prefer to say this plainly, because promising "absolute security" is not honest for any app.</p>
+    <ul>
+      <li><strong>Metadata</strong>: the server knows who is in touch with whom, when messages are sent and how large they are. It needs this to deliver them.</li>
+      <li><strong>No forward secrecy</strong>: Central does not change keys with every message the way "double ratchet" protocols do (for example <a href="https://signal.org/docs/" target="_blank" rel="noopener">Signal's</a>). If someone obtained a device's private key, they could also read past encrypted messages they had stored.</li>
+      <li><strong>The phone itself</strong>: anyone with your unlocked phone sees your chats as you do. Lock your screen with a passcode.</li>
+      <li><strong>Safe zones</strong>: to alert your followers when you leave a zone, the server knows the zone's centre and radius and the exit locations, which it deletes after 3 days.</li>
+      <li><strong>Not anonymous</strong>: you need an account to use Central. Encryption protects content; it does not hide who you are.</li>
+    </ul>
+
+    <h2>Open and verifiable code</h2>
+    <p>Central's cryptographic code is published under the Apache-2.0 licence in the <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">central-crypto</a> repository, with test vectors shared between Android and iPhone. Anyone can check that both apps encrypt the same way. The rest of the app is not open source.</p>
+
+    <h2>Where the data lives</h2>
+    <p>Central's server runs on Railway in its European region; Railway is a US company. Encrypted photos, videos and files are stored by Scaleway in France. Some technical services come from US providers: push notifications (Google Firebase and Apple), maps (Mapbox) and email (Resend). The full list is in the <a href="/en/privacy.html">privacy policy</a>.</p>
+
+    <h2>How to choose a private messaging app</h2>
+    <p>A few useful questions that apply to any app:</p>
+    <ul>
+      <li>Is end-to-end encryption on for every chat, or do you have to turn it on?</li>
+      <li>Is the cryptographic code public and verifiable?</li>
+      <li>Does the app live on advertising or sell data?</li>
+      <li>Does the company say openly what it can see, such as metadata?</li>
+      <li>Where are the servers and which providers handle the data?</li>
+    </ul>
+    <p>If what you need most is maximum message protection, a dedicated app such as Signal remains the benchmark. Central is designed for people who want encrypted chat and personal safety tools in the same app.</p>
+    <p class="see-also">See also: <a href="/en/features.html">all features</a> · <a href="/en/faq.html">FAQ</a> · <a href="/en/privacy.html">privacy policy</a></p>
+  </div>
+</section>
+
+<section id="scarica" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Get Central, it's free</h2>
+        <p>On the App Store for iPhone and on Google Play for Android. The essential safety features are free.</p>
+      </div>
+      <div class="actions">
+        <a class="btn-white" href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">Download on the App Store</a>
+        <a class="btn-white" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Get it on Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/central-logo.png" alt="" width="26" height="26" class="mark-img mark-img-sm"><span class="brand-font">Central</span></a>
+    <div class="tag-line">You are Central. · <a href="mailto:info@getcentral.net">info@getcentral.net</a></div>
+    <nav class="links" aria-label="Footer">
+      <a href="/en/aziende.html">Business</a>
+      <a href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard</a>
+      <a href="/stampa.html">Press (IT)</a>
+      <a href="/en/privacy.html">Privacy</a>
+      <a href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Google Play</a>
+    </nav>
+    <p class="guide-links">Guides: <a href="/en/features.html">All features</a> · <a href="/en/sos-emergency-app.html">SOS emergency app</a> · <a href="/en/encrypted-chat.html">Encrypted chat</a> · <a href="/en/family-safety.html">Family safety</a> · <a href="/en/faq.html">FAQ</a></p>
+  </div>
+</footer>
+<script>
+/* Contatore visite di Central: niente cookie, nessun servizio esterno. */
+(function(){try{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){navigator.sendBeacon(u,new Blob([d],{type:"text/plain"}));}else{fetch(u,{method:"POST",body:d,keepalive:true,mode:"no-cors"});}}catch(e){}})();
+</script>
+<script src="/assets/menu.js" defer></script>
+</body>
+</html>

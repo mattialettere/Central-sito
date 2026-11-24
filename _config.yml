@@ -1,0 +1,10 @@
+# GitHub Pages (Jekyll): cartelle e file del repository che NON vanno
+# pubblicati su getcentral.net. Sono documenti interni, strumenti e un file
+# del backend finito qui per errore. Le pagine .html del sito non hanno
+# front matter, quindi Jekyll le copia cosi' come sono.
+exclude:
+  - docs/
+  - tools/
+  - reports/
+  - main.py
+  - README.md

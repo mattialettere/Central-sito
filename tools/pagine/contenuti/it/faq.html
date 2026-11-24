@@ -1,0 +1,40 @@
+    <h2>Che cos'è Central</h2>
+    <div class="faq">
+      <details open><summary>Che cos'è Central?</summary><p>Central è un'app gratuita per iPhone e Android che unisce chat cifrata end-to-end, chiamate vocali, gruppi e community con funzioni di sicurezza personale: SOS, check-in "Sto bene", Viaggia sicuro e zone sicure. Non ha pubblicità e non vende dati.</p></details>
+      <details><summary>Come funziona Central?</summary><p>Ti registri, aggiungi i tuoi contatti e scrivi come in qualsiasi chat. Quando vuoi, scegli chi ti segue e chi sono i tuoi contatti di emergenza: riceveranno un avviso se invii un SOS, se non confermi un check-in, se non arrivi alla meta di un viaggio o se esci da una zona concordata.</p></details>
+      <details><summary>Central è gratuita?</summary><p>Sì. Chat, gruppi, chiamate, SOS, check-in e Viaggia sicuro sono gratuiti. I piani Plus e Premium aumentano il numero di contatti di emergenza, di persone che ti seguono e di zone sicure, allungano lo storico e aggiungono la mappa dal vivo nel pannello web. Si attivano dall'app tramite App Store o Google Play.</p></details>
+      <details><summary>Central è disponibile per Android?</summary><p>Sì, su Google Play, in italiano, inglese, spagnolo, tedesco, francese e albanese.</p></details>
+      <details><summary>Central è disponibile per iPhone?</summary><p>Sì, sull'App Store, in italiano e inglese. Chat, chiamate e avvisi funzionano tra iPhone e Android senza differenze.</p></details>
+      <details><summary>Come si scarica Central?</summary><p>Dall'App Store su iPhone (apps.apple.com/app/id6826663138) o da Google Play su Android (cerca "Central: chat e sicurezza" o usa i pulsanti in questa pagina).</p></details>
+      <details><summary>Chi sviluppa Central?</summary><p>Central è un'app italiana sviluppata in modo indipendente. Per contatti, stampa e collaborazioni: info@getcentral.net.</p></details>
+    </div>
+
+    <h2>Chat e privacy</h2>
+    <div class="faq">
+      <details><summary>Central offre chat private?</summary><p>Sì. Chat a due e di gruppo, con messaggi, foto, video, vocali, file e lavagne cifrati end-to-end: solo i partecipanti possono leggerli, nemmeno Central.</p></details>
+      <details><summary>Come funziona la crittografia di Central?</summary><p>Ogni account ha una coppia di chiavi X25519 generata sul telefono; i messaggi sono cifrati con AES-256-GCM, i gruppi con una chiave AES-256 condivisa tra i membri, i file con AES-GCM. Il codice crittografico è open source (github.com/mattialettere/central-crypto). Il server vede i metadati (chi scrive a chi e quando) e il sistema non offre forward secrecy.</p></details>
+      <details><summary>Le chiamate sono cifrate?</summary><p>Sì. L'audio viaggia cifrato tra i due telefoni con DTLS-SRTP, lo standard di WebRTC, anche quando passa da un server di inoltro. Central offre solo chiamate vocali, non videochiamate.</p></details>
+      <details><summary>Central è anonima?</summary><p>No. Serve un account e il server sa con chi sei in contatto. La cifratura protegge il contenuto dei messaggi, non l'identità.</p></details>
+      <details><summary>Come vengono gestiti i dati personali?</summary><p>Il server gira su Railway nella regione europea (Railway è un'azienda statunitense); foto, video e file cifrati sono su Scaleway in Francia. Notifiche push, mappe ed email usano fornitori statunitensi (Google Firebase, Apple, Mapbox, Resend). Le posizioni dei viaggi vengono cancellate 24 ore dopo la fine del viaggio, quelle delle zone sicure dopo 3 giorni. Puoi esportare i dati o cancellare l'account dall'app e dal pannello web. Dettagli nell'informativa privacy.</p></details>
+      <details><summary>Central mostra pubblicità?</summary><p>No. Central si sostiene con gli abbonamenti Plus e Premium e con i piani per le aziende.</p></details>
+    </div>
+
+    <h2>Sicurezza e posizione</h2>
+    <div class="faq">
+      <details><summary>Come funziona Guardian?</summary><p>Guardian è chi ti segue: una persona che hai accettato e che riceve i tuoi avvisi di check-in, viaggio e zone sicure. Può seguirti dall'app o dal pannello web Guardian (online.getcentral.net). Vedi sempre chi sono i tuoi Guardian e puoi scollegarti con un tocco.</p></details>
+      <details><summary>Come si attiva l'SOS?</summary><p>Dal pulsante SOS nell'app, che registra un video di 30 secondi annullabile nei primi 3. Su iPhone anche con Siri ("Ehi Siri, Central SOS") o dal Centro di Controllo; su Android dal widget o dal riquadro delle impostazioni rapide. Da Siri, Centro di Controllo e riquadro rapido parte subito con posizione e batteria, senza video.</p></details>
+      <details><summary>L'SOS si attiva con il tasto del volume?</summary><p>No. Su molti telefoni Android il sistema non passa i tasti del volume alle app, quindi Central usa al loro posto il riquadro delle impostazioni rapide, che funziona su tutti i dispositivi.</p></details>
+      <details><summary>Quanti contatti di emergenza posso avere?</summary><p>2 con il piano gratuito, fino a 5 con Plus, senza limiti con Premium. Lo stesso vale per le persone che ti seguono.</p></details>
+      <details><summary>Cosa ricevono i contatti quando invio un SOS?</summary><p>La tua posizione (se disponibile), il livello della batteria e, se l'SOS parte dall'app, il video di 30 secondi, insieme all'invito a chiamare il 112. Tutto arriva cifrato end-to-end nella chat con ciascun contatto.</p></details>
+      <details><summary>Central chiama i soccorsi?</summary><p>No. Central avvisa le persone di fiducia, non sostituisce il 112. In pericolo chiama sempre il numero di emergenza.</p></details>
+      <details><summary>Come funziona la condivisione della posizione?</summary><p>Central non condivide la posizione di continuo. La invia solo quando condividi un punto in chat, durante un viaggio con Viaggia sicuro, quando esci o rientri in una zona sicura concordata e quando invii un SOS.</p></details>
+      <details><summary>Chi può vedere dove mi trovo?</summary><p>Solo le persone che scegli tu, e solo nei casi sopra. Puoi scollegarti da chiunque in qualsiasi momento.</p></details>
+    </div>
+
+    <h2>Confronti</h2>
+    <div class="faq">
+      <details><summary>Quali sono le differenze rispetto ad altre app?</summary><p>Central mette nella stessa app una chat cifrata end-to-end e strumenti di sicurezza personale (SOS, check-in, viaggi, zone), con un'idea precisa: la posizione si condivide solo per un motivo, mai di continuo. Non ha pubblicità e il server è nella regione europea. Se ti serve solo la massima protezione dei messaggi, un'app dedicata come Signal resta il riferimento.</p></details>
+      <details><summary>Central è un'alternativa a Life360?</summary><p>Sì, per chi cerca un'alternativa europea e attenta alla privacy: invece della localizzazione continua, Central usa la posizione solo in un SOS, durante un viaggio o all'uscita da una zona concordata, e aggiunge una chat cifrata end-to-end.</p></details>
+      <details><summary>Central è un'alternativa a WhatsApp?</summary><p>Può esserlo per i gruppi di famiglia e di amici stretti che vogliono, nella stessa app, chat cifrate e strumenti di sicurezza. Non punta a sostituire WhatsApp per tutti i contatti.</p></details>
+    </div>
+    <p class="see-also">Vedi anche: <a href="/funzionalita.html">tutte le funzioni</a> · <a href="/app-sos-emergenza.html">SOS ed emergenze</a> · <a href="/chat-crittografata.html">chat crittografata</a> · <a href="/sicurezza-famiglia.html">sicurezza della famiglia</a></p>

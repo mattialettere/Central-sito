@@ -1,7 +1,38 @@
-# getcentral.net
+# getcentral.net - robots.txt
 # Tutto il sito e' pubblico e indicizzabile. Il vecchio indirizzo /beta.html
 # rimanda alla home e porta il tag noindex: non va bloccato qui,
 # altrimenti i motori di ricerca non leggerebbero quel tag.
+#
+# Crawler AI: ogni gruppo qui sotto vale solo per il bot che nomina.
+# Le scelte sono spiegate in docs/central-geo/AUDIT_CENTRAL_GEO.md (sezione 4).
+#
+# 1) Ricerca e risposte AI (citano e linkano il sito): CONSENTITI.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# 2) Addestramento dei modelli AI. Il sito contiene solo testi pubblici di
+#    presentazione di Central, nessun dato degli utenti: consentirli aiuta i
+#    modelli futuri a conoscere Central. Scelta da confermare da parte del
+#    titolare. Per bloccarli, sostituire "Allow: /" con "Disallow: /" in
+#    questo gruppo. Nota: Google-Extended non tocca Google Search ne' AI
+#    Overviews, che usano Googlebot.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
+# 3) Tutti gli altri.
 User-agent: *
 Allow: /
 
