@@ -1,0 +1,41 @@
+    <div class="answer">
+      <p><strong>In breve:</strong> prima di considerare privata un'app di chat chiedi: 1) la cifratura end-to-end è attiva per tutte le chat? 2) Cosa vede il server, cioè quali metadati? 3) C'è forward secrecy? 4) Come funzionano i backup? 5) Il codice crittografico è verificabile? 6) Come guadagna l'azienda? Nessuna app risponde "sì" a tutto: conta che le risposte siano chiare.</p>
+    </div>
+
+    <h2>1. La cifratura end-to-end è attiva per tutte le chat?</h2>
+    <p>Con la crittografia end-to-end i messaggi si cifrano sul telefono di chi scrive e si decifrano solo sul telefono di chi legge: il server non può leggerli. La guida dell'EFF <a href="https://ssd.eff.org/module/what-should-i-know-about-encryption" target="_blank" rel="noopener">"What should I know about encryption?"</a> spiega la differenza con la cifratura in transito (HTTPS), che protegge i dati in viaggio ma li lascia leggibili al server.</p>
+    <p>Alcune app cifrano end-to-end solo certe chat, o solo se attivi un'opzione. Verifica che valga anche per gruppi, foto, vocali, file e backup.</p>
+
+    <h2>2. Cosa vede il server?</h2>
+    <p>Anche quando il contenuto è cifrato, il server di solito sa chi scrive a chi, quando, quanto spesso e con quale dimensione dei messaggi. Sono i metadati, e possono dire molto: per esempio che due persone si scrivono ogni notte. Un'app onesta dice quali metadati vede e quanto a lungo li conserva. Poche app riescono a ridurli davvero, e chi ci riesce lo spiega nel dettaglio.</p>
+
+    <h2>3. C'è forward secrecy?</h2>
+    <p>La forward secrecy fa sì che, se qualcuno ruba oggi la chiave di un dispositivo, non possa leggere i messaggi passati che avesse intercettato. Il protocollo di Signal la ottiene con il <a href="https://signal.org/docs/specifications/doubleratchet/" target="_blank" rel="noopener">Double Ratchet</a>, che ricava chiavi nuove per ogni messaggio in modo che le chiavi precedenti non si possano calcolare da quelle successive.</p>
+    <p>Non tutte le app la offrono. Non è un difetto da nascondere, ma un'informazione da conoscere: senza forward secrecy, proteggere la chiave del dispositivo diventa ancora più importante.</p>
+
+    <h2>4. Come funzionano i backup?</h2>
+    <p>Un backup non cifrato su un servizio cloud può vanificare la cifratura end-to-end: le chat sono protette in viaggio ma leggibili nella copia di sicurezza. Chiedi se il backup è cifrato, con quale chiave e chi la conosce. Se la chiave deriva da una password o da una frase segreta, conta anche quanto è costoso indovinarla per tentativi.</p>
+
+    <h2>5. Il codice crittografico è verificabile?</h2>
+    <p>"Fidati di noi" non basta. Quando il codice che cifra i messaggi è pubblico, esperti indipendenti possono controllarlo. Non significa che sia automaticamente sicuro, ma rende verificabili le promesse. Un buon segnale in più sono i test pubblici che mostrano che le versioni per sistemi diversi cifrano allo stesso modo.</p>
+
+    <h2>6. Come guadagna l'azienda?</h2>
+    <p>Se un'app è gratuita e vive di pubblicità, ha un interesse economico a sapere di più su chi la usa. Abbonamenti, donazioni o servizi a pagamento per le aziende allineano meglio gli interessi. Leggi l'informativa privacy: chi tratta i dati, in quali Paesi, per quanto tempo.</p>
+
+    <h2>Come risponde Central</h2>
+    <p>Per trasparenza, ecco le risposte per la nostra app. I dettagli sono nella pagina <a href="/chat-crittografata.html">chat crittografata</a>.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Domanda</th><th scope="col">Central</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">End-to-end per tutto</th><td>Sì: chat a due e di gruppo, foto, video, vocali, file, lavagne, posizioni dei viaggi e SOS (X25519 + AES-256-GCM)</td></tr>
+        <tr><th scope="row">Metadati</th><td>Il server sa chi è in contatto con chi e quando</td></tr>
+        <tr><th scope="row">Forward secrecy</th><td>No, non ancora</td></tr>
+        <tr><th scope="row">Backup</th><td>Backup delle chiavi facoltativo, cifrato con una frase segreta (PBKDF2-SHA256, 210.000 iterazioni)</td></tr>
+        <tr><th scope="row">Codice verificabile</th><td>Codice crittografico open source con test condivisi tra Android e iPhone (<a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">central-crypto</a>)</td></tr>
+        <tr><th scope="row">Modello di business</th><td>Nessuna pubblicità; abbonamenti Plus e Premium e piani per aziende</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Se la tua priorità assoluta è la protezione dei messaggi, un'app dedicata come Signal resta il riferimento. Central nasce per chi vuole chat cifrate e strumenti di sicurezza personale nella stessa app.</p>
+    <p class="see-also">Leggi anche: <a href="/chat-crittografata.html">come Central cifra i messaggi</a> · <a href="/domande-frequenti.html">domande frequenti</a></p>

@@ -27,6 +27,7 @@ Key facts (verified against the app, November 2026):
 - [Chat crittografata (IT)](https://getcentral.net/chat-crittografata.html)
 - [Sicurezza famiglia (IT)](https://getcentral.net/sicurezza-famiglia.html)
 - [Domande frequenti (IT)](https://getcentral.net/domande-frequenti.html)
+- [Guide (IT)](https://getcentral.net/guide/): practical guides on emergency contacts, 112, elderly parents living alone, getting home safely, encrypted chat
 - [Business](https://getcentral.net/en/aziende.html): Central for lone workers and companies
 - [Press kit (IT)](https://getcentral.net/stampa.html)
 - [Privacy policy](https://getcentral.net/en/privacy.html)

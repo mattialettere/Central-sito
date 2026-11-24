@@ -159,6 +159,13 @@ PAGES = [
     },
 ]
 
+# Guide (articoli). Solo in italiano per ora: niente hreflang finche' non
+# esiste la traduzione. Metadati in articoli.json, corpo in contenuti/it/<key>.html.
+ARTICOLI: list[dict] = []
+_articoli = pathlib.Path(__file__).resolve().parent / "articoli.json"
+if _articoli.exists():
+    ARTICOLI = json.loads(_articoli.read_text(encoding="utf-8"))
+
 T = {
     "it": {
         "home": "/", "skip": "Vai al contenuto", "brand_label": "Central, pagina iniziale",
@@ -229,7 +236,8 @@ def jsonld(page: dict, lang: str, body: str) -> str:
     t = T[lang]
     graph: list[dict] = [
         {
-            "@type": "WebPage" if page["key"] != "faq" else ["WebPage", "FAQPage"],
+            "@type": ("Article" if page.get("kind") == "article"
+                      else ["WebPage", "FAQPage"] if page["key"] == "faq" else "WebPage"),
             "@id": url + "#webpage",
             "url": url,
             "name": strip_tags(p["h1"]),
@@ -240,7 +248,7 @@ def jsonld(page: dict, lang: str, body: str) -> str:
             "about": {"@id": SITE + "/#app"},
             "publisher": {"@id": SITE + "/#org"},
             "primaryImageOfPage": SITE + p["img"],
-            "dateModified": AGGIORNATO,
+            "dateModified": page.get("aggiornato", AGGIORNATO),
             "breadcrumb": {"@id": url + "#breadcrumb"},
         },
         {
@@ -248,7 +256,10 @@ def jsonld(page: dict, lang: str, body: str) -> str:
             "@id": url + "#breadcrumb",
             "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": t["crumb_home"], "item": SITE + t["home"]},
-                {"@type": "ListItem", "position": 2, "name": p["nav"], "item": url},
+                *([{"@type": "ListItem", "position": 2, "name": "Guide", "item": SITE + "/guide/"}]
+                  if page.get("kind") == "article" else []),
+                {"@type": "ListItem", "position": 3 if page.get("kind") == "article" else 2,
+                 "name": p["nav"], "item": url},
             ],
         },
         # Organization e app ripetute in forma breve: ogni pagina deve essere
@@ -274,6 +285,18 @@ def jsonld(page: dict, lang: str, body: str) -> str:
             "publisher": {"@id": SITE + "/#org"},
         },
     ]
+    if page.get("kind") == "article":
+        # Article: autore e data di pubblicazione richiesti da Google per i
+        # dati strutturati degli articoli. L'autore e' l'organizzazione: non
+        # inventiamo firme di persone.
+        graph[0].update({
+            "headline": p["title"][:110],
+            "datePublished": page["pubblicato"],
+            "author": {"@id": SITE + "/#org"},
+            "image": SITE + p["img"],
+            "mainEntityOfPage": url,
+        })
+        graph[0].pop("primaryImageOfPage", None)
     if page["key"] == "faq":
         graph[0]["mainEntity"] = [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
@@ -285,6 +308,7 @@ def jsonld(page: dict, lang: str, body: str) -> str:
 def render(page: dict, lang: str) -> str:
     p = page[lang]
     other = "en" if lang == "it" else "it"
+    bilingue = "it" in page and "en" in page
     t = T[lang]
     url = SITE + p["path"]
     body = (CONTENUTI / lang / f"{page['key']}.html").read_text(encoding="utf-8")
@@ -294,9 +318,19 @@ def render(page: dict, lang: str) -> str:
         for label, href in t["nav"]
     )
     guide_links = " · ".join(
-        f'<a href="{pg[lang]["path"]}">{pg[lang]["nav"]}</a>' for pg in PAGES
+        f'<a href="{pg[lang]["path"]}">{pg[lang]["nav"]}</a>' for pg in PAGES if lang in pg
     )
-    it_path, en_path = page["it"]["path"], page["en"]["path"]
+    if lang == "it":
+        guide_links += ' · <a href="/guide/">Guide</a>'
+    it_path = page["it"]["path"] if "it" in page else "/"
+    en_path = page["en"]["path"] if "en" in page else "/en/"
+    hreflang = (
+        f'<link rel="alternate" hreflang="it" href="{SITE}{it_path}">\n'
+        f'<link rel="alternate" hreflang="en" href="{SITE}{en_path}">\n'
+        f'<link rel="alternate" hreflang="x-default" href="{SITE}{it_path}">'
+    ) if bilingue else ""
+    alt_locale = f'<meta property="og:locale:alternate" content="{T[other]["locale"]}">' if bilingue else ""
+    crumbs_mid = '<a href="/guide/">Guide</a> <span aria-hidden="true">›</span> ' if page.get("kind") == "article" else ""
     lang_switch = (
         f'<a href="{it_path}" hreflang="it" lang="it"{" aria-current=\"true\"" if lang == "it" else ""}>IT</a>'
         f'<a href="{en_path}" hreflang="en" lang="en"{" aria-current=\"true\"" if lang == "en" else ""}>EN</a>'
@@ -312,14 +346,12 @@ def render(page: dict, lang: str) -> str:
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#EA5B2E">
 <meta name="apple-itunes-app" content="app-id=6826663138">
-<link rel="alternate" hreflang="it" href="{SITE}{it_path}">
-<link rel="alternate" hreflang="en" href="{SITE}{en_path}">
-<link rel="alternate" hreflang="x-default" href="{SITE}{it_path}">
+{hreflang}
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Central">
 <meta property="og:locale" content="{t["locale"]}">
-<meta property="og:locale:alternate" content="{T[other]["locale"]}">
+{alt_locale}
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="{e(p["title"])}">
 <meta property="og:description" content="{e(p["desc"])}">
@@ -327,7 +359,7 @@ def render(page: dict, lang: str) -> str:
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{e(p["img_alt"])}">
-<meta property="article:modified_time" content="{AGGIORNATO}">
+<meta property="article:modified_time" content="{page.get("aggiornato", AGGIORNATO)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(p["title"])}">
 <meta name="twitter:description" content="{e(p["desc"])}">
@@ -368,7 +400,7 @@ def render(page: dict, lang: str) -> str:
 <section class="hero guide-hero">
   <div class="wrap">
     <div>
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="{t["home"]}">{t["crumb_home"]}</a> <span aria-hidden="true">›</span> <span aria-current="page">{p["nav"]}</span></nav>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{t["home"]}">{t["crumb_home"]}</a> <span aria-hidden="true">›</span> {crumbs_mid}<span aria-current="page">{p["nav"]}</span></nav>
       <div class="eyebrow">{p["eyebrow"]}</div>
       <h1>{p["h1"]}</h1>
       <p class="lead">{p["lead"]}</p>
@@ -376,7 +408,7 @@ def render(page: dict, lang: str) -> str:
         <a class="btn-primary" href="{APP_STORE}" target="_blank" rel="noopener">{t["dl_ios"]}</a>
         <a class="btn-primary" href="{PLAY}" target="_blank" rel="noopener">{t["dl_android"]}</a>
       </div>
-      <p class="updated">{t["updated"]} <time datetime="{AGGIORNATO}">{data_leggibile(lang, AGGIORNATO)}</time></p>
+      <p class="updated">{t["updated"]} <time datetime="{page.get("aggiornato", AGGIORNATO)}">{data_leggibile(lang, page.get("aggiornato", AGGIORNATO))}</time></p>
     </div>
     <div class="hero-visual">
       <img src="{p["img"]}" width="480" height="960" alt="{e(p["img_alt"])}" fetchpriority="high">
@@ -432,9 +464,12 @@ def render(page: dict, lang: str) -> str:
 
 
 def main() -> None:
-    for page in PAGES:
+    for page in PAGES + ARTICOLI:
         for lang in ("it", "en"):
-            out = ROOT / page[lang]["path"].lstrip("/")
+            if lang not in page:
+                continue
+            rel = page[lang]["path"].lstrip("/")
+            out = ROOT / (rel + "index.html" if rel.endswith("/") or not rel else rel)
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(render(page, lang), encoding="utf-8")
             print("scritto", out.relative_to(ROOT))
