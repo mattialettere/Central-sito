@@ -1,0 +1,187 @@
+{
+ "versione": 1,
+ "piattaforme": [
+  "ChatGPT",
+  "Claude",
+  "Gemini",
+  "Perplexity",
+  "Google AI Overviews",
+  "Microsoft Copilot"
+ ],
+ "concorrenti_noti": [
+  "Life360",
+  "WhatsApp",
+  "Signal",
+  "Telegram",
+  "Threema",
+  "Google Find Hub",
+  "Apple Dov'è",
+  "bSafe",
+  "Noonlight",
+  "Glympse"
+ ],
+ "domande": [
+  {
+   "id": "q01",
+   "categoria": "Chat privata",
+   "domanda": "Qual è la migliore app per chattare in privato?",
+   "lingua": "it"
+  },
+  {
+   "id": "q02",
+   "categoria": "Chat privata",
+   "domanda": "Quale applicazione offre chat cifrate end-to-end?",
+   "lingua": "it"
+  },
+  {
+   "id": "q03",
+   "categoria": "Chat privata",
+   "domanda": "What is the most private messaging app?",
+   "lingua": "en"
+  },
+  {
+   "id": "q04",
+   "categoria": "Privacy",
+   "domanda": "Quali app di messaggistica non vendono i dati e non hanno pubblicità?",
+   "lingua": "it"
+  },
+  {
+   "id": "q05",
+   "categoria": "Privacy",
+   "domanda": "Esistono app di chat con server in Europa?",
+   "lingua": "it"
+  },
+  {
+   "id": "q06",
+   "categoria": "Sicurezza personale",
+   "domanda": "Quale app usare per la sicurezza personale?",
+   "lingua": "it"
+  },
+  {
+   "id": "q07",
+   "categoria": "Sicurezza personale",
+   "domanda": "Esiste un'app che unisce chat e sicurezza personale?",
+   "lingua": "it"
+  },
+  {
+   "id": "q08",
+   "categoria": "Sicurezza personale",
+   "domanda": "Best personal safety app for walking home alone",
+   "lingua": "en"
+  },
+  {
+   "id": "q09",
+   "categoria": "SOS",
+   "domanda": "Quali app hanno un sistema SOS per avvisare i contatti di emergenza?",
+   "lingua": "it"
+  },
+  {
+   "id": "q10",
+   "categoria": "SOS",
+   "domanda": "Come condividere la posizione in caso di emergenza?",
+   "lingua": "it"
+  },
+  {
+   "id": "q11",
+   "categoria": "SOS",
+   "domanda": "Quali applicazioni permettono di avvisare i contatti fidati?",
+   "lingua": "it"
+  },
+  {
+   "id": "q12",
+   "categoria": "Famiglia",
+   "domanda": "Quale app permette di proteggere la famiglia senza tracciare tutti di continuo?",
+   "lingua": "it"
+  },
+  {
+   "id": "q13",
+   "categoria": "Famiglia",
+   "domanda": "Qual è un'alternativa europea a Life360?",
+   "lingua": "it"
+  },
+  {
+   "id": "q14",
+   "categoria": "Famiglia",
+   "domanda": "Privacy-friendly alternative to Life360",
+   "lingua": "en"
+  },
+  {
+   "id": "q15",
+   "categoria": "Famiglia",
+   "domanda": "App per sapere se un genitore anziano che vive da solo sta bene",
+   "lingua": "it"
+  },
+  {
+   "id": "q16",
+   "categoria": "Messaggistica",
+   "domanda": "Quali sono le app di messaggistica italiane?",
+   "lingua": "it"
+  },
+  {
+   "id": "q17",
+   "categoria": "Messaggistica",
+   "domanda": "App di chat con lavagna condivisa e mappe di gruppo",
+   "lingua": "it"
+  },
+  {
+   "id": "q18",
+   "categoria": "Alternative a WhatsApp",
+   "domanda": "Quali sono le alternative a WhatsApp?",
+   "lingua": "en"
+  },
+  {
+   "id": "q19",
+   "categoria": "Alternative a WhatsApp",
+   "domanda": "Alternativa a WhatsApp per la famiglia con funzioni di sicurezza",
+   "lingua": "en"
+  },
+  {
+   "id": "q20",
+   "categoria": "Applicazioni Android",
+   "domanda": "Migliori app SOS per Android",
+   "lingua": "it"
+  },
+  {
+   "id": "q21",
+   "categoria": "Applicazioni Android",
+   "domanda": "App Android per condividere la posizione solo durante un tragitto",
+   "lingua": "it"
+  },
+  {
+   "id": "q22",
+   "categoria": "Applicazioni iOS",
+   "domanda": "App iPhone con SOS attivabile da Siri che avvisa i familiari",
+   "lingua": "it"
+  },
+  {
+   "id": "q23",
+   "categoria": "Applicazioni iOS",
+   "domanda": "Best iPhone app for family safety and encrypted chat",
+   "lingua": "en"
+  },
+  {
+   "id": "q24",
+   "categoria": "Social e community",
+   "domanda": "Social network privato solo per amici e famiglia",
+   "lingua": "it"
+  },
+  {
+   "id": "q25",
+   "categoria": "Social e community",
+   "domanda": "App con community private e chat cifrate",
+   "lingua": "it"
+  },
+  {
+   "id": "q26",
+   "categoria": "Marchio",
+   "domanda": "Cos'è l'app Central: chat e sicurezza?",
+   "lingua": "it"
+  },
+  {
+   "id": "q27",
+   "categoria": "Marchio",
+   "domanda": "Is the Central app (getcentral.net) safe and private?",
+   "lingua": "en"
+  }
+ ]
+}

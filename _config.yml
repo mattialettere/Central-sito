@@ -3,8 +3,8 @@
 # del backend finito qui per errore. Le pagine .html del sito non hanno
 # front matter, quindi Jekyll le copia cosi' come sono.
 exclude:
-  - docs/
-  - tools/
-  - reports/
+  - docs
+  - tools
+  - reports
   - main.py
   - README.md
