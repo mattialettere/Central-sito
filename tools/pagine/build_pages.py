@@ -133,6 +133,32 @@ PAGES = [
         },
     },
     {
+        "key": "city",
+        "aggiornato": "2026-11-25",
+        "it": {
+            "path": "/central-city.html",
+            "nav": "Central City",
+            "title": "Central City: la città con le case dei tuoi amici, dentro Central",
+            "desc": "Central City è la città dentro l'app Central: arredi la tua casa, fai lavoretti per guadagnare monete e incontri i tuoi amici. Gratis, provala dal browser.",
+            "eyebrow": "Central City",
+            "h1": "Central City, <em>la città dei tuoi amici</em>",
+            "lead": "Una città dove ognuno dei tuoi amici ha la sua casa. Arredi la tua, fai un giro tra le vie e incontri le persone con cui chatti su Central.",
+            "img": "/assets/funzioni/city.webp",
+            "img_alt": "Central City: la città isometrica con le case degli amici e il joystick",
+        },
+        "en": {
+            "path": "/en/central-city.html",
+            "nav": "Central City",
+            "title": "Central City: a town with your friends' homes, inside Central",
+            "desc": "Central City is the town inside the Central app: furnish your home, do small jobs to earn coins and meet your friends. Free, and you can try it in your browser.",
+            "eyebrow": "Central City",
+            "h1": "Central City, <em>your friends' town</em>",
+            "lead": "A town where each of your friends has a home. Furnish yours, wander the streets and meet the people you chat with on Central.",
+            "img": "/assets/funzioni/city.webp",
+            "img_alt": "Central City: the isometric town with friends' homes and the joystick",
+        },
+    },
+    {
         "key": "faq",
         "it": {
             "path": "/domande-frequenti.html",
@@ -170,7 +196,7 @@ T = {
     "it": {
         "home": "/", "skip": "Vai al contenuto", "brand_label": "Central, pagina iniziale",
         "nav": [("Funzioni", "/funzionalita.html"), ("SOS", "/app-sos-emergenza.html"),
-                ("Chat cifrata", "/chat-crittografata.html"), ("Famiglia", "/sicurezza-famiglia.html"),
+                ("Chat cifrata", "/chat-crittografata.html"), ("Famiglia", "/sicurezza-famiglia.html"), ("Central City", "/central-city.html"),
                 ("Domande", "/domande-frequenti.html"), ("Aziende", "/aziende.html")],
         "report": ("Segnala", "/segnala.html"), "login": ("Dashboard Login", "Registrati<br>Login", "Registrati / Login"),
         "download": "Scarica", "dl_ios": "Scarica per iPhone", "dl_android": "Scarica per Android",
@@ -184,7 +210,7 @@ T = {
     "en": {
         "home": "/en/", "skip": "Skip to content", "brand_label": "Central, home page",
         "nav": [("Features", "/en/features.html"), ("SOS", "/en/sos-emergency-app.html"),
-                ("Encrypted chat", "/en/encrypted-chat.html"), ("Family", "/en/family-safety.html"),
+                ("Encrypted chat", "/en/encrypted-chat.html"), ("Family", "/en/family-safety.html"), ("Central City", "/en/central-city.html"),
                 ("FAQ", "/en/faq.html"), ("Business", "/en/aziende.html")],
         "report": ("Report", "/en/segnala.html"), "login": ("Dashboard Login", "Sign up<br>Login", "Sign up / Login"),
         "download": "Download", "dl_ios": "Download for iPhone", "dl_android": "Download for Android",
@@ -457,7 +483,7 @@ def render(page: dict, lang: str) -> str:
 /* Contatore visite di Central: niente cookie, nessun servizio esterno. */
 (function(){{try{{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({{path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")}});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){{navigator.sendBeacon(u,new Blob([d],{{type:"text/plain"}}));}}else{{fetch(u,{{method:"POST",body:d,keepalive:true,mode:"no-cors"}});}}}}catch(e){{}}}})();
 </script>
-<script src="/assets/menu.js?v=2" defer></script>
+<script src="/assets/menu.js?v=3" defer></script>
 </body>
 </html>
 """
