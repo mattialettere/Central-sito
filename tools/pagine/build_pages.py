@@ -159,8 +159,8 @@ PAGES = [
     },
 ]
 
-# Guide (articoli). Solo in italiano per ora: niente hreflang finche' non
-# esiste la traduzione. Metadati in articoli.json, corpo in contenuti/it/<key>.html.
+# Guide (articoli). Metadati in articoli.json, corpo in contenuti/<lang>/<key>.html.
+# Una guida con "it" ed "en" ha hreflang reciproci; con una sola lingua, niente hreflang.
 ARTICOLI: list[dict] = []
 _articoli = pathlib.Path(__file__).resolve().parent / "articoli.json"
 if _articoli.exists():
@@ -174,7 +174,7 @@ T = {
                 ("Domande", "/domande-frequenti.html"), ("Aziende", "/aziende.html")],
         "report": ("Segnala", "/segnala.html"), "login": ("Dashboard Login", "Registrati<br>Login", "Registrati / Login"),
         "download": "Scarica", "dl_ios": "Scarica per iPhone", "dl_android": "Scarica per Android",
-        "updated": "Aggiornato il", "crumb_home": "Home", "guides": "Guide",
+        "updated": "Aggiornato il", "crumb_home": "Home", "guides": "Guide", "guides_path": "/guide/",
         "cta_h": "Scarica Central, è gratis",
         "cta_p": "Su App Store per iPhone e su Google Play per Android. Le funzioni di sicurezza essenziali sono gratuite.",
         "store_a": "Scarica su App Store", "store_g": "Scarica su Google Play",
@@ -188,7 +188,7 @@ T = {
                 ("FAQ", "/en/faq.html"), ("Business", "/en/aziende.html")],
         "report": ("Report", "/en/segnala.html"), "login": ("Dashboard Login", "Sign up<br>Login", "Sign up / Login"),
         "download": "Download", "dl_ios": "Download for iPhone", "dl_android": "Download for Android",
-        "updated": "Updated on", "crumb_home": "Home", "guides": "Guides",
+        "updated": "Updated on", "crumb_home": "Home", "guides": "Guides", "guides_path": "/en/guides/",
         "cta_h": "Get Central, it's free",
         "cta_p": "On the App Store for iPhone and on Google Play for Android. The essential safety features are free.",
         "store_a": "Download on the App Store", "store_g": "Get it on Google Play",
@@ -256,7 +256,7 @@ def jsonld(page: dict, lang: str, body: str) -> str:
             "@id": url + "#breadcrumb",
             "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": t["crumb_home"], "item": SITE + t["home"]},
-                *([{"@type": "ListItem", "position": 2, "name": "Guide", "item": SITE + "/guide/"}]
+                *([{"@type": "ListItem", "position": 2, "name": t["guides"], "item": SITE + t["guides_path"]}]
                   if page.get("kind") == "article" else []),
                 {"@type": "ListItem", "position": 3 if page.get("kind") == "article" else 2,
                  "name": p["nav"], "item": url},
@@ -320,8 +320,7 @@ def render(page: dict, lang: str) -> str:
     guide_links = " · ".join(
         f'<a href="{pg[lang]["path"]}">{pg[lang]["nav"]}</a>' for pg in PAGES if lang in pg
     )
-    if lang == "it":
-        guide_links += ' · <a href="/guide/">Guide</a>'
+    guide_links += f' · <a href="{t["guides_path"]}">{t["guides"]}</a>'
     it_path = page["it"]["path"] if "it" in page else "/"
     en_path = page["en"]["path"] if "en" in page else "/en/"
     hreflang = (
@@ -330,7 +329,8 @@ def render(page: dict, lang: str) -> str:
         f'<link rel="alternate" hreflang="x-default" href="{SITE}{it_path}">'
     ) if bilingue else ""
     alt_locale = f'<meta property="og:locale:alternate" content="{T[other]["locale"]}">' if bilingue else ""
-    crumbs_mid = '<a href="/guide/">Guide</a> <span aria-hidden="true">›</span> ' if page.get("kind") == "article" else ""
+    crumbs_mid = (f'<a href="{t["guides_path"]}">{t["guides"]}</a> <span aria-hidden="true">›</span> '
+                  if page.get("kind") == "article" else "")
     lang_switch = (
         f'<a href="{it_path}" hreflang="it" lang="it"{" aria-current=\"true\"" if lang == "it" else ""}>IT</a>'
         f'<a href="{en_path}" hreflang="en" lang="en"{" aria-current=\"true\"" if lang == "en" else ""}>EN</a>'

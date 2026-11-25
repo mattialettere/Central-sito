@@ -21,8 +21,8 @@ Allow: /
 
 # 2) Addestramento dei modelli AI. Il sito contiene solo testi pubblici di
 #    presentazione di Central, nessun dato degli utenti: consentirli aiuta i
-#    modelli futuri a conoscere Central. Scelta da confermare da parte del
-#    titolare. Per bloccarli, sostituire "Allow: /" con "Disallow: /" in
+#    modelli futuri a conoscere Central. Scelta confermata dal titolare il
+#    25/11/2026. Per bloccarli, sostituire "Allow: /" con "Disallow: /" in
 #    questo gruppo. Nota: Google-Extended non tocca Google Search ne' AI
 #    Overviews, che usano Googlebot.
 User-agent: GPTBot
