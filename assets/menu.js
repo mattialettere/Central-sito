@@ -7,8 +7,8 @@
   var lang = (document.documentElement.lang || 'it').slice(0, 2);
   var p = lang === 'en' ? '/en/' : lang === 'fr' ? '/fr/' : '/';
   var T = {
-    it: { menu: 'Menu', close: 'Chiudi', home: 'Home', f: 'Funzioni', s: 'Sicurezza', v: 'Video', b: 'Aziende', r: 'Segnala un problema', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Scarica per iPhone', dlA: 'Scarica per Android' },
-    en: { menu: 'Menu', close: 'Close', home: 'Home', f: 'Features', s: 'Safety', v: 'Video', b: 'Business', r: 'Report a problem', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Download for iPhone', dlA: 'Download for Android' },
+    it: { menu: 'Menu', close: 'Chiudi', home: 'Home', sos: 'SOS ed emergenze', chat: 'Chat crittografata', fam: 'Sicurezza della famiglia', faq: 'Domande frequenti', g: 'Guide', f: 'Funzioni', s: 'Sicurezza', v: 'Video', b: 'Aziende', r: 'Segnala un problema', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Scarica per iPhone', dlA: 'Scarica per Android' },
+    en: { menu: 'Menu', close: 'Close', home: 'Home', sos: 'SOS and emergencies', chat: 'Encrypted chat', fam: 'Family safety', faq: 'FAQ', g: 'Guides', f: 'Features', s: 'Safety', v: 'Video', b: 'Business', r: 'Report a problem', pr: 'Privacy', login: 'Dashboard Login', dlI: 'Download for iPhone', dlA: 'Download for Android' },
     fr: { menu: 'Menu', close: 'Fermer', home: 'Accueil', f: 'Fonctions', s: 'Sécurité', v: 'Vidéo', b: 'Entreprises', r: 'Signaler un problème', pr: 'Confidentialité', login: 'Tableau de bord', dlI: 'Télécharger pour iPhone', dlA: 'Télécharger pour Android' }
   }[lang] || null;
   if (!T) return;
@@ -19,10 +19,19 @@
   var voci = [
     [T.home, p], [T.f, p + '#funzioni'], [T.s, p + '#sicurezza'], ['Central City', p + '#city'], [T.v, p + '#video'],
     [T.b, p + 'aziende.html'], ['White label', p + 'white-label.html'],
-    null,
+    null
+  ];
+  // Pagine di approfondimento e guide: esistono in italiano e in inglese.
+  var APPROF = {
+    it: [[T.sos, '/app-sos-emergenza.html'], [T.chat, '/chat-crittografata.html'], [T.fam, '/sicurezza-famiglia.html'], [T.faq, '/domande-frequenti.html'], [T.g, '/guide/']],
+    en: [[T.sos, '/en/sos-emergency-app.html'], [T.chat, '/en/encrypted-chat.html'], [T.fam, '/en/family-safety.html'], [T.faq, '/en/faq.html'], [T.g, '/en/guides/']]
+  }[lang];
+  if (APPROF) voci = voci.concat(APPROF, [null]);
+  voci = voci.concat([
     [T.login, 'https://online.getcentral.net/guardian-dashboard/panel'],
     [T.r, p + 'segnala.html'], [T.pr, p + 'privacy.html']
-  ];
+  ]);
+  var primaPiccola = voci.length - 2; // Segnala e Privacy in corpo minore
 
   var css = '' +
     '.mm-btn{display:none;flex:none;width:42px;height:42px;margin-left:8px;border-radius:14px;border:1px solid #F1E3DA;background:#fff;cursor:pointer;align-items:center;justify-content:center;padding:0;-webkit-tap-highlight-color:transparent}' +
@@ -70,7 +79,7 @@
     voci.forEach(function (v, i) {
       if (!v) { sheet.appendChild(document.createElement('hr')); return; }
       var a = document.createElement('a'); a.textContent = v[0]; a.href = v[1];
-      if (i > 8) a.className = 'mm-small';
+      if (i >= primaPiccola) a.className = 'mm-small';
       if (v[1] === qui) a.setAttribute('aria-current', 'page');
       sheet.appendChild(a);
     });
