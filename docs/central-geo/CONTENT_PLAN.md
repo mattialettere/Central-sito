@@ -26,6 +26,14 @@ Il master prompt chiedeva 20 articoli. Ne abbiamo pubblicati 5 (più l'indice de
 | /guide/tornare-a-casa-da-soli-la-sera.html | tornare a casa da soli la sera | app tragitto sicuro, condividere posizione tragitto | Informativo / commerciale leggero |
 | /guide/chat-cifrata-domande-da-fare.html | chat cifrata | app messaggistica privata, forward secrecy, metadati | Informativo / confronto |
 
+## Pubblicate (fase 5, 25 novembre 2026)
+
+| URL | Keyword principale | Note |
+|---|---|---|
+| /en/guides/ + 5 traduzioni | emergency contacts phone, what to say 112, elderly parent living alone, walking home at night, encrypted chat | Versioni inglesi delle 5 guide, con hreflang reciproci e sitemap |
+| /guide/condividere-la-posizione-in-sicurezza.html · /en/guides/share-location-safely.html | condividere posizione / share location safely | Fonti: Apple (105104, Controllo di sicurezza), Google Maps Help, WhatsApp FAQ |
+| /guide/lavoratori-isolati-sicurezza.html · /en/guides/lone-worker-safety.html | lavoratori isolati / lone worker safety | Fonti: HSE (lone working, INDG73), D.Lgs. 81/2008 testo coordinato INL. Il testo degli articoli non è citato alla lettera: non è stato possibile leggerlo dal cloud, si citano solo i titoli verificati (art. 28, Sezione VI) |
+
 Le pagine "prodotto" della fase 1 coprono invece le domande commerciali: app SOS, chat crittografata, alternativa a Life360, funzioni, FAQ.
 
 ## In coda (dalla lista del master prompt)
@@ -34,9 +42,6 @@ Da scrivere solo se c'è qualcosa di utile e diverso da dire. Accorpati dove si 
 
 | Priorità | Tema | Note |
 |---|---|---|
-| Alta | Come condividere la posizione in sicurezza (e quando smettere) | Riprende la sezione della pagina famiglia; valutare se basta quella |
-| Alta | Lavoratori isolati: strumenti per chi lavora da solo | Pubblico B2B; servono fonti normative verificate (D.Lgs. 81/2008) prima di scrivere |
-| Alta | Versioni inglesi delle 5 guide | Dopo aver misurato le visite delle versioni italiane |
 | Media | Come proteggere i dati personali sullo smartphone | Fonti: Garante privacy, ENISA |
 | Media | Differenze tra messaggistica privata e social network | |
 | Media | Community private: come funzionano e come moderarle | |
@@ -49,6 +54,6 @@ Da scrivere solo se c'è qualcosa di utile e diverso da dire. Accorpati dove si 
 
 1. Metadati in `tools/pagine/articoli.json` (path in `/guide/`, title ≤ 70 caratteri, description 70-170).
 2. Corpo in `tools/pagine/contenuti/it/<key>.html`.
-3. Link nell'indice `tools/pagine/contenuti/it/guide-indice.html`.
+3. Link negli indici `tools/pagine/contenuti/it/guide-indice.html` e `tools/pagine/contenuti/en/guide-indice.html` (per la versione inglese: chiave `en` in `articoli.json` e corpo in `contenuti/en/<key>.html`).
 4. `python3 tools/pagine/build_pages.py` e aggiungere l'URL a `sitemap.xml`.
 5. `python3 tools/seo-audit/check_site.py` deve restare senza errori nuovi.

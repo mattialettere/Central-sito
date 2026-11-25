@@ -1,0 +1,41 @@
+    <div class="answer">
+      <p><strong>In short:</strong> before calling a chat app private, ask: 1) is end-to-end encryption on for every chat? 2) What can the server see, i.e. which metadata? 3) Is there forward secrecy? 4) How do backups work? 5) Can the encryption code be checked? 6) How does the company make money? No app says "yes" to everything: what matters is that the answers are clear.</p>
+    </div>
+
+    <h2>1. Is end-to-end encryption on for every chat?</h2>
+    <p>With end-to-end encryption, messages are encrypted on the sender's phone and decrypted only on the recipient's phone: the server can't read them. The EFF guide <a href="https://ssd.eff.org/module/what-should-i-know-about-encryption" target="_blank" rel="noopener">"What should I know about encryption?"</a> explains the difference from encryption in transit (HTTPS), which protects data on the way but leaves it readable to the server.</p>
+    <p>Some apps encrypt only certain chats end-to-end, or only if you turn on an option. Check that it also covers groups, photos, voice messages, files and backups.</p>
+
+    <h2>2. What can the server see?</h2>
+    <p>Even when the content is encrypted, the server usually knows who writes to whom, when, how often and how big the messages are. This is metadata, and it can say a lot: for example, that two people message each other every night. An honest app says which metadata it sees and how long it keeps it. Few apps manage to really reduce it, and those that do explain how in detail.</p>
+
+    <h2>3. Is there forward secrecy?</h2>
+    <p>Forward secrecy means that if someone steals a device key today, they can't read past messages they may have intercepted. The Signal protocol achieves it with the <a href="https://signal.org/docs/specifications/doubleratchet/" target="_blank" rel="noopener">Double Ratchet</a>, which derives new keys for every message so that earlier keys can't be calculated from later ones.</p>
+    <p>Not every app offers it. It is not a flaw to hide but something to know: without forward secrecy, protecting the device key becomes even more important.</p>
+
+    <h2>4. How do backups work?</h2>
+    <p>An unencrypted backup on a cloud service can undo end-to-end encryption: chats are protected in transit but readable in the backup copy. Ask whether the backup is encrypted, with which key and who knows it. If the key comes from a password or passphrase, it also matters how costly it is to guess by trial and error.</p>
+
+    <h2>5. Can the encryption code be checked?</h2>
+    <p>"Trust us" is not enough. When the code that encrypts messages is public, independent experts can review it. That doesn't make it automatically secure, but it makes the promises verifiable. Another good sign is public tests showing that the versions for different systems encrypt in the same way.</p>
+
+    <h2>6. How does the company make money?</h2>
+    <p>If an app is free and lives on advertising, it has a financial interest in knowing more about its users. Subscriptions, donations or paid business plans align interests better. Read the privacy policy: who processes the data, in which countries, and for how long.</p>
+
+    <h2>How Central answers</h2>
+    <p>For transparency, here are the answers for our own app. Details are on the <a href="/en/encrypted-chat.html">encrypted chat</a> page.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Question</th><th scope="col">Central</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">End-to-end for everything</th><td>Yes: one-to-one and group chats, photos, videos, voice messages, files, whiteboards, trip locations and SOS (X25519 + AES-256-GCM)</td></tr>
+        <tr><th scope="row">Metadata</th><td>The server knows who is in contact with whom and when</td></tr>
+        <tr><th scope="row">Forward secrecy</th><td>No, not yet</td></tr>
+        <tr><th scope="row">Backup</th><td>Optional key backup, encrypted with a passphrase (PBKDF2-SHA256, 210,000 iterations)</td></tr>
+        <tr><th scope="row">Verifiable code</th><td>Open-source encryption code with tests shared between Android and iPhone (<a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">central-crypto</a>)</td></tr>
+        <tr><th scope="row">Business model</th><td>No ads; Plus and Premium subscriptions and business plans</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>If protecting your messages is your absolute priority, a dedicated app like Signal remains the benchmark. Central is for people who want encrypted chat and personal safety tools in the same app.</p>
+    <p class="see-also">Read next: <a href="/en/encrypted-chat.html">how Central encrypts messages</a> · <a href="/en/faq.html">FAQ</a></p>

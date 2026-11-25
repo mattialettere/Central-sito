@@ -19,6 +19,13 @@ Nessun deploy, nessuna modifica agli store, all'app o al backend. Il sito cambia
 | 4. Automazione | Controllo offline dei file e controllo dal vivo dei crawler | `tools/seo-audit/check_site.py`, `tools/crawler-check/crawler_check.py`, `reports/` |
 | — | Generatore delle pagine | `tools/pagine/build_pages.py`, `tools/pagine/contenuti/`, `tools/pagine/articoli.json` |
 
+## Fase 5 (25 novembre 2026, dopo il merge della PR #6)
+
+- Doppio H1 delle privacy corretto (il titolo dentro la scheda diventa H2), meta description di privacy, segnala, aziende, white label e video riportate a 70-170 caratteri, title delle home sotto i 70.
+- Versioni inglesi delle 5 guide in `/en/guides/`, con hreflang reciproci, indice inglese e link nel piè di pagina.
+- Due guide nuove IT+EN: condividere la posizione in sicurezza; lavoratori isolati.
+- Sitemap e llms.txt aggiornati. Nessuna modifica ad app, backend o store.
+
 ## Test effettuati
 
 - `check_site.py`: 41 pagine, 39 indicizzabili, tutte in sitemap; 0 errori nuovi (restano i 3 doppi H1 delle privacy, presenti anche su main).
@@ -37,10 +44,9 @@ Nessun deploy, nessuna modifica agli store, all'app o al backend. Il sito cambia
 
 ## Problemi residui
 
-1. Doppio H1 nelle pagine privacy (P3).
-2. Meta description fuori misura in aziende, white label, video, privacy, segnala (P3).
-3. Pannello Guardian: senza JS mostra solo il testo di cancellazione account (P2, backend).
-4. Indicizzazione reale e risposte HTTP ai bot non verificate (serve Search Console e il PC).
+1. ~~Doppio H1 nelle pagine privacy~~ e ~~meta description fuori misura~~: corretti nella fase 5 (25/11), `check_site.py` ora dà 0 errori e 0 avvisi su 51 pagine.
+2. Pannello Guardian: senza JS mostra solo il testo di cancellazione account (P2, backend).
+3. Indicizzazione reale e risposte HTTP ai bot non verificate (serve Search Console e il PC).
 
 ## Attività che richiedono intervento umano
 
