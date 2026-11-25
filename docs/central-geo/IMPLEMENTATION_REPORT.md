@@ -45,7 +45,7 @@ Nessun deploy, nessuna modifica agli store, all'app o al backend. Il sito cambia
 ## Attività che richiedono intervento umano
 
 1. **Rivedere e fare il merge della PR #6.**
-2. Confermare la scelta sui crawler di addestramento (oggi consentiti, come prima).
+2. ~~Scelta sui crawler di addestramento~~: confermata il 25/11, restano consentiti.
 3. Google Search Console e Bing Webmaster Tools: verificare il dominio e inviare la sitemap.
 4. Lanciare `python tools/crawler-check/crawler_check.py` dal PC e dire se il dominio passa da Cloudflare.
 5. Inviare le 10 bozze alle testate e pubblicare le schede AlternativeTo / European Alternatives.
