@@ -125,6 +125,7 @@
       <a href="#video">Video</a>
       <a href="/en/aziende.html">Business</a>
       <a href="/en/white-label.html">White label</a>
+      <a href="/en/guides/">Guides</a>
     </nav>
     <div class="nav-actions">
       <div class="lang-switch" role="navigation" aria-label="Lingua · Language"><a href="/" hreflang="it" lang="it">IT</a><a href="/en/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/fr/" hreflang="fr" lang="fr">FR</a></div>
@@ -416,6 +417,6 @@
 /* Contatore visite di Central: niente cookie, nessun servizio esterno. */
 (function(){try{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){navigator.sendBeacon(u,new Blob([d],{type:"text/plain"}));}else{fetch(u,{method:"POST",body:d,keepalive:true,mode:"no-cors"});}}catch(e){}})();
 </script>
-<script src="/assets/menu.js" defer></script>
+<script src="/assets/menu.js?v=2" defer></script>
 </body>
 </html>
