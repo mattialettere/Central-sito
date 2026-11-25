@@ -21,6 +21,7 @@ Key facts (verified against the app, November 2026):
 - [SOS emergency app](https://getcentral.net/en/sos-emergency-app.html): how the SOS works
 - [Encrypted chat](https://getcentral.net/en/encrypted-chat.html): encryption design and its limits
 - [Family safety](https://getcentral.net/en/family-safety.html): check-in, Safe Trip, safe zones, Guardian dashboard
+- [Central City](https://getcentral.net/en/central-city.html): the social town inside the app, with friends' homes, small jobs and coins (IT: /central-city.html)
 - [FAQ](https://getcentral.net/en/faq.html): verified answers
 - [Funzionalità (IT)](https://getcentral.net/funzionalita.html)
 - [App SOS (IT)](https://getcentral.net/app-sos-emergenza.html)

@@ -194,3 +194,7 @@ section.guide{padding-top:24px}
 footer .guide-links{flex-basis:100%;font-size:13px;color:var(--ink-muted)}
 footer .guide-links a{text-decoration:underline;text-underline-offset:3px}
 @media (max-width:600px){.prose p,.prose li{font-size:16px}.guide-hero .hero-visual{display:none}}
+
+/* Link "scopri di più" dalle sezioni della home alle pagine dedicate */
+.more-link{font-weight:650;color:var(--coral-600,#D8481E);text-decoration:none;white-space:nowrap}
+.more-link:hover{text-decoration:underline}
