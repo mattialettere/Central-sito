@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Central AI Visibility Monitor</title>
+<style>
+:root{--bg:#FFF8F0;--card:#FFFDFA;--line:#F2E3D3;--ink:#2A1F16;--soft:#5E4F44;--muted:#8A776A;--c4:#F5936A;--c5:#EA5B2E;--c7:#B83A12;--tint:#FCEFE6;--ok:#3E8E5C;--no:#B0413E}
+@media (prefers-color-scheme:dark){:root{--bg:#1C1612;--card:#251D18;--line:#3A2E26;--ink:#F6EDE4;--soft:#D3C3B5;--muted:#A8968A;--tint:#3A271D;--c7:#F5936A}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 16px 8px;max-width:1180px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}header p{margin:0;color:var(--soft);font-size:14px}
+main{max-width:1180px;margin:0 auto;padding:8px 16px 48px;display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+h2{font-size:17px;margin:0 0 12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--c5);border-color:var(--c5);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--tint);border-radius:12px;padding:12px}.kpi b{display:block;font-size:24px}.kpi span{font-size:12.5px;color:var(--soft)}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+textarea{min-height:90px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.checks{display:flex;flex-wrap:wrap;gap:6px 14px}.checks label{display:flex;gap:6px;align-items:center;font-weight:400;margin:0}.checks input{width:auto}
+.btn{border:0;border-radius:999px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer;background:var(--c5);color:#fff}
+.btn.alt{background:transparent;color:var(--c7);border:1px solid var(--line)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--soft);font-weight:600}
+.scroll{overflow-x:auto}
+.bar{height:8px;border-radius:4px;background:var(--line);min-width:60px}.bar i{display:block;height:100%;border-radius:4px;background:var(--c5)}
+.tag{display:inline-block;font-size:12px;border-radius:999px;padding:2px 8px;background:var(--tint)}
+.tag.no{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.note{font-size:13px;color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>Central AI Visibility Monitor</h1>
+  <p>Registro manuale delle risposte dei motori AI. Ogni riga è una verifica fatta davvero da una persona: niente risultati simulati. I dati restano in questo browser finché non li esporti.</p>
+</header>
+<main>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="dash">Dashboard</button>
+    <button role="tab" aria-selected="false" data-tab="nuova">Nuova verifica</button>
+    <button role="tab" aria-selected="false" data-tab="registro">Registro</button>
+    <button role="tab" aria-selected="false" data-tab="domande">Domande</button>
+    <button role="tab" aria-selected="false" data-tab="dati">Importa / esporta</button>
+  </div>
+
+  <section id="tab-dash" class="card">
+    <h2>Dashboard</h2>
+    <div class="row" style="margin-bottom:12px">
+      <div><label for="f-plat">Piattaforma</label><select id="f-plat"></select></div>
+      <div><label for="f-cat">Categoria</label><select id="f-cat"></select></div>
+      <div><label for="f-from">Dal</label><input type="date" id="f-from"></div>
+    </div>
+    <div class="grid" id="kpi"></div>
+    <div id="dash-empty" class="note" style="margin-top:12px">Nessuna verifica registrata. Vai su "Nuova verifica".</div>
+    <div class="row" style="margin-top:16px">
+      <div class="scroll"><h2>Per piattaforma</h2><table id="t-plat"></table></div>
+      <div class="scroll"><h2>Per categoria</h2><table id="t-cat"></table></div>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <div class="scroll"><h2>Andamento mensile</h2><table id="t-mese"></table></div>
+      <div class="scroll"><h2>Concorrenti citati</h2><table id="t-conc"></table></div>
+    </div>
+  </section>
+
+  <section id="tab-nuova" class="card" hidden>
+    <h2>Nuova verifica</h2>
+    <p class="note">Fai la domanda sulla piattaforma (meglio in una finestra anonima o senza cronologia, così la risposta non dipende da conversazioni passate), poi registra qui quello che hai visto.</p>
+    <form id="form">
+      <div class="row">
+        <div><label for="n-data">Data</label><input type="date" id="n-data" required></div>
+        <div><label for="n-plat">Piattaforma</label><select id="n-plat" required></select></div>
+        <div><label for="n-modo">Modalità</label><select id="n-modo"><option>Anonima / senza login</option><option>Account senza cronologia</option><option>Account con cronologia</option></select></div>
+      </div>
+      <label for="n-dom">Domanda</label><select id="n-dom" required></select>
+      <label for="n-esito">Esito per Central</label>
+      <select id="n-esito" required>
+        <option value="assente">Mancata menzione</option>
+        <option value="negativa">Menzione negativa o con errori</option>
+        <option value="menzione">Menzione del marchio</option>
+        <option value="raccomandazione">Raccomandazione esplicita</option>
+      </select>
+      <div class="checks" style="margin-top:10px">
+        <label><input type="checkbox" id="n-fonte"> Citazione con fonte</label>
+        <label><input type="checkbox" id="n-sito"> Link diretto a getcentral.net</label>
+        <label><input type="checkbox" id="n-store"> Link a App Store / Google Play</label>
+      </div>
+      <div class="row">
+        <div><label for="n-pos">Posizione osservata (1 = prima app citata)</label><input type="number" min="1" max="50" id="n-pos"></div>
+        <div><label for="n-tot">App citate in totale</label><input type="number" min="0" max="50" id="n-tot"></div>
+      </div>
+      <label>Concorrenti citati</label><div class="checks" id="n-conc"></div>
+      <label for="n-altri">Altri concorrenti (separati da virgola)</label><input id="n-altri" maxlength="300">
+      <label for="n-estratto">Estratto della risposta (incolla le righe rilevanti)</label><textarea id="n-estratto" maxlength="4000"></textarea>
+      <label for="n-note">Note (errori su Central, fonti citate…)</label><input id="n-note" maxlength="500">
+      <div class="actions"><button class="btn" type="submit">Salva verifica</button><span id="n-ok" class="note" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="tab-registro" class="card" hidden>
+    <h2>Registro</h2>
+    <div class="scroll"><table id="t-reg"></table></div>
+  </section>
+
+  <section id="tab-domande" class="card" hidden>
+    <h2>Archivio delle domande</h2>
+    <p class="note">Domande che una persona potrebbe fare a un'AI. Puoi aggiungerne: restano in questo browser e vanno nell'esportazione JSON.</p>
+    <div class="row"><div><label for="q-cat">Categoria</label><input id="q-cat" list="q-cats" maxlength="60"><datalist id="q-cats"></datalist></div><div><label for="q-txt">Domanda</label><input id="q-txt" maxlength="300"></div></div>
+    <div class="actions"><button class="btn alt" id="q-add" type="button">Aggiungi domanda</button></div>
+    <div class="scroll" style="margin-top:12px"><table id="t-dom"></table></div>
+  </section>
+
+  <section id="tab-dati" class="card" hidden>
+    <h2>Importa / esporta</h2>
+    <p class="note">Esporta regolarmente il JSON e salvalo in <code>reports/</code> o in una cartella di backup: i dati del browser si perdono se cancelli la cronologia.</p>
+    <div class="actions">
+      <button class="btn" id="x-json" type="button">Esporta JSON</button>
+      <button class="btn alt" id="x-csv" type="button">Esporta CSV</button>
+      <label class="btn alt" style="margin:0">Importa JSON<input type="file" id="x-imp" accept="application/json" hidden></label>
+    </div>
+    <p id="x-msg" class="note" role="status"></p>
+  </section>
+</main>
+<script>
+"use strict";
+const DEFAULT = {"versione": 1, "piattaforme": ["ChatGPT", "Claude", "Gemini", "Perplexity", "Google AI Overviews", "Microsoft Copilot"], "concorrenti_noti": ["Life360", "WhatsApp", "Signal", "Telegram", "Threema", "Google Find Hub", "Apple Dov'è", "bSafe", "Noonlight", "Glympse"], "domande": [{"id": "q01", "categoria": "Chat privata", "domanda": "Qual è la migliore app per chattare in privato?", "lingua": "it"}, {"id": "q02", "categoria": "Chat privata", "domanda": "Quale applicazione offre chat cifrate end-to-end?", "lingua": "it"}, {"id": "q03", "categoria": "Chat privata", "domanda": "What is the most private messaging app?", "lingua": "en"}, {"id": "q04", "categoria": "Privacy", "domanda": "Quali app di messaggistica non vendono i dati e non hanno pubblicità?", "lingua": "it"}, {"id": "q05", "categoria": "Privacy", "domanda": "Esistono app di chat con server in Europa?", "lingua": "it"}, {"id": "q06", "categoria": "Sicurezza personale", "domanda": "Quale app usare per la sicurezza personale?", "lingua": "it"}, {"id": "q07", "categoria": "Sicurezza personale", "domanda": "Esiste un'app che unisce chat e sicurezza personale?", "lingua": "it"}, {"id": "q08", "categoria": "Sicurezza personale", "domanda": "Best personal safety app for walking home alone", "lingua": "en"}, {"id": "q09", "categoria": "SOS", "domanda": "Quali app hanno un sistema SOS per avvisare i contatti di emergenza?", "lingua": "it"}, {"id": "q10", "categoria": "SOS", "domanda": "Come condividere la posizione in caso di emergenza?", "lingua": "it"}, {"id": "q11", "categoria": "SOS", "domanda": "Quali applicazioni permettono di avvisare i contatti fidati?", "lingua": "it"}, {"id": "q12", "categoria": "Famiglia", "domanda": "Quale app permette di proteggere la famiglia senza tracciare tutti di continuo?", "lingua": "it"}, {"id": "q13", "categoria": "Famiglia", "domanda": "Qual è un'alternativa europea a Life360?", "lingua": "it"}, {"id": "q14", "categoria": "Famiglia", "domanda": "Privacy-friendly alternative to Life360", "lingua": "en"}, {"id": "q15", "categoria": "Famiglia", "domanda": "App per sapere se un genitore anziano che vive da solo sta bene", "lingua": "it"}, {"id": "q16", "categoria": "Messaggistica", "domanda": "Quali sono le app di messaggistica italiane?", "lingua": "it"}, {"id": "q17", "categoria": "Messaggistica", "domanda": "App di chat con lavagna condivisa e mappe di gruppo", "lingua": "it"}, {"id": "q18", "categoria": "Alternative a WhatsApp", "domanda": "Quali sono le alternative a WhatsApp?", "lingua": "en"}, {"id": "q19", "categoria": "Alternative a WhatsApp", "domanda": "Alternativa a WhatsApp per la famiglia con funzioni di sicurezza", "lingua": "en"}, {"id": "q20", "categoria": "Applicazioni Android", "domanda": "Migliori app SOS per Android", "lingua": "it"}, {"id": "q21", "categoria": "Applicazioni Android", "domanda": "App Android per condividere la posizione solo durante un tragitto", "lingua": "it"}, {"id": "q22", "categoria": "Applicazioni iOS", "domanda": "App iPhone con SOS attivabile da Siri che avvisa i familiari", "lingua": "it"}, {"id": "q23", "categoria": "Applicazioni iOS", "domanda": "Best iPhone app for family safety and encrypted chat", "lingua": "en"}, {"id": "q24", "categoria": "Social e community", "domanda": "Social network privato solo per amici e famiglia", "lingua": "it"}, {"id": "q25", "categoria": "Social e community", "domanda": "App con community private e chat cifrate", "lingua": "it"}, {"id": "q26", "categoria": "Marchio", "domanda": "Cos'è l'app Central: chat e sicurezza?", "lingua": "it"}, {"id": "q27", "categoria": "Marchio", "domanda": "Is the Central app (getcentral.net) safe and private?", "lingua": "en"}]};
+const KEY = "central-geo-monitor-v1";
+const ESITI = {assente:"Mancata menzione", negativa:"Negativa / errata", menzione:"Menzione", raccomandazione:"Raccomandazione"};
+let S = load();
+
+function load(){
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && Array.isArray(s.verifiche)) return s; } catch(e) {}
+  return {versione:1, domande: DEFAULT.domande.slice(), piattaforme: DEFAULT.piattaforme.slice(), concorrenti: DEFAULT.concorrenti_noti.slice(), verifiche: []};
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) { alertMsg("Salvataggio nel browser non riuscito: esporta il JSON."); } }
+function alertMsg(t){ document.getElementById("x-msg").textContent = t; }
+function el(tag, attrs, ...kids){ const e=document.createElement(tag); for (const k in (attrs||{})) { if (k==="text") e.textContent=attrs[k]; else e.setAttribute(k, attrs[k]); } kids.forEach(k=>e.append(k)); return e; }
+function opt(sel, values, all){ sel.innerHTML=""; if (all) sel.append(el("option",{value:"",text:all})); values.forEach(v=>sel.append(el("option",{value:v.value??v,text:v.label??v}))); }
+function pct(a,b){ return b ? Math.round(100*a/b)+"%" : "–"; }
+
+// Schede
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===b));
+  document.querySelectorAll("main > section").forEach(s=>s.hidden = s.id !== "tab-"+b.dataset.tab);
+  render();
+}));
+
+function categorie(){ return [...new Set(S.domande.map(d=>d.categoria))]; }
+function domanda(id){ return S.domande.find(d=>d.id===id) || {domanda:id, categoria:"?"}; }
+
+function renderForm(){
+  opt(document.getElementById("n-plat"), S.piattaforme);
+  opt(document.getElementById("n-dom"), S.domande.map(d=>({value:d.id,label:`[${d.categoria}] ${d.domanda}`})));
+  const box=document.getElementById("n-conc"); box.innerHTML="";
+  S.concorrenti.forEach(c=>{ const i=el("input",{type:"checkbox",value:c}); box.append(el("label",{},i,c)); });
+  const d=document.getElementById("n-data"); if(!d.value) d.value=new Date().toISOString().slice(0,10);
+}
+
+document.getElementById("form").addEventListener("submit", ev=>{
+  ev.preventDefault();
+  const v = id=>document.getElementById(id).value.trim();
+  const conc=[...document.querySelectorAll("#n-conc input:checked")].map(i=>i.value)
+    .concat(v("n-altri").split(",").map(s=>s.trim()).filter(Boolean).slice(0,20));
+  const num = id=>{ const n=parseInt(v(id),10); return Number.isFinite(n)&&n>0&&n<=50 ? n : null; };
+  const r = {id: Date.now().toString(36), data:v("n-data"), piattaforma:v("n-plat"), modalita:v("n-modo"),
+    domanda_id:v("n-dom"), esito:v("n-esito"), fonte:document.getElementById("n-fonte").checked,
+    link_sito:document.getElementById("n-sito").checked, link_store:document.getElementById("n-store").checked,
+    posizione:num("n-pos"), app_citate:num("n-tot"), concorrenti:[...new Set(conc)], estratto:v("n-estratto").slice(0,4000), note:v("n-note").slice(0,500)};
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(r.data) || !ESITI[r.esito]) return;
+  if (r.esito==="assente") { r.posizione=null; }
+  S.verifiche.push(r); save();
+  ["n-estratto","n-note","n-altri","n-pos","n-tot"].forEach(id=>document.getElementById(id).value="");
+  document.querySelectorAll("#form input[type=checkbox]").forEach(i=>i.checked=false);
+  document.getElementById("n-ok").textContent="Salvata ("+S.verifiche.length+" verifiche in totale).";
+});
+
+function filtrate(){
+  const p=document.getElementById("f-plat").value, c=document.getElementById("f-cat").value, f=document.getElementById("f-from").value;
+  return S.verifiche.filter(r=>(!p||r.piattaforma===p)&&(!c||domanda(r.domanda_id).categoria===c)&&(!f||r.data>=f));
+}
+function stats(rows){
+  const n=rows.length, m=rows.filter(r=>r.esito!=="assente").length;
+  return {n, m, racc:rows.filter(r=>r.esito==="raccomandazione").length, neg:rows.filter(r=>r.esito==="negativa").length,
+    fonte:rows.filter(r=>r.fonte).length, sito:rows.filter(r=>r.link_sito).length, store:rows.filter(r=>r.link_store).length,
+    pos: (a=>a.length? (a.reduce((x,y)=>x+y,0)/a.length).toFixed(1) : "–")(rows.map(r=>r.posizione).filter(Boolean))};
+}
+function tableGroup(id, rows, keyFn, label){
+  const t=document.getElementById(id); t.innerHTML="";
+  t.append(el("tr",{},el("th",{text:label}),el("th",{text:"Risposte"}),el("th",{text:"Menzioni"}),el("th",{text:""})));
+  const g={}; rows.forEach(r=>{ const k=keyFn(r); (g[k]=g[k]||[]).push(r); });
+  Object.keys(g).sort().forEach(k=>{ const s=stats(g[k]); const bar=el("div",{class:"bar"},el("i",{style:`width:${s.n?100*s.m/s.n:0}%`}));
+    t.append(el("tr",{},el("td",{text:k}),el("td",{text:s.n}),el("td",{text:`${s.m} (${pct(s.m,s.n)})`}),el("td",{},bar))); });
+}
+function renderDash(){
+  const p=document.getElementById("f-plat"), c=document.getElementById("f-cat"), pv=p.value, cv=c.value;
+  opt(p, S.piattaforme, "Tutte"); opt(c, categorie(), "Tutte"); p.value=pv; c.value=cv;
+}
+function renderDashData(){
+  const rows=filtrate(), s=stats(rows);
+  document.getElementById("dash-empty").hidden = S.verifiche.length>0;
+  const k=document.getElementById("kpi"); k.innerHTML="";
+  [["Risposte analizzate",s.n],["Menzioni di Central",`${s.m} · ${pct(s.m,s.n)}`],["Raccomandazioni esplicite",`${s.racc} · ${pct(s.racc,s.n)}`],
+   ["Citazioni con fonte",s.fonte],["Link a getcentral.net",s.sito],["Link agli store",s.store],["Negative / errate",s.neg],["Posizione media",s.pos]]
+   .forEach(([a,b])=>k.append(el("div",{class:"kpi"},el("b",{text:b}),el("span",{text:a}))));
+  tableGroup("t-plat", rows, r=>r.piattaforma, "Piattaforma");
+  tableGroup("t-cat", rows, r=>domanda(r.domanda_id).categoria, "Categoria");
+  tableGroup("t-mese", rows, r=>r.data.slice(0,7), "Mese");
+  const t=document.getElementById("t-conc"); t.innerHTML=""; t.append(el("tr",{},el("th",{text:"Concorrente"}),el("th",{text:"Risposte in cui compare"})));
+  const c={}; rows.forEach(r=>r.concorrenti.forEach(x=>c[x]=(c[x]||0)+1));
+  Object.entries(c).sort((a,b)=>b[1]-a[1]).forEach(([a,b])=>t.append(el("tr",{},el("td",{text:a}),el("td",{text:`${b} (${pct(b,rows.length)})`}))));
+}
+["f-plat","f-cat","f-from"].forEach(id=>document.getElementById(id).addEventListener("change",renderDashData));
+
+function renderReg(){
+  const t=document.getElementById("t-reg"); t.innerHTML="";
+  t.append(el("tr",{},...["Data","Piattaforma","Domanda","Esito","Fonte/link","Pos.","Concorrenti",""].map(h=>el("th",{text:h}))));
+  [...S.verifiche].reverse().forEach(r=>{
+    const del=el("button",{class:"btn alt",type:"button",text:"Elimina"});
+    del.addEventListener("click",()=>{ if(confirm("Eliminare questa verifica?")){ S.verifiche=S.verifiche.filter(x=>x.id!==r.id); save(); renderReg(); } });
+    const fl=[r.fonte&&"fonte",r.link_sito&&"sito",r.link_store&&"store"].filter(Boolean).join(", ")||"–";
+    t.append(el("tr",{},el("td",{text:r.data}),el("td",{text:r.piattaforma}),el("td",{text:domanda(r.domanda_id).domanda}),
+      el("td",{},el("span",{class:"tag"+(r.esito==="assente"?" no":""),text:ESITI[r.esito]})),el("td",{text:fl}),
+      el("td",{text:r.posizione??"–"}),el("td",{text:r.concorrenti.join(", ")}),el("td",{},del)));
+  });
+}
+function renderDom(){
+  const t=document.getElementById("t-dom"); t.innerHTML="";
+  t.append(el("tr",{},el("th",{text:"Id"}),el("th",{text:"Categoria"}),el("th",{text:"Domanda"}),el("th",{text:"Verifiche"})));
+  S.domande.forEach(d=>t.append(el("tr",{},el("td",{text:d.id}),el("td",{text:d.categoria}),el("td",{text:d.domanda}),
+    el("td",{text:S.verifiche.filter(r=>r.domanda_id===d.id).length}))));
+  const dl=document.getElementById("q-cats"); dl.innerHTML=""; categorie().forEach(c=>dl.append(el("option",{value:c})));
+}
+document.getElementById("q-add").addEventListener("click",()=>{
+  const c=document.getElementById("q-cat").value.trim(), q=document.getElementById("q-txt").value.trim();
+  if(!c||!q) return;
+  let n=S.domande.length+1, id; do { id="q"+String(n++).padStart(2,"0"); } while (S.domande.some(d=>d.id===id));
+  S.domande.push({id, categoria:c, domanda:q}); save(); document.getElementById("q-txt").value=""; renderDom();
+});
+
+function download(name, text, type){ const a=el("a",{href:URL.createObjectURL(new Blob([text],{type})),download:name}); document.body.append(a); a.click(); a.remove(); }
+const oggi=()=>new Date().toISOString().slice(0,10);
+document.getElementById("x-json").addEventListener("click",()=>download(`central-geo-monitor-${oggi()}.json`, JSON.stringify(S,null,1), "application/json"));
+document.getElementById("x-csv").addEventListener("click",()=>{
+  const cols=["data","piattaforma","modalita","categoria","domanda","esito","fonte","link_sito","link_store","posizione","app_citate","concorrenti","note","estratto"];
+  const q=v=>{ v=String(v??""); if (/^[=+\-@]/.test(v)) v="'"+v; return '"'+v.replace(/"/g,'""')+'"'; };
+  const lines=[cols.join(",")].concat(S.verifiche.map(r=>{ const d=domanda(r.domanda_id);
+    return [r.data,r.piattaforma,r.modalita,d.categoria,d.domanda,ESITI[r.esito],r.fonte,r.link_sito,r.link_store,r.posizione,r.app_citate,r.concorrenti.join("; "),r.note,r.estratto].map(q).join(","); }));
+  download(`central-geo-monitor-${oggi()}.csv`, "﻿"+lines.join("\n"), "text/csv");
+});
+document.getElementById("x-imp").addEventListener("change", ev=>{
+  const f=ev.target.files[0]; if(!f) return;
+  if (f.size > 5e6) { alertMsg("File troppo grande."); return; }
+  f.text().then(t=>{
+    const d=JSON.parse(t);
+    if(!d||!Array.isArray(d.verifiche)||!Array.isArray(d.domande)) throw new Error("formato");
+    const ok=d.verifiche.filter(r=>r&&typeof r.data==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(r.data)&&ESITI[r.esito]&&typeof r.domanda_id==="string")
+      .map(r=>({...r, concorrenti:Array.isArray(r.concorrenti)?r.concorrenti.map(String).slice(0,30):[], estratto:String(r.estratto||"").slice(0,4000), note:String(r.note||"").slice(0,500)}));
+    if(!confirm(`Sostituire i dati di questo browser con ${ok.length} verifiche dal file?`)) return;
+    S={versione:1, domande:d.domande.filter(x=>x&&x.id&&x.domanda).map(x=>({id:String(x.id),categoria:String(x.categoria||"Altro"),domanda:String(x.domanda)})),
+       piattaforme:Array.isArray(d.piattaforme)?d.piattaforme.map(String):DEFAULT.piattaforme, concorrenti:Array.isArray(d.concorrenti)?d.concorrenti.map(String):DEFAULT.concorrenti_noti, verifiche:ok};
+    save(); alertMsg(`Importate ${ok.length} verifiche.`); render();
+  }).catch(()=>alertMsg("File non valido: serve un JSON esportato da questo strumento."));
+  ev.target.value="";
+});
+
+function render(){ renderDash(); renderDashData(); renderForm(); renderReg(); renderDom(); }
+render();
+</script>
+</body>
+</html>

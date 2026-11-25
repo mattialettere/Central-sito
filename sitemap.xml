@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://getcentral.net/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/en/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -119,7 +119,7 @@
   </url>
   <url>
     <loc>https://getcentral.net/fr/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/"/>
@@ -205,6 +205,132 @@
   <url>
     <loc>https://getcentral.net/stampa.html</loc>
     <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/funzionalita.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/funzionalita.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/funzionalita.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/en/features.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/funzionalita.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/funzionalita.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/app-sos-emergenza.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/app-sos-emergenza.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/sos-emergency-app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/app-sos-emergenza.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/en/sos-emergency-app.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/app-sos-emergenza.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/sos-emergency-app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/app-sos-emergenza.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/chat-crittografata.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/chat-crittografata.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/encrypted-chat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/chat-crittografata.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/en/encrypted-chat.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/chat-crittografata.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/encrypted-chat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/chat-crittografata.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/sicurezza-famiglia.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/sicurezza-famiglia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/family-safety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/sicurezza-famiglia.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/en/family-safety.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/sicurezza-famiglia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/family-safety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/sicurezza-famiglia.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/domande-frequenti.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/domande-frequenti.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/en/faq.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://getcentral.net/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcentral.net/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcentral.net/domande-frequenti.html"/>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/contatti-di-emergenza-smartphone.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/cosa-comunicare-in-emergenza.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/genitore-anziano-che-vive-da-solo.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/tornare-a-casa-da-soli-la-sera.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getcentral.net/guide/chat-cifrata-domande-da-fare.html</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

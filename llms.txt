@@ -1,0 +1,39 @@
+# Central
+
+> Central ("Central: chat e sicurezza") is a free mobile app for iPhone and Android, made in Italy, that combines end-to-end encrypted chat with personal and family safety tools: SOS, daily check-in, Safe Trip and safe zones. No ads. It is positioned as a private, European alternative to continuous location-tracking apps such as Life360: location is shared only during a trip, when leaving an agreed zone, or in an SOS.
+
+Key facts (verified against the app, November 2026):
+
+- Platforms: iOS (App Store, Italian and English) and Android (Google Play, Italian, English, Spanish, German, French, Albanian). Web dashboard for followers ("Guardian") in any browser.
+- Messaging: one-to-one and group chats, photos, videos, voice notes, files, shared whiteboards and maps, end-to-end encrypted (X25519 + AES-256-GCM; group AES-256 keys; media AES-GCM). Crypto code is open source (Apache-2.0). No forward secrecy; the server sees metadata. Not anonymous.
+- Calls: voice calls only (no video calls), encrypted with WebRTC DTLS-SRTP.
+- SOS: sends location, battery level and, when started in the app, a 30-second front-camera video to emergency contacts. Triggers: in-app button; iPhone Siri ("Hey Siri, Central SOS") and Control Center; Android home-screen widget and Quick Settings tile. No volume-button trigger. It does not call emergency services (112).
+- Emergency contacts: 2 free, 5 with Plus, unlimited with Premium.
+- Hosting: server on Railway (EU region; Railway is a US company); encrypted files on Scaleway (France). Push, maps and email use US providers (Firebase/Apple, Mapbox, Resend).
+- Pricing: core features free; Plus and Premium subscriptions via App Store / Google Play.
+- Contact: info@getcentral.net
+
+## Pages
+
+- [Home (Italian)](https://getcentral.net/): overview of Central
+- [Home (English)](https://getcentral.net/en/): overview in English
+- [Features](https://getcentral.net/en/features.html): full feature list and plans
+- [SOS emergency app](https://getcentral.net/en/sos-emergency-app.html): how the SOS works
+- [Encrypted chat](https://getcentral.net/en/encrypted-chat.html): encryption design and its limits
+- [Family safety](https://getcentral.net/en/family-safety.html): check-in, Safe Trip, safe zones, Guardian dashboard
+- [FAQ](https://getcentral.net/en/faq.html): verified answers
+- [Funzionalità (IT)](https://getcentral.net/funzionalita.html)
+- [App SOS (IT)](https://getcentral.net/app-sos-emergenza.html)
+- [Chat crittografata (IT)](https://getcentral.net/chat-crittografata.html)
+- [Sicurezza famiglia (IT)](https://getcentral.net/sicurezza-famiglia.html)
+- [Domande frequenti (IT)](https://getcentral.net/domande-frequenti.html)
+- [Guide (IT)](https://getcentral.net/guide/): practical guides on emergency contacts, 112, elderly parents living alone, getting home safely, encrypted chat
+- [Business](https://getcentral.net/en/aziende.html): Central for lone workers and companies
+- [Press kit (IT)](https://getcentral.net/stampa.html)
+- [Privacy policy](https://getcentral.net/en/privacy.html)
+
+## Optional
+
+- [App Store](https://apps.apple.com/app/id6826663138)
+- [Google Play](https://play.google.com/store/apps/details?id=net.getcentral.central)
+- [Open source crypto code](https://github.com/mattialettere/central-crypto)

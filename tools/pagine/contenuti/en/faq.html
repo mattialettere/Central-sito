@@ -1,0 +1,40 @@
+    <h2>About Central</h2>
+    <div class="faq">
+      <details open><summary>What is Central?</summary><p>Central is a free app for iPhone and Android that combines end-to-end encrypted chat, voice calls, groups and communities with personal safety tools: SOS, an "I'm OK" check-in, Safe Trip and safe zones. It has no ads and does not sell data.</p></details>
+      <details><summary>How does Central work?</summary><p>You sign up, add your contacts and chat as in any messaging app. Whenever you want, you choose who follows you and who your emergency contacts are: they get an alert if you send an SOS, miss a check-in, do not reach a trip's destination or leave an agreed zone.</p></details>
+      <details><summary>Is Central free?</summary><p>Yes. Chats, groups, calls, SOS, check-in and Safe Trip are free. The Plus and Premium plans raise the number of emergency contacts, followers and safe zones, extend the history and add the live map in the web dashboard. They are activated in the app through the App Store or Google Play.</p></details>
+      <details><summary>Is Central available for Android?</summary><p>Yes, on Google Play, in Italian, English, Spanish, German, French and Albanian.</p></details>
+      <details><summary>Is Central available for iPhone?</summary><p>Yes, on the App Store, in Italian and English. Chats, calls and alerts work between iPhone and Android with no differences.</p></details>
+      <details><summary>How do I download Central?</summary><p>From the App Store on iPhone (apps.apple.com/app/id6826663138) or from Google Play on Android (search for "Central: chat e sicurezza" or use the buttons on this page).</p></details>
+      <details><summary>Who makes Central?</summary><p>Central is an Italian app developed independently. For contact, press and partnerships: info@getcentral.net.</p></details>
+    </div>
+
+    <h2>Chat and privacy</h2>
+    <div class="faq">
+      <details><summary>Does Central offer private chats?</summary><p>Yes. One-to-one and group chats, with messages, photos, videos, voice notes, files and whiteboards end-to-end encrypted: only the participants can read them, not even Central.</p></details>
+      <details><summary>How does Central's encryption work?</summary><p>Each account has an X25519 key pair generated on the phone; messages are encrypted with AES-256-GCM, groups with an AES-256 key shared among members, files with AES-GCM. The cryptographic code is open source (github.com/mattialettere/central-crypto). The server sees metadata (who talks to whom and when) and the system does not offer forward secrecy.</p></details>
+      <details><summary>Are calls encrypted?</summary><p>Yes. Audio travels encrypted between the two phones with DTLS-SRTP, the WebRTC standard, even when it goes through a relay server. Central offers voice calls only, no video calls.</p></details>
+      <details><summary>Is Central anonymous?</summary><p>No. You need an account and the server knows who you are in touch with. Encryption protects message content, not identity.</p></details>
+      <details><summary>How is personal data handled?</summary><p>The server runs on Railway in its European region (Railway is a US company); encrypted photos, videos and files are stored on Scaleway in France. Push notifications, maps and email use US providers (Google Firebase, Apple, Mapbox, Resend). Trip locations are deleted 24 hours after a trip ends, safe-zone locations after 3 days. You can export your data or delete your account from the app and the web dashboard. Details in the privacy policy.</p></details>
+      <details><summary>Does Central show ads?</summary><p>No. Central is funded by the Plus and Premium subscriptions and by business plans.</p></details>
+    </div>
+
+    <h2>Safety and location</h2>
+    <div class="faq">
+      <details><summary>How does Guardian work?</summary><p>A Guardian is someone who follows you: a person you accepted who receives your check-in, trip and safe-zone alerts. They can follow you from the app or from the Guardian web dashboard (online.getcentral.net). You always see who your Guardians are and can disconnect with one tap.</p></details>
+      <details><summary>How do I trigger an SOS?</summary><p>From the SOS button in the app, which records a 30-second video you can cancel in the first 3 seconds. On iPhone also with Siri ("Hey Siri, Central SOS") or from Control Center; on Android from the widget or the Quick Settings tile. From Siri, Control Center and the Quick Settings tile it goes out immediately with location and battery, without video.</p></details>
+      <details><summary>Can SOS be triggered with the volume button?</summary><p>No. On many Android phones the system never passes volume keys to apps, so Central uses the Quick Settings tile instead, which works on every device.</p></details>
+      <details><summary>How many emergency contacts can I have?</summary><p>2 on the free plan, up to 5 with Plus, unlimited with Premium. The same applies to people who follow you.</p></details>
+      <details><summary>What do contacts receive when I send an SOS?</summary><p>Your location (if available), your battery level and, if the SOS starts from the app, the 30-second video, together with a prompt to call 112. Everything arrives end-to-end encrypted in the chat with each contact.</p></details>
+      <details><summary>Does Central call emergency services?</summary><p>No. Central alerts people you trust; it does not replace 112. If you are in danger, always call the emergency number.</p></details>
+      <details><summary>How does location sharing work?</summary><p>Central does not share your location continuously. It only sends it when you share a place in a chat, during a Safe Trip, when you leave or return to an agreed safe zone and when you send an SOS.</p></details>
+      <details><summary>Who can see where I am?</summary><p>Only the people you choose, and only in the cases above. You can disconnect from anyone at any time.</p></details>
+    </div>
+
+    <h2>Comparisons</h2>
+    <div class="faq">
+      <details><summary>How is Central different from other apps?</summary><p>Central puts end-to-end encrypted chat and personal safety tools (SOS, check-in, trips, zones) in the same app, with one clear principle: location is shared only for a reason, never continuously. It has no ads and its server is in the European region. If all you need is maximum message protection, a dedicated app such as Signal remains the benchmark.</p></details>
+      <details><summary>Is Central an alternative to Life360?</summary><p>Yes, for people looking for a private, European alternative: instead of continuous tracking, Central uses location only in an SOS, during a trip or when leaving an agreed zone, and adds an end-to-end encrypted chat.</p></details>
+      <details><summary>Is Central an alternative to WhatsApp?</summary><p>It can be for family groups and close friends who want encrypted chats and safety tools in one app. It does not aim to replace WhatsApp for all your contacts.</p></details>
+    </div>
+    <p class="see-also">See also: <a href="/en/features.html">all features</a> · <a href="/en/sos-emergency-app.html">SOS and emergencies</a> · <a href="/en/encrypted-chat.html">encrypted chat</a> · <a href="/en/family-safety.html">family safety</a></p>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat crittografata end-to-end: come Central protegge i messaggi</title>
+<meta name="description" content="Cos&#x27;è la crittografia end-to-end e come la usa Central: X25519, AES-256-GCM, chiavi sul telefono e codice open source. Con i limiti detti apertamente.">
+<link rel="canonical" href="https://getcentral.net/chat-crittografata.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#EA5B2E">
+<meta name="apple-itunes-app" content="app-id=6826663138">
+<link rel="alternate" hreflang="it" href="https://getcentral.net/chat-crittografata.html">
+<link rel="alternate" hreflang="en" href="https://getcentral.net/en/encrypted-chat.html">
+<link rel="alternate" hreflang="x-default" href="https://getcentral.net/chat-crittografata.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Central">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:url" content="https://getcentral.net/chat-crittografata.html">
+<meta property="og:title" content="Chat crittografata end-to-end: come Central protegge i messaggi">
+<meta property="og:description" content="Cos&#x27;è la crittografia end-to-end e come la usa Central: X25519, AES-256-GCM, chiavi sul telefono e codice open source. Con i limiti detti apertamente.">
+<meta property="og:image" content="https://getcentral.net/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chat cifrata end-to-end di Central con messaggi, foto e vocali">
+<meta property="article:modified_time" content="2026-11-24">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chat crittografata end-to-end: come Central protegge i messaggi">
+<meta name="twitter:description" content="Cos&#x27;è la crittografia end-to-end e come la usa Central: X25519, AES-256-GCM, chiavi sul telefono e codice open source. Con i limiti detti apertamente.">
+<meta name="twitter:image" content="https://getcentral.net/assets/og-image.jpg">
+
+<link rel="preload" href="/assets/fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/lang.css">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://getcentral.net/chat-crittografata.html#webpage",
+   "url": "https://getcentral.net/chat-crittografata.html",
+   "name": "Chat crittografata end-to-end: cosa protegge davvero",
+   "headline": "Chat crittografata end-to-end: come Central protegge i messaggi",
+   "description": "Cos'è la crittografia end-to-end e come la usa Central: X25519, AES-256-GCM, chiavi sul telefono e codice open source. Con i limiti detti apertamente.",
+   "inLanguage": "it-IT",
+   "isPartOf": {
+    "@id": "https://getcentral.net/#website"
+   },
+   "about": {
+    "@id": "https://getcentral.net/#app"
+   },
+   "publisher": {
+    "@id": "https://getcentral.net/#org"
+   },
+   "primaryImageOfPage": "https://getcentral.net/assets/funzioni/chat.webp",
+   "dateModified": "2026-11-24",
+   "breadcrumb": {
+    "@id": "https://getcentral.net/chat-crittografata.html#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://getcentral.net/chat-crittografata.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://getcentral.net/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Chat crittografata",
+     "item": "https://getcentral.net/chat-crittografata.html"
+    }
+   ]
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://getcentral.net/#org",
+   "name": "Central",
+   "url": "https://getcentral.net/",
+   "logo": "https://getcentral.net/assets/favicon-512.png",
+   "email": "info@getcentral.net"
+  },
+  {
+   "@type": "MobileApplication",
+   "@id": "https://getcentral.net/#app",
+   "name": "Central: chat e sicurezza",
+   "alternateName": "Central",
+   "operatingSystem": "iOS, Android",
+   "applicationCategory": "CommunicationApplication",
+   "url": "https://getcentral.net/",
+   "downloadUrl": [
+    "https://apps.apple.com/app/id6826663138",
+    "https://play.google.com/store/apps/details?id=net.getcentral.central"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+   },
+   "publisher": {
+    "@id": "https://getcentral.net/#org"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+
+<header class="site-nav site-nav-wide">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Central, pagina iniziale"><img src="/assets/central-logo.png" alt="" width="34" height="34" class="mark-img"><span class="brand-font">Central</span></a>
+    <nav class="nav-links" aria-label="Guide">
+      <a href="/funzionalita.html">Funzioni</a>
+      <a href="/app-sos-emergenza.html">SOS</a>
+      <a href="/chat-crittografata.html" aria-current="page">Chat cifrata</a>
+      <a href="/sicurezza-famiglia.html">Famiglia</a>
+      <a href="/domande-frequenti.html">Domande</a>
+      <a href="/aziende.html">Aziende</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Lingua · Language"><a href="/chat-crittografata.html" hreflang="it" lang="it" aria-current="true">IT</a><a href="/en/encrypted-chat.html" hreflang="en" lang="en">EN</a></div>
+      <a class="nav-report" href="/segnala.html">Segnala</a>
+      <a class="nav-cta-alt nav-login" aria-label="Registrati / Login" href="https://online.getcentral.net/guardian-dashboard/panel"><span class="desktop-label">Dashboard Login</span><span class="mobile-label">Registrati<br>Login</span></a>
+      <a class="nav-cta" href="#scarica">Scarica</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenuto">
+<section class="hero guide-hero">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Chat crittografata</span></nav>
+      <div class="eyebrow">Chat privata</div>
+      <h1>Chat crittografata end-to-end: <em>cosa protegge davvero</em></h1>
+      <p class="lead">Una chat è privata quando solo chi scrive e chi legge possono aprire i messaggi. Qui spieghiamo cosa vuol dire crittografia end-to-end, come è fatta in Central e, con la stessa chiarezza, cosa non copre.</p>
+      <div class="actions" style="margin-top:24px">
+        <a class="btn-primary" href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">Scarica per iPhone</a>
+        <a class="btn-primary" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica per Android</a>
+      </div>
+      <p class="updated">Aggiornato il <time datetime="2026-11-24">24 novembre 2026</time></p>
+    </div>
+    <div class="hero-visual">
+      <img src="/assets/funzioni/chat.webp" width="480" height="960" alt="Chat cifrata end-to-end di Central con messaggi, foto e vocali" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<section class="guide">
+  <div class="wrap prose">
+    <div class="answer">
+      <p><strong>In breve:</strong> in Central messaggi, foto, video, vocali, lavagne, posizioni dei viaggi e SOS sono cifrati end-to-end sul telefono, con X25519 e AES-256-GCM. Le chiavi private restano sui dispositivi e il codice crittografico è <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">pubblico su GitHub</a>. Il server vede invece i metadati, cioè chi scrive a chi e quando, e il sistema non offre ancora la forward secrecy.</p>
+    </div>
+
+    <h2>Cosa significa crittografia end-to-end</h2>
+    <p>Con la crittografia end-to-end un messaggio viene cifrato sul telefono di chi lo scrive e decifrato solo sul telefono di chi lo riceve. Il server in mezzo trasporta dati illeggibili: chi gestisce il servizio, un fornitore di hosting o chi riuscisse a entrare nel server non può leggere il contenuto.</p>
+    <p>È diverso dalla cifratura "in transito" (HTTPS), che protegge i dati mentre viaggiano ma li lascia leggibili al server. La guida dell'EFF <a href="https://ssd.eff.org/module/what-should-i-know-about-encryption" target="_blank" rel="noopener">"What should I know about encryption?"</a> spiega bene la differenza.</p>
+
+    <h2>Come funziona in Central</h2>
+    <h3>Le chiavi</h3>
+    <p>Al primo accesso il telefono genera una coppia di chiavi X25519 per il tuo account. La chiave pubblica va sul server, così gli altri possono cifrare per te; la chiave privata resta sul telefono, conservata con le protezioni del sistema (Keychain su iPhone, Keystore su Android). Esce dal telefono solo se scegli di salvarne un backup, e in quel caso già cifrata.</p>
+    <h3>Chat a due</h3>
+    <p>I due telefoni ricavano una chiave condivisa con X25519 e cifrano ogni messaggio con AES-256-GCM, che protegge anche dalle modifiche: un messaggio alterato viene scartato.</p>
+    <h3>Gruppi</h3>
+    <p>Ogni gruppo ha una propria chiave AES-256, distribuita a ciascun membro cifrandola con la sua chiave pubblica.</p>
+    <h3>Foto, video e file</h3>
+    <p>Ogni file viene cifrato con AES-GCM prima del caricamento. Sul server di archiviazione, in Francia, arriva già cifrato.</p>
+    <h3>Backup delle chiavi</h3>
+    <p>Per ritrovare le chat su un nuovo telefono puoi salvare un backup delle chiavi protetto da una frase segreta. La chiave del backup si ricava dalla frase con PBKDF2-SHA256 a 210.000 iterazioni, così indovinarla per tentativi diventa lento e costoso.</p>
+    <h3>Chiamate vocali</h3>
+    <p>L'audio delle chiamate viaggia cifrato tra i due telefoni con DTLS-SRTP, lo standard del protocollo WebRTC. Quando serve un server di inoltro (TURN), il server trasporta l'audio cifrato senza poterlo ascoltare.</p>
+
+    <h2>Cosa la crittografia non copre</h2>
+    <p>Preferiamo dirlo chiaramente, perché una promessa di "sicurezza assoluta" non è onesta per nessuna app.</p>
+    <ul>
+      <li><strong>Metadati</strong>: il server sa chi è in contatto con chi, quando vengono inviati i messaggi e la loro dimensione. Serve a consegnarli.</li>
+      <li><strong>Niente forward secrecy</strong>: Central non cambia chiave a ogni messaggio come fanno i protocolli a "doppio cricchetto" (per esempio quello di <a href="https://signal.org/docs/" target="_blank" rel="noopener">Signal</a>). Se qualcuno ottenesse la chiave privata di un dispositivo, potrebbe leggere anche i messaggi cifrati in passato che avesse conservato.</li>
+      <li><strong>Il telefono</strong>: chi ha accesso al telefono sbloccato vede le chat come le vedi tu. Blocca lo schermo con un codice.</li>
+      <li><strong>Zone sicure</strong>: per poter avvisare chi ti segue quando esci da una zona, il server conosce il centro e il raggio della zona e le posizioni delle uscite, che cancella dopo 3 giorni.</li>
+      <li><strong>Non è anonimo</strong>: per usare Central serve un account. La cifratura protegge il contenuto, non nasconde chi sei.</li>
+    </ul>
+
+    <h2>Codice aperto e verificabile</h2>
+    <p>Il codice crittografico di Central è pubblicato con licenza Apache-2.0 nel repository <a href="https://github.com/mattialettere/central-crypto" target="_blank" rel="noopener">central-crypto</a>, con vettori di test condivisi tra Android e iPhone. Chiunque può verificare che le due app cifrino nello stesso modo. Il resto dell'app non è open source.</p>
+
+    <h2>Dove stanno i dati</h2>
+    <p>Il server di Central gira su Railway, nella regione europea; Railway è un'azienda statunitense. Foto, video e file cifrati sono archiviati da Scaleway in Francia. Alcuni servizi tecnici sono di fornitori statunitensi: le notifiche push (Google Firebase e Apple), le mappe (Mapbox) e le email (Resend). L'elenco completo è nell'<a href="/privacy.html">informativa privacy</a>.</p>
+
+    <h2>Come scegliere un'app di messaggistica privata</h2>
+    <p>Qualche domanda utile, valida per qualsiasi app:</p>
+    <ul>
+      <li>La cifratura end-to-end è attiva per tutte le chat o va attivata a mano?</li>
+      <li>Il codice crittografico è pubblico e verificabile?</li>
+      <li>L'app vive di pubblicità o vende dati?</li>
+      <li>L'azienda dice apertamente cosa vede, per esempio i metadati?</li>
+      <li>Dove sono i server e quali fornitori trattano i dati?</li>
+    </ul>
+    <p>Se ti serve soprattutto la massima protezione dei messaggi, un'app dedicata come Signal resta il riferimento. Central è pensata per chi vuole chat cifrate e strumenti di sicurezza personale nella stessa app.</p>
+    <p class="see-also">Vedi anche: <a href="/funzionalita.html">tutte le funzioni</a> · <a href="/domande-frequenti.html">domande frequenti</a> · <a href="/privacy.html">informativa privacy</a></p>
+  </div>
+</section>
+
+<section id="scarica" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Scarica Central, è gratis</h2>
+        <p>Su App Store per iPhone e su Google Play per Android. Le funzioni di sicurezza essenziali sono gratuite.</p>
+      </div>
+      <div class="actions">
+        <a class="btn-white" href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">Scarica su App Store</a>
+        <a class="btn-white" href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Scarica su Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/central-logo.png" alt="" width="26" height="26" class="mark-img mark-img-sm"><span class="brand-font">Central</span></a>
+    <div class="tag-line">You are Central. · <a href="mailto:info@getcentral.net">info@getcentral.net</a></div>
+    <nav class="links" aria-label="Piè di pagina">
+      <a href="/aziende.html">Aziende</a>
+      <a href="https://online.getcentral.net/guardian-dashboard/panel">Dashboard</a>
+      <a href="/stampa.html">Stampa</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://apps.apple.com/app/id6826663138" target="_blank" rel="noopener">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=net.getcentral.central" target="_blank" rel="noopener">Google Play</a>
+    </nav>
+    <p class="guide-links">Guide: <a href="/funzionalita.html">Tutte le funzioni</a> · <a href="/app-sos-emergenza.html">App SOS per le emergenze</a> · <a href="/chat-crittografata.html">Chat crittografata</a> · <a href="/sicurezza-famiglia.html">Sicurezza della famiglia</a> · <a href="/domande-frequenti.html">Domande frequenti</a> · <a href="/guide/">Guide</a></p>
+  </div>
+</footer>
+<script>
+/* Contatore visite di Central: niente cookie, nessun servizio esterno. */
+(function(){try{if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;var q=new URLSearchParams(location.search);var d=JSON.stringify({path:location.pathname,referrer:document.referrer,utm_source:q.get("utm_source"),utm_campaign:q.get("utm_campaign")});var u="https://api.getcentral.net/site/hit";if(navigator.sendBeacon){navigator.sendBeacon(u,new Blob([d],{type:"text/plain"}));}else{fetch(u,{method:"POST",body:d,keepalive:true,mode:"no-cors"});}}catch(e){}})();
+</script>
+<script src="/assets/menu.js" defer></script>
+</body>
+</html>
