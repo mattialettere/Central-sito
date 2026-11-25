@@ -95,7 +95,7 @@ P1 = alto impatto, P2 = medio, P3 = basso.
 | 2 | P1 | Piano gratuito scritto male nella home IT/EN/FR (1 contatto e 1 Guardian, perimetri solo Plus) dopo l'aumento a 2/2/1 del 24/11. | Testi corretti nelle tre lingue. | **Fatto** |
 | 3 | P1 | Nome ambiguo: "Central" coincide con decine di app. | JSON-LD con `name` "Central: chat e sicurezza" e `alternateName` "Central"; stesso nome in tutte le pagine nuove. | **Fatto** (serve anche fuori dal sito, §7) |
 | 4 | P1 | FAQ "Dove sono i dati?" diceva solo "server in Europa", ma push, mappe ed email sono di fornitori USA e Railway è un'azienda USA. Rischio di affermazione non accurata. | Risposta precisa nelle tre lingue (home) e nelle pagine nuove. | **Fatto** |
-| 5 | P2 | robots.txt generico: non distingue crawler di ricerca e di addestramento, la scelta non è documentata. | Gruppi espliciti con commenti (§4). | **Fatto**, scelta da confermare |
+| 5 | P2 | robots.txt generico: non distingue crawler di ricerca e di addestramento, la scelta non è documentata. | Gruppi espliciti con commenti (§4). | **Fatto**, scelta confermata il 25/11 |
 | 6 | P2 | `main.py` (backend) e in futuro `docs/`, `tools/` pubblicati sul sito. | `_config.yml` con `exclude`. | **Fatto** |
 | 7 | P2 | Nessun `llms.txt`. Non è uno standard ufficiale e nessun motore garantisce di leggerlo, ma costa poco e riassume i fatti verificati. | `/llms.txt` in inglese. | **Fatto** |
 | 8 | P2 | Pannello Guardian: per i crawler mostra solo il testo di cancellazione account. | Nel backend: `<meta name="robots" content="noindex">` sul pannello oppure un titolo/descrizione e un `<noscript>` che spieghi cos'è. Non toccato (backend fuori dal perimetro di questa PR). | Da fare, serve ok |
@@ -118,20 +118,20 @@ Fonti consultate il 24/11/2026: documentazione bot di OpenAI (developers.openai.
 | Bot | Azienda | Scopo | Nel nuovo robots.txt |
 |---|---|---|---|
 | Googlebot | Google | Ricerca, anche AI Overviews e AI Mode | Consentito |
-| Google-Extended | Google | Solo un token: uso dei contenuti per addestrare Gemini. Non influisce su Search né AI Overviews. | Consentito (da confermare) |
+| Google-Extended | Google | Solo un token: uso dei contenuti per addestrare Gemini. Non influisce su Search né AI Overviews. | Consentito |
 | Bingbot | Microsoft | Ricerca Bing, e quindi Copilot | Consentito |
-| Applebot / Applebot-Extended | Apple | Ricerca Siri/Spotlight / addestramento | Consentito / consentito (da confermare) |
+| Applebot / Applebot-Extended | Apple | Ricerca Siri/Spotlight / addestramento | Consentito / consentito |
 | OAI-SearchBot | OpenAI | Risultati di ChatGPT search | Consentito |
 | ChatGPT-User | OpenAI | Visite su richiesta di un utente; OpenAI dice che robots.txt "potrebbe non applicarsi" | Consentito |
-| GPTBot | OpenAI | Addestramento | Consentito (da confermare) |
+| GPTBot | OpenAI | Addestramento | Consentito |
 | Claude-SearchBot | Anthropic | Qualità dei risultati di ricerca | Consentito |
 | Claude-User | Anthropic | Visite su richiesta di un utente | Consentito |
-| ClaudeBot | Anthropic | Addestramento | Consentito (da confermare) |
+| ClaudeBot | Anthropic | Addestramento | Consentito |
 | PerplexityBot | Perplexity | Indice di ricerca, non addestramento | Consentito |
 | Perplexity-User | Perplexity | Visite su richiesta; in genere ignora robots.txt | Consentito |
-| CCBot | Common Crawl | Archivio aperto usato da molti modelli | Consentito (da confermare) |
+| CCBot | Common Crawl | Archivio aperto usato da molti modelli | Consentito |
 
-**Scelta da confermare (training).** Prima di questa PR il sito permetteva già tutto a tutti (`User-agent: * Allow: /`), compresi i crawler di addestramento. La PR rende la regola esplicita e **non cambia il comportamento attuale**. Raccomando di lasciarli consentiti: il sito contiene solo testi pubblici di presentazione, nessun dato degli utenti, e l'obiettivo è che i modelli conoscano Central. Se preferisci bloccarli basta cambiare `Allow: /` in `Disallow: /` nel gruppo 2: ricerca e AI Overviews non ne risentono.
+**Scelta sui crawler di addestramento: confermata da mattia il 25/11/2026 (consentiti).** Prima di questa PR il sito permetteva già tutto a tutti (`User-agent: * Allow: /`), compresi i crawler di addestramento. La PR rende la regola esplicita e **non cambia il comportamento attuale**. Raccomando di lasciarli consentiti: il sito contiene solo testi pubblici di presentazione, nessun dato degli utenti, e l'obiettivo è che i modelli conoscano Central. Se preferisci bloccarli basta cambiare `Allow: /` in `Disallow: /` nel gruppo 2: ricerca e AI Overviews non ne risentono.
 
 ---
 
@@ -175,4 +175,4 @@ Test: `python3 tools/seo-audit/check_site.py` → 35 pagine, 33 indicizzabili, t
 3. **DNS / Cloudflare**: dire se il dominio passa da Cloudflare. Se sì, verificare che "Bot Fight Mode" o le regole AI non blocchino i bot consentiti.
 4. **Profili social**: mandare gli URL esatti di Instagram, YouTube e di eventuali schede su AlternativeTo / European Alternatives per `sameAs`.
 5. **Pannello Guardian**: ok per aggiungere `noindex` o un titolo descrittivo nel backend (P2 #8).
-6. **Scelta robots.txt** sui crawler di addestramento (§4).
+6. ~~Scelta robots.txt sui crawler di addestramento~~: confermata il 25/11 (consentiti).
